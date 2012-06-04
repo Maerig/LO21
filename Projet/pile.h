@@ -11,6 +11,8 @@ private :
 
 public :
     CelluleD(Donnee* cont = 0,CelluleD* next = 0) : contenu(cont),succ(next) {}
+    Donnee* getContent() { return contenu; }
+    CelluleD* getSucc() { return succ; }
     void setSucc(CelluleD* next) { succ = next; }
 };
 
