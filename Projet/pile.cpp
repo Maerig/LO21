@@ -6,3 +6,8 @@ void PileD::empiler(Donnee* elt)
     tete = cell;
     ++taille;
 }
+
+Donnee* PileD::depiler()
+{
+
+}
