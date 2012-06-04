@@ -23,6 +23,7 @@ private :
     int taille;
 
 public :
+    PileD(CelluleD* head = 0,int t = 0) : tete(head),taille(t) {}
     void empiler(Donnee* elt);
     Donnee* depiler();
     int longueur() { return taille; }
