@@ -31,6 +31,8 @@ private slots:
     void num8Pressed();
     void num9Pressed();
 
+
+
     void enterPressed();
 };
 

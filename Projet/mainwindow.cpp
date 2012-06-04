@@ -6,18 +6,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QObject::connect(ui->chiffre0,SIGNAL(clicked()),this,SLOT(num0Pressed()));
-    QObject::connect(ui->chiffre1,SIGNAL(clicked()),this,SLOT(num1Pressed()));
-    QObject::connect(ui->chiffre2,SIGNAL(clicked()),this,SLOT(num2Pressed()));
-    QObject::connect(ui->chiffre3,SIGNAL(clicked()),this,SLOT(num3Pressed()));
-    QObject::connect(ui->chiffre4,SIGNAL(clicked()),this,SLOT(num4Pressed()));
-    QObject::connect(ui->chiffre5,SIGNAL(clicked()),this,SLOT(num5Pressed()));
-    QObject::connect(ui->chiffre6,SIGNAL(clicked()),this,SLOT(num6Pressed()));
-    QObject::connect(ui->chiffre7,SIGNAL(clicked()),this,SLOT(num7Pressed()));
-    QObject::connect(ui->chiffre8,SIGNAL(clicked()),this,SLOT(num8Pressed()));
-    QObject::connect(ui->chiffre9,SIGNAL(clicked()),this,SLOT(num9Pressed()));
+    QObject::connect(ui->num0,SIGNAL(clicked()),this,SLOT(num0Pressed()));
+    QObject::connect(ui->num1,SIGNAL(clicked()),this,SLOT(num1Pressed()));
+    QObject::connect(ui->num2,SIGNAL(clicked()),this,SLOT(num2Pressed()));
+    QObject::connect(ui->num3,SIGNAL(clicked()),this,SLOT(num3Pressed()));
+    QObject::connect(ui->num4,SIGNAL(clicked()),this,SLOT(num4Pressed()));
+    QObject::connect(ui->num5,SIGNAL(clicked()),this,SLOT(num5Pressed()));
+    QObject::connect(ui->num6,SIGNAL(clicked()),this,SLOT(num6Pressed()));
+    QObject::connect(ui->num7,SIGNAL(clicked()),this,SLOT(num7Pressed()));
+    QObject::connect(ui->num8,SIGNAL(clicked()),this,SLOT(num8Pressed()));
+    QObject::connect(ui->num9,SIGNAL(clicked()),this,SLOT(num9Pressed()));
 
-    QObject::connect(ui->ButtonPush,SIGNAL(clicked()),this,SLOT(enterPressed()));
+    QObject::connect(ui->ButtonPUSH,SIGNAL(clicked()),this,SLOT(enterPressed()));
 
 }
 
@@ -35,9 +35,14 @@ void MainWindow::num9Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "9
 
 void MainWindow::enterPressed(){
 
+    int nb = ui->lineEdit->text().toInt();
+    ui->PileAffichage->setText(ui->PileAffichage->toPlainText()+QString::number(nb)+"\n");
+
+    ui->lineEdit->clear();
 }
 
 MainWindow::~MainWindow()
 {
+
     delete ui;
 }
