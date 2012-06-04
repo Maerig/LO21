@@ -6,3 +6,12 @@ void PileD::empiler(Donnee* elt)
     tete = cell;
     ++taille;
 }
+
+Donnee* PileD::depiler()
+{
+    CelluleD* cell = tete;
+    tete = cell->getSucc();
+    Donnee* data = cell->getContent();
+    delete cell;
+    return data;
+}

@@ -1,11 +1,17 @@
 #ifndef DONNEE_H
 #define DONNEE_H
 
+#include <string>
+
 class Donnee {
 
 protected :
     bool expression;    //indique si l'opérande fait partie d'une expression
 
+public :
+    static std::string typedonnees;      //contient le type de données à utiliser (paramètres)
+    static bool typecomplexe;       //indique si les données à traiter sont de type complexe (paramètres)
+    static std::string typeangle;   //typeangle = degres/radians (paramètres)
 };
 
 class Numerique : public Donnee {
