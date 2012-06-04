@@ -19,22 +19,35 @@ class Nombre : public Numerique {
 class Reel : public Nombre {
 private :
     float val;
+
+public :
+    Reel(float v) : val(v) {}
 };
 
 class Entier : public Nombre {
 private :
-    int val;
+    double val;
+
+public :
+    Entier(double v) : val(v) {}
 };
 
 class Rationnel : public Nombre {
 private :
     double num;
     double denum;
+
+public :
+    Rationnel(double n,double d) : num(n),denum(d) {}
 };
 
 class Complexe : public Numerique {
+private :
     Nombre a;
     Nombre b;
+
+public :
+    Complexe(Nombre Re, Nombre Im) : a(Re),b(Im) {}
 };
 
 
