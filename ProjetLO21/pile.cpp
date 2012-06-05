@@ -9,9 +9,9 @@ void PileD::empiler(Donnee* elt)
 
 Donnee* PileD::depiler()
 {
-    CelluleD* cell = head;
-    head = cell->getSucc();
-    Donnee* data = head->getCont();
+    CelluleD* cell = tete;
+    tete = cell->getSucc();
+    Donnee* data = tete->getContent();
     delete cell;
     return data;
 }

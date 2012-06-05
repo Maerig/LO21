@@ -11,8 +11,8 @@ private :
 
 public :
     CelluleD(Donnee* cont = 0,CelluleD* next = 0) : contenu(cont),succ(next) {}
-    Donnee* getContent { return Donnee; }
-    CelluleD* getSucc { return succ; }
+    Donnee* getContent() { return contenu; }
+    CelluleD* getSucc() { return succ; }
     void setSucc(CelluleD* next) { succ = next; }
 };
 
@@ -23,6 +23,7 @@ private :
     int taille;
 
 public :
+    PileD(CelluleD* head = 0,int t = 0) : tete(head),taille(t) {}
     void empiler(Donnee* elt);
     Donnee* depiler();
     int longueur() { return taille; }
