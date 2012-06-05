@@ -10,6 +10,20 @@ Donnee* Factory::make(std::string str)
         iss >> nb;
         return new Entier(nb);
     }
+    else if(Donnee::getTypeDonnees()==reel)
+    {
+        float nb;
+        iss >> nb;
+        return new Reel(nb);
+    }
+    else if(Donnee::getTypeDonnees()==rationnel)
+    {
+
+
+    }
+
     else
+
+
         return 0;   // à enlever
 }
