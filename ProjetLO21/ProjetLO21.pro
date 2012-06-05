@@ -19,6 +19,7 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     donnee.h \
     pile.h \
-    factory.h
+    factory.h \
+    calculexception.h
 
 FORMS    += mainwindow.ui
