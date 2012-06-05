@@ -17,10 +17,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->num8,SIGNAL(clicked()),this,SLOT(num8Pressed()));
     QObject::connect(ui->num9,SIGNAL(clicked()),this,SLOT(num9Pressed()));
 
-    QObject::connect(ui->ButtonPUSH,SIGNAL(clicked()),this,SLOT(enterPressed()));
+    QObject::connect(ui->numPUSH,SIGNAL(clicked()),this,SLOT(enterPressed()));
 
 }
-
 
 void MainWindow::num0Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "0");}
 void MainWindow::num1Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "1");}
@@ -36,13 +35,11 @@ void MainWindow::num9Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "9
 void MainWindow::enterPressed(){
 
     int nb = ui->lineEdit->text().toInt();
-    ui->PileAffichage->setText(ui->PileAffichage->toPlainText()+QString::number(nb)+"\n");
-
+    ui->PileAffichage->appendPlainText(QString::number(nb));
     ui->lineEdit->clear();
 }
 
 MainWindow::~MainWindow()
 {
-
     delete ui;
 }

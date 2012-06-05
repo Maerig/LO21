@@ -4,17 +4,17 @@
 #include <QMainWindow>
 
 namespace Ui {
-    class MainWindow;
+class MainWindow;
 }
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
+    
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+    
 private:
     Ui::MainWindow *ui;
 
@@ -31,12 +31,7 @@ private slots:
     void num8Pressed();
     void num9Pressed();
 
-
-
     void enterPressed();
 };
-
-
-
 
 #endif // MAINWINDOW_H

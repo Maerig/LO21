@@ -11,19 +11,16 @@ private :
 
 public :
     CelluleD(Donnee* cont = 0,CelluleD* next = 0) : contenu(cont),succ(next) {}
-    Donnee* getContent() { return contenu; }
-    CelluleD* getSucc() { return succ; }
     void setSucc(CelluleD* next) { succ = next; }
 };
 
-class PileD // Pile pour les données
+class PileD // Pile pour les donnes
 {
 private :
     CelluleD* tete;
     int taille;
 
 public :
-    PileD(CelluleD* head = 0,int t = 0) : tete(head),taille(t) {}
     void empiler(Donnee* elt);
     Donnee* depiler();
     int longueur() { return taille; }
