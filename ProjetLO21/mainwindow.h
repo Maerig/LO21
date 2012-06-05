@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "pile.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,9 @@ public:
     
 private:
     Ui::MainWindow *ui;
+    PileD* dstack;
+    PileA* astack;
+    Factory* fact;
 
 private slots:
 
