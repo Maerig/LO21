@@ -12,7 +12,7 @@ private :
 
 public :
     CelluleD(Donnee* cont = 0,CelluleD* next = 0) : contenu(cont),succ(next) {}
-    Donnee* getContent() { return contenu; }
+    Donnee* getContent() const { return contenu; }
     CelluleD* getSucc() const { return succ; }
     void setSucc(CelluleD* next) { succ = next; }
 };
