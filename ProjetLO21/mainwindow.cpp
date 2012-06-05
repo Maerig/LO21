@@ -3,7 +3,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow), dstack(new PileD), astack(new PileA), fact(new Factory)
+
 {
     ui->setupUi(this);
     QObject::connect(ui->num0,SIGNAL(clicked()),this,SLOT(num0Pressed()));
@@ -34,8 +35,10 @@ void MainWindow::num9Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "9
 
 void MainWindow::enterPressed(){
 
-    int nb = ui->lineEdit->text().toInt();
-    ui->PileAffichage->appendPlainText(QString::number(nb));
+    std::string saisie = ui->lineEdit->text().toStdString();
+    dstack->empiler(fact->make(saisie));
+
+//    ui->PileAffichage->appendPlainText(QString::number(nb));
     ui->lineEdit->clear();
 }
 

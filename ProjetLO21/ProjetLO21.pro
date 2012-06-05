@@ -13,10 +13,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     donnee.cpp \
-    pile.cpp
+    pile.cpp \
+    factory.cpp
 
 HEADERS  += mainwindow.h \
     donnee.h \
-    pile.h
+    pile.h \
+    factory.h
 
 FORMS    += mainwindow.ui

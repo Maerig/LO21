@@ -2,6 +2,7 @@
 #define PILE_H
 
 #include "donnee.h"
+#include "factory.h"
 
 class CelluleD
 {
@@ -12,7 +13,7 @@ private :
 public :
     CelluleD(Donnee* cont = 0,CelluleD* next = 0) : contenu(cont),succ(next) {}
     Donnee* getContent() { return contenu; }
-    CelluleD* getSucc() { return succ; }
+    CelluleD* getSucc() const { return succ; }
     void setSucc(CelluleD* next) { succ = next; }
 };
 
@@ -24,9 +25,10 @@ private :
 
 public :
     PileD(CelluleD* head = 0,int t = 0) : tete(head),taille(t) {}
+    int longueur() const { return taille; }
+
     void empiler(Donnee* elt);
     Donnee* depiler();
-    int longueur() { return taille; }
 };
 
 class PileA // Pile pour l'affichage

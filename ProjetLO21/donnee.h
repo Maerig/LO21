@@ -6,12 +6,15 @@
 class Donnee {
 
 protected :
-    bool expression;    //indique si l'oprande fait partie d'une expression
-
-public :
+    static bool expression;    //indique si l'oprande fait partie d'une expression
     static std::string typedonnees;      //contient le type de données à utiliser (paramètres)
     static bool typecomplexe;       //indique si les données à traiter sont de type complexe (paramètres)
-    static std::string typeangle;   //typeangle = degres/radians (paramètres)
+    static std::string typeangles;   //typeangle = degres/radians (paramètres)
+
+public :
+    static std::string getTypeDonnees() { return typedonnees; }
+    static bool getTypeComplexe() { return typecomplexe; }
+    static std::string getTypeAngles() { return typeangles; }
 };
 
 class Numerique : public Donnee {
