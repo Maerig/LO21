@@ -3,4 +3,5 @@ Petit memento de ce qu'on fait :
 J'ai remplacé les types que t'avais mis en string par un enum. 
 
 J'ai fait aussi le cas pour reel, facile bien sur. Pour rationnel par contre, on a pas réfléchis: 
-comment on donne un rationnel sur l'interface?! 
+comment on donne un rationnel sur l'interface? Si on maintiens le /, c'est un peu chiant à coder. Mais je vois pas cmt faire autrement..
+Je pensais coder les opérateurs de façon qu'ils impliquent automatiquement un push au début..  
