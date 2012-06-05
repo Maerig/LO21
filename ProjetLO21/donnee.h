@@ -3,18 +3,21 @@
 
 #include <string>
 
+enum TypeDonnee {entier, reel, rationnel};
+enum TypeAngle {degre, radian};
+
 class Donnee {
 
 protected :
     static bool expression;    //indique si l'oprande fait partie d'une expression
-    static std::string typedonnees;      //contient le type de données à utiliser (paramètres)
+    static TypeDonnee typedonnees;      //contient le type de données à utiliser (paramètres)
     static bool typecomplexe;       //indique si les données à traiter sont de type complexe (paramètres)
-    static std::string typeangles;   //typeangle = degres/radians (paramètres)
+    static TypeAngle typeangles;   //typeangle = degres/radians (paramètres)
 
 public :
-    static std::string getTypeDonnees() { return typedonnees; }
+    static TypeDonnee getTypeDonnees() { return typedonnees; }
     static bool getTypeComplexe() { return typecomplexe; }
-    static std::string getTypeAngles() { return typeangles; }
+    static TypeAngle getTypeAngles() { return typeangles; }
 };
 
 class Numerique : public Donnee {

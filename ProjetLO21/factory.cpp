@@ -4,7 +4,7 @@
 Donnee* Factory::make(std::string str)
 {
     std::istringstream iss(str);
-    if(Donnee::getTypeDonnees()=="Entier")
+    if(Donnee::getTypeDonnees()==entier)
     {
         int nb;
         iss >> nb;

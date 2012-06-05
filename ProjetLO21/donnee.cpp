@@ -2,6 +2,6 @@
 
 /* Initialisation des paramètres */
 bool Donnee::expression = false;
-std::string Donnee::typedonnees = "Entier";
+TypeDonnee Donnee::typedonnees = entier;
 bool Donnee::typecomplexe = false;
-std::string Donnee::typeangles = "Degres";
+TypeAngle Donnee::typeangles = degre;
