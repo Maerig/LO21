@@ -7,6 +7,8 @@
 enum TypeDonnee {entier, reel, rationnel};
 enum TypeAngle {degre, radian};
 
+enum TypeOperation {plus,minus};
+
 class Donnee {
 
 protected :
