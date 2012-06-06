@@ -6,8 +6,6 @@ int main(int argc, char *argv[])
 {
     try
     {
-        PileD dstack;
-
     PileD dstack;
     PileA astack;
 
