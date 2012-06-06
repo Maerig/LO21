@@ -1,5 +1,8 @@
 #include "factory.h"
 #include <sstream>
+#include "entier.h"
+#include "reel.h"
+
 
 Donnee* Factory::make(std::string str)
 {

@@ -14,12 +14,22 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     donnee.cpp \
     pile.cpp \
-    factory.cpp
+    factory.cpp \
+    reel.cpp \
+    rationnel.cpp \
+    entier.cpp \
+    complexe.cpp \
+    operateur.cpp
 
 HEADERS  += mainwindow.h \
     donnee.h \
     pile.h \
     factory.h \
-    calculexception.h
+    calculexception.h \
+    reel.h \
+    rationnel.h \
+    entier.h \
+    complexe.h \
+    operateur.h
 
 FORMS    += mainwindow.ui
