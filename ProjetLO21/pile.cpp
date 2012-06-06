@@ -1,4 +1,5 @@
 #include "pile.h"
+#include "calculexception.h"
 
 void PileD::empiler(Donnee* elt)
 {
@@ -9,11 +10,16 @@ void PileD::empiler(Donnee* elt)
 
 Donnee* PileD::depiler()
 {
-    CelluleD* cell = tete;
-    tete = cell->getSucc();
-    Donnee* data = tete->getContent();
-    delete cell;
-    return data;
+    if(taille>0)
+    {
+        CelluleD* cell = tete;
+        tete = cell->getSucc();
+        Donnee* data = tete->getContent();
+        delete cell;
+        return data;
+    }
+    else
+        throw CalculException("Pile vide.");
 }
 
 
