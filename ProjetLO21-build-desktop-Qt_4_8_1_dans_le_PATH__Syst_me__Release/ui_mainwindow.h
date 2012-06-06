@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue Jun 5 18:24:00 2012
+** Created: Wed Jun 6 23:15:42 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -27,7 +27,6 @@
 #include <QtGui/QRadioButton>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QStatusBar>
-#include <QtGui/QToolBar>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
@@ -42,7 +41,7 @@ public:
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_5;
     QLineEdit *lineEdit;
-    QCheckBox *numExpression;
+    QPushButton *numPUSH;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_4;
     QComboBox *numTYPE;
@@ -52,11 +51,11 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
+    QPushButton *numQUOTE;
     QPushButton *numEVAL;
-    QPushButton *numPUSH;
     QGridLayout *gridLayout;
-    QPushButton *numParGch;
-    QPushButton *numParDrt;
+    QPushButton *numIMA;
+    QPushButton *numSPACE;
     QPushButton *numFACT;
     QPushButton *numCOSH;
     QPushButton *numCOS;
@@ -102,7 +101,6 @@ public:
     QPushButton *pileCLEAR;
     QMenuBar *menuBar;
     QStatusBar *statusBar;
-    QToolBar *toolBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -135,10 +133,10 @@ public:
 
         horizontalLayout_5->addWidget(lineEdit);
 
-        numExpression = new QCheckBox(layoutWidget);
-        numExpression->setObjectName(QString::fromUtf8("numExpression"));
+        numPUSH = new QPushButton(layoutWidget);
+        numPUSH->setObjectName(QString::fromUtf8("numPUSH"));
 
-        horizontalLayout_5->addWidget(numExpression);
+        horizontalLayout_5->addWidget(numPUSH);
 
 
         verticalLayout_4->addLayout(horizontalLayout_5);
@@ -182,26 +180,26 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        numEVAL = new QPushButton(layoutWidget);
-        numEVAL->setObjectName(QString::fromUtf8("numEVAL"));
+        numQUOTE = new QPushButton(layoutWidget);
+        numQUOTE->setObjectName(QString::fromUtf8("numQUOTE"));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(numQUOTE->sizePolicy().hasHeightForWidth());
+        numQUOTE->setSizePolicy(sizePolicy);
+        numQUOTE->setMaximumSize(QSize(85, 27));
+        numQUOTE->setBaseSize(QSize(85, 27));
+
+        horizontalLayout->addWidget(numQUOTE);
+
+        numEVAL = new QPushButton(layoutWidget);
+        numEVAL->setObjectName(QString::fromUtf8("numEVAL"));
         sizePolicy.setHeightForWidth(numEVAL->sizePolicy().hasHeightForWidth());
         numEVAL->setSizePolicy(sizePolicy);
-        numEVAL->setMaximumSize(QSize(85, 27));
-        numEVAL->setBaseSize(QSize(85, 27));
+        numEVAL->setMaximumSize(QSize(16777215, 16777215));
+        numEVAL->setBaseSize(QSize(0, 0));
 
         horizontalLayout->addWidget(numEVAL);
-
-        numPUSH = new QPushButton(layoutWidget);
-        numPUSH->setObjectName(QString::fromUtf8("numPUSH"));
-        sizePolicy.setHeightForWidth(numPUSH->sizePolicy().hasHeightForWidth());
-        numPUSH->setSizePolicy(sizePolicy);
-        numPUSH->setMaximumSize(QSize(16777215, 16777215));
-        numPUSH->setBaseSize(QSize(0, 0));
-
-        horizontalLayout->addWidget(numPUSH);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -209,23 +207,23 @@ public:
         gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        numParGch = new QPushButton(layoutWidget);
-        numParGch->setObjectName(QString::fromUtf8("numParGch"));
-        sizePolicy.setHeightForWidth(numParGch->sizePolicy().hasHeightForWidth());
-        numParGch->setSizePolicy(sizePolicy);
-        numParGch->setMaximumSize(QSize(51, 27));
-        numParGch->setBaseSize(QSize(51, 27));
+        numIMA = new QPushButton(layoutWidget);
+        numIMA->setObjectName(QString::fromUtf8("numIMA"));
+        sizePolicy.setHeightForWidth(numIMA->sizePolicy().hasHeightForWidth());
+        numIMA->setSizePolicy(sizePolicy);
+        numIMA->setMaximumSize(QSize(51, 27));
+        numIMA->setBaseSize(QSize(51, 27));
 
-        gridLayout->addWidget(numParGch, 0, 0, 1, 1);
+        gridLayout->addWidget(numIMA, 0, 0, 1, 1);
 
-        numParDrt = new QPushButton(layoutWidget);
-        numParDrt->setObjectName(QString::fromUtf8("numParDrt"));
-        sizePolicy.setHeightForWidth(numParDrt->sizePolicy().hasHeightForWidth());
-        numParDrt->setSizePolicy(sizePolicy);
-        numParDrt->setMaximumSize(QSize(51, 27));
-        numParDrt->setBaseSize(QSize(51, 27));
+        numSPACE = new QPushButton(layoutWidget);
+        numSPACE->setObjectName(QString::fromUtf8("numSPACE"));
+        sizePolicy.setHeightForWidth(numSPACE->sizePolicy().hasHeightForWidth());
+        numSPACE->setSizePolicy(sizePolicy);
+        numSPACE->setMaximumSize(QSize(51, 27));
+        numSPACE->setBaseSize(QSize(51, 27));
 
-        gridLayout->addWidget(numParDrt, 0, 1, 1, 1);
+        gridLayout->addWidget(numSPACE, 0, 1, 1, 1);
 
         numFACT = new QPushButton(layoutWidget);
         numFACT->setObjectName(QString::fromUtf8("numFACT"));
@@ -618,18 +616,6 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
-        toolBar = new QToolBar(MainWindow);
-        toolBar->setObjectName(QString::fromUtf8("toolBar"));
-        toolBar->setEnabled(true);
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(toolBar->sizePolicy().hasHeightForWidth());
-        toolBar->setSizePolicy(sizePolicy1);
-        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
-        MainWindow->insertToolBarBreak(toolBar);
-
-        toolBar->addSeparator();
 
         retranslateUi(MainWindow);
         QObject::connect(pileCLEAR, SIGNAL(pressed()), PileAffichage, SLOT(clear()));
@@ -640,7 +626,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        numExpression->setText(QApplication::translate("MainWindow", "Expression", 0, QApplication::UnicodeUTF8));
+        numPUSH->setText(QApplication::translate("MainWindow", "PUSH", 0, QApplication::UnicodeUTF8));
         numTYPE->clear();
         numTYPE->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "Entier", 0, QApplication::UnicodeUTF8)
@@ -650,13 +636,13 @@ public:
         numComplexe->setText(QApplication::translate("MainWindow", "Complexe", 0, QApplication::UnicodeUTF8));
         numDegre->setText(QApplication::translate("MainWindow", "Degr\303\251", 0, QApplication::UnicodeUTF8));
         numRadian->setText(QApplication::translate("MainWindow", "Radians", 0, QApplication::UnicodeUTF8));
+        numQUOTE->setText(QApplication::translate("MainWindow", "'", 0, QApplication::UnicodeUTF8));
         numEVAL->setText(QApplication::translate("MainWindow", "EVAL", 0, QApplication::UnicodeUTF8));
-        numPUSH->setText(QApplication::translate("MainWindow", "PUSH", 0, QApplication::UnicodeUTF8));
-        numPUSH->setShortcut(QApplication::translate("MainWindow", "Return", 0, QApplication::UnicodeUTF8));
-        numParGch->setText(QApplication::translate("MainWindow", "(", 0, QApplication::UnicodeUTF8));
-        numParGch->setShortcut(QApplication::translate("MainWindow", "(", 0, QApplication::UnicodeUTF8));
-        numParDrt->setText(QApplication::translate("MainWindow", ")", 0, QApplication::UnicodeUTF8));
-        numParDrt->setShortcut(QApplication::translate("MainWindow", ")", 0, QApplication::UnicodeUTF8));
+        numEVAL->setShortcut(QApplication::translate("MainWindow", "Return", 0, QApplication::UnicodeUTF8));
+        numIMA->setText(QApplication::translate("MainWindow", "$", 0, QApplication::UnicodeUTF8));
+        numIMA->setShortcut(QApplication::translate("MainWindow", "(", 0, QApplication::UnicodeUTF8));
+        numSPACE->setText(QApplication::translate("MainWindow", " SPACE", 0, QApplication::UnicodeUTF8));
+        numSPACE->setShortcut(QApplication::translate("MainWindow", ")", 0, QApplication::UnicodeUTF8));
         numFACT->setText(QApplication::translate("MainWindow", "!", 0, QApplication::UnicodeUTF8));
         numFACT->setShortcut(QApplication::translate("MainWindow", "!", 0, QApplication::UnicodeUTF8));
         numCOSH->setText(QApplication::translate("MainWindow", "COSH", 0, QApplication::UnicodeUTF8));

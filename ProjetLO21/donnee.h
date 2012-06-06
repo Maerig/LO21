@@ -18,6 +18,12 @@ public :
     static TypeDonnee getTypeDonnees() { return typedonnees; }
     static bool getTypeComplexe() { return typecomplexe; }
     static TypeAngle getTypeAngles() { return typeangles; }
+
+    static void setTypeDonnees();
+    static void setTypeAngle();
+    static void setTypeComplexe();
+
+
 };
 
 class Numerique : public Donnee {
@@ -34,6 +40,7 @@ private :
 
 public :
     Reel(float v) : val(v) {}
+
 };
 
 class Entier : public Nombre {
@@ -42,6 +49,7 @@ private :
 
 public :
     Entier(double v) : val(v) {}
+
 };
 
 class Rationnel : public Nombre {
@@ -51,6 +59,7 @@ private :
 
 public :
     Rationnel(double n,double d) : num(n),denum(d) {}
+
 };
 
 class Complexe : public Numerique {
@@ -60,6 +69,7 @@ private :
 
 public :
     Complexe(Nombre Re, Nombre Im) : a(Re),b(Im) {}
+
 };
 
 
@@ -75,5 +85,8 @@ class OperateurUnaire : public Operateur {
 class OperateurBinaire : public Operateur {
 
 };
+
+
+
 
 #endif // DONNEE_H

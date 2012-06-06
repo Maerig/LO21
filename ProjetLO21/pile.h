@@ -31,8 +31,33 @@ public :
     Donnee* depiler();
 };
 
+class CelluleA
+{
+private :
+    Donnee* contenu;
+    CelluleA* succ;
+
+public :
+    CelluleA(Donnee* cont = 0,CelluleA* next = 0) : contenu(cont),succ(next) {}
+    Donnee* getContent() { return contenu; }
+    CelluleA* getSucc() const { return succ; }
+    void setSucc(CelluleA* next) { succ = next; }
+};
+
+
 class PileA // Pile pour l'affichage
 {
+private :
+    CelluleA* tete;
+    int taille;
+
+public :
+    PileA(CelluleA* head = 0,int t = 0) : tete(head),taille(t) {}
+    int longueur() const { return taille; }
+
+    void empiler(Donnee* elt);
+    Donnee* depiler();
+
 
 };
 

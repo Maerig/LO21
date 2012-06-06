@@ -5,6 +5,8 @@ int main(int argc, char *argv[])
 {
 
     PileD dstack;
+    PileA astack;
+
 
     QApplication a(argc, argv);
     MainWindow w;

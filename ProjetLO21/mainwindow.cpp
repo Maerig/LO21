@@ -37,8 +37,9 @@ void MainWindow::enterPressed(){
 
     std::string saisie = ui->lineEdit->text().toStdString();
     dstack->empiler(fact->make(saisie));
+    //astack->empiler(fact->make(saisie));
 
-//    ui->PileAffichage->appendPlainText(QString::number(nb));
+    //ui->PileAffichage->setPlainText(QString::astack->);
     ui->lineEdit->clear();
 }
 
