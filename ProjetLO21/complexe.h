@@ -5,11 +5,11 @@
 
 class Complexe : public Numerique {
 private :
-    Nombre a;
-    Nombre b;
+    Nombre* a;
+    Nombre* b;
 
 public :
-    Complexe(Nombre Re, Nombre Im) : a(Re),b(Im) {}
+    Complexe(Nombre* Re, Nombre* Im) : a(Re),b(Im) {}
 
 };
 

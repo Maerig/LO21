@@ -4,61 +4,31 @@
 #include "donnee.h"
 #include "factory.h"
 
-class CelluleD
+class Cellule
 {
 private :
     Donnee* contenu;
-    CelluleD* succ;
+    Cellule* succ;
 
 public :
-    CelluleD(Donnee* cont = 0,CelluleD* next = 0) : contenu(cont),succ(next) {}
+    Cellule(Donnee* cont = 0,Cellule* next = 0) : contenu(cont),succ(next) {}
     Donnee* getContent() const { return contenu; }
-    CelluleD* getSucc() const { return succ; }
-    void setSucc(CelluleD* next) { succ = next; }
+    Cellule* getSucc() const { return succ; }
+    void setSucc(Cellule* next) { succ = next; }
 };
 
-class PileD // Pile pour les donnes
+class Pile // Pile pour les donnes
 {
 private :
-    CelluleD* tete;
+    Cellule* tete;
     int taille;
 
 public :
-    PileD(CelluleD* head = 0,int t = 0) : tete(head),taille(t) {}
+    Pile(Cellule* head = 0,int t = 0) : tete(head),taille(t) {}
     int longueur() const { return taille; }
 
     void empiler(Donnee* elt);
     Donnee* depiler();
-};
-
-class CelluleA
-{
-private :
-    Donnee* contenu;
-    CelluleA* succ;
-
-public :
-    CelluleA(Donnee* cont = 0,CelluleA* next = 0) : contenu(cont),succ(next) {}
-    Donnee* getContent() { return contenu; }
-    CelluleA* getSucc() const { return succ; }
-    void setSucc(CelluleA* next) { succ = next; }
-};
-
-
-class PileA // Pile pour l'affichage
-{
-private :
-    CelluleA* tete;
-    int taille;
-
-public :
-    PileA(CelluleA* head = 0,int t = 0) : tete(head),taille(t) {}
-    int longueur() const { return taille; }
-
-    void empiler(Donnee* elt);
-    Donnee* depiler();
-
-
 };
 
 #endif // PILE_H
