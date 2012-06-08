@@ -18,8 +18,7 @@ public:
     
 private:
     Ui::MainWindow *ui;
-    PileD* dstack;
-    PileA* astack;
+    Pile* stack;
 
     Factory* fact;
 

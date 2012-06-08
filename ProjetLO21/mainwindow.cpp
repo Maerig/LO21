@@ -3,7 +3,7 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow), dstack(new PileD), astack(new PileA), fact(new Factory)
+    ui(new Ui::MainWindow), stack(new Pile), fact(new Factory)
 
 {
     ui->setupUi(this);
@@ -36,10 +36,8 @@ void MainWindow::num9Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "9
 void MainWindow::enterPressed(){
 
     std::string saisie = ui->lineEdit->text().toStdString();
-    dstack->empiler(fact->make(saisie));
-    //astack->empiler(fact->make(saisie));
+    stack->empiler(fact->make(saisie));
 
-    //ui->PileAffichage->setPlainText(QString::astack->);
     ui->lineEdit->clear();
 }
 

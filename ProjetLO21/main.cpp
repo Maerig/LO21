@@ -6,8 +6,7 @@ int main(int argc, char *argv[])
 {
     try
     {
-    PileD dstack;
-    PileA astack;
+    Pile stack;
 
 
         QApplication a(argc, argv);
