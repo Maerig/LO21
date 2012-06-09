@@ -5,7 +5,7 @@
 #include "entier.h"
 #include "rationnel.h"
 #include "reel.h"
-#include "complexe.h".h"
+#include "complexe.h"
 
 class Operateur : public Donnee {
 

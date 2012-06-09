@@ -36,6 +36,8 @@ private slots:
     void num9Pressed();
 
     void enterPressed();
+
+    void dropPressed();
 };
 
 #endif // MAINWINDOW_H
