@@ -46,3 +46,8 @@ void Pile::drop()
         cell->~Cellule();
     }
 }
+
+void Pile::clear()
+{
+    while(tete) drop();
+}

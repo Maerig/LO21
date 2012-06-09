@@ -46,6 +46,7 @@ private slots:
     void enterPressed();
 
     void dropPressed();
+    void clearPressed();
 };
 
 #endif // MAINWINDOW_H

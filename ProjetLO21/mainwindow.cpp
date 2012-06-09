@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QObject::connect(ui->numPUSH,SIGNAL(clicked()),this,SLOT(enterPressed()));
     QObject::connect(ui->pileDROP,SIGNAL(clicked()),this,SLOT(dropPressed()));
+    QObject::connect(ui->pileCLEAR,SIGNAL(clicked()),this,SLOT(clearPressed()));
 
 }
 
@@ -67,6 +68,15 @@ void MainWindow::dropPressed(){
     std::stringstream affichage;
 
     stack->drop();
+    stack->afficher(affichage);
+    ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+}
+
+void MainWindow::clearPressed(){
+
+    std::stringstream affichage;
+
+    stack->clear();
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
 }

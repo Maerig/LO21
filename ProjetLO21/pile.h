@@ -35,6 +35,7 @@ public :
     std::ostream& operator<<(std::ostream& f) { afficher(f); return f; }
 
     void drop();
+    void clear();
 };
 
 #endif // PILE_H
