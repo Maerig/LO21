@@ -1,14 +1,16 @@
 #include <QtGui/QApplication>
 #include "mainwindow.h"
 #include "calculexception.h"
+#include "entier.h"
+#include "rationnel.h"
+#include "reel.h"
+#include "complexe.h"
 
 int main(int argc, char *argv[])
 {
     try
     {
-    PileD dstack;
-    PileA astack;
-
+    Pile stack;
 
         QApplication a(argc, argv);
         MainWindow w;

@@ -9,6 +9,7 @@ private :
 
 public :
     Entier(double v) : val(v) {}
+    void afficher(std::ostream& f=std::cout) const { f<<val; }
 
 };
 

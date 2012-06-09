@@ -10,7 +10,7 @@ private :
 
 public :
     Rationnel(double n,double d) : num(n),denum(d) {}
-
+    void afficher(std::ostream& f=std::cout) const { f<<num<<"/"<<denum; }
 };
 
 #endif // RATIONNEL_H
