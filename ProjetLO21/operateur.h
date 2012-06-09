@@ -5,6 +5,7 @@
 #include "entier.h"
 #include "rationnel.h"
 #include "reel.h"
+#include "complexe.h".h"
 
 class Operateur : public Donnee {
 
@@ -14,17 +15,7 @@ class OperateurUnaire : public Operateur {
 
 };
 
-class OperateurBinaire : public Operateur {
 
-private:
-    TypeOperation typeoperation;
-
-public:
-
-    void Calcul(Entier a, Entier b);
-    void Calcul(Reel a, Reel b);
-
-};
 
 
 #endif // OPERATEUR_H
