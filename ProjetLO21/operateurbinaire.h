@@ -5,7 +5,15 @@
 
 class OperateurBinaire: public Operateur
 {
+
+    TypeOperation typeoperation;
+
 public:
+
+    OperateurBinaire(TypeOperation t): typeoperation(t) {}
+
+    void Calculer();
+
 
 };
 

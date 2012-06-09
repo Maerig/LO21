@@ -7,7 +7,12 @@
 #include "reel.h"
 #include "complexe.h"
 
+
 class Operateur : public Donnee {
+
+
+public :
+
 
 };
 
