@@ -1,5 +1,5 @@
-#ifndef OPERATEURUNAIRE_H
-#define OPERATEURUNAIRE_H
+#ifndef OPERATEURBINAIRE_H
+#define OPERATEURBINAIRE_H
 
 #include "operateur.h"
 
@@ -9,4 +9,4 @@ public:
 
 };
 
-#endif // OPERATEURUNAIRE_H
+#endif // OPERATEURBINAIRE_H
