@@ -10,6 +10,8 @@ private :
 public :
     Entier(double v) : val(v) {}
     double getVal() {return val;}
+    void setVal(double v){val=v;}
+
     void afficher(std::ostream& f=std::cout) const { f<<val; }
 
 };

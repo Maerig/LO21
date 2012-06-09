@@ -7,8 +7,8 @@ Reel::Reel(Entier e){
 
 Reel::Reel(Rationnel r){
 
-    float Num=r.getNumerateur();
-    float Denum=r.getDenumerateur();
+    float Num=(float)r.getNumerateur().getVal();                    // Redondant le (float) ?
+    float Denum=(float)r.getDenumerateur().getVal();
 
     val=Num/Denum;
 }

@@ -6,23 +6,21 @@
 
 class Rationnel : public Nombre {
 private :
-    double num;
-    double denum;
+    Entier num;
+    Entier denum;
 
 
 
 public :
     void simplifier();
 
-    Rationnel(double n,double d) : num(n),denum(d) {simplifier();}          // Réfléchir au cas où d=0.
-    Rationnel(Entier e);
+    Rationnel(Entier n,Entier d) : num(n),denum(d) {simplifier();}          // Réfléchir au cas où d=0.
+    Rationnel(Entier e): num(e),denum(1){simplifier();}                     // ~inutile. Constructeur entier(entier) implicite.
 
-    double getNumerateur() {return num;}
-    double getDenumerateur() {return denum;}
+    Entier getNumerateur() {return num;}
+    Entier getDenumerateur() {return denum;}
 
-
-
-    void afficher(std::ostream& f=std::cout) const { f<<num<<"/"<<denum; }
+    void afficher(std::ostream& f=std::cout) const { num.afficher(f); f<<"/"; denum.afficher(f); }
 };
 
 Rationnel operator+( Rationnel& a,  Rationnel& b);

@@ -2,7 +2,7 @@
 
 double pgcd(unsigned long int a,unsigned long int b)
 {
-    unsigned long int r =a%b;
+    int r =a%b;
     while(r!=0)
     {
         a = b;
@@ -27,19 +27,19 @@ double ppcm(double a, double b)
 
 void Rationnel::simplifier(){
 
-        if(num   != 0)
+        if(num.getVal() != 0)
             {
-                double p = pgcd(num,denum);                 // Attention concordance type double et unsigned long int
-                num/=p;
-                denum /= p;
-                if (num < 0)
+                double p = pgcd(num.getVal(),denum.getVal());                 // Attention concordance type double et unsigned long int
+                num.setVal(num.getVal()/p);
+                denum.setVal(denum.getVal()/p);
+                if (num.getVal() < 0)
                 {
-                    num *= -1;
-                    denum *= -1;
+                    num.setVal(-1*num.getVal());
+                    denum.setVal(-1*denum.getVal());
                 }
             }
             else
-                 denum=1;
+                 denum.setVal(1);
 
 }
 
@@ -48,16 +48,18 @@ void Rationnel::simplifier(){
 Rationnel operator+( Rationnel& a,  Rationnel& b){
 
 
-    double valDenum= ppcm(a.getNumerateur(),b.getNumerateur());
-    double valNum=(a.getNumerateur()*valDenum)+(b.getNumerateur()*valDenum);
+    Entier valDenum( ppcm (a.getNumerateur().getVal() , b.getNumerateur().getVal()));
+    Entier valNum( (a.getNumerateur().getVal()*valDenum.getVal()/a.getDenumerateur().getVal())
+                   + (b.getNumerateur().getVal()*valDenum.getVal()/b.getDenumerateur().getVal()) );
 
     Rationnel res(valNum, valDenum);
     return res;
 }
 
 Rationnel operator-( Rationnel& a,  Rationnel& b){
-    double valDenum= ppcm(a.getNumerateur(),b.getNumerateur());
-    double valNum=(a.getNumerateur()*valDenum)-(b.getNumerateur()*valDenum);
+    Entier valDenum( ppcm (a.getNumerateur().getVal() , b.getNumerateur().getVal()) );
+    Entier valNum( (a.getNumerateur().getVal()*valDenum.getVal()/a.getDenumerateur().getVal())
+                   - (b.getNumerateur().getVal()*valDenum.getVal()/b.getDenumerateur().getVal()) );
 
     Rationnel res(valNum, valDenum);
     return res;
@@ -65,8 +67,8 @@ Rationnel operator-( Rationnel& a,  Rationnel& b){
 
 Rationnel operator*( Rationnel& a,  Rationnel& b){
 
-    double valNum=a.getNumerateur()*b.getNumerateur();
-    double valDenum=a.getDenumerateur()*b.getDenumerateur();
+    Entier valNum( a.getNumerateur().getVal()*b.getNumerateur().getVal() );
+    Entier valDenum( a.getDenumerateur().getVal()*b.getDenumerateur().getVal() );
 
     Rationnel res(valNum, valDenum);
     return res;
@@ -74,8 +76,8 @@ Rationnel operator*( Rationnel& a,  Rationnel& b){
 
 Rationnel operator/( Rationnel& a,  Rationnel& b){
 
-    double valNum=a.getNumerateur()*b.getDenumerateur();
-    double valDenum=a.getDenumerateur()*b.getNumerateur();
+    Entier valNum( a.getNumerateur().getVal()*b.getDenumerateur().getVal() );
+    Entier valDenum( a.getDenumerateur().getVal()*b.getNumerateur().getVal() );
 
     Rationnel res(valNum, valDenum);
     return res;
@@ -83,12 +85,12 @@ Rationnel operator/( Rationnel& a,  Rationnel& b){
 
 Rationnel operator^( Rationnel& a,  Entier& b){                     // POW a^b
 
-    double num=a.getNumerateur();
-    double denum=a.getDenumerateur();
+    Entier num(a.getNumerateur().getVal());
+    Entier denum(a.getDenumerateur().getVal());
 
     for (int i=1;i<b.getVal();i++)
-        num*=a.getNumerateur();
-        denum*=a.getNumerateur();
+        num.setVal( num.getVal()*a.getNumerateur().getVal() );
+        denum.setVal( denum.getVal()*a.getDenumerateur().getVal() );
 
     Rationnel res(num,denum);
     return res;

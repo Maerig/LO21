@@ -13,7 +13,6 @@ class Operateur : public Donnee {
 
 public :
 
-
 };
 
 class OperateurUnaire : public Operateur {
