@@ -55,6 +55,9 @@
            <property name="text">
             <string>PUSH</string>
            </property>
+           <property name="shortcut">
+            <string>Return</string>
+           </property>
           </widget>
          </item>
         </layout>
@@ -161,9 +164,6 @@
                  </property>
                  <property name="text">
                   <string>EVAL</string>
-                 </property>
-                 <property name="shortcut">
-                  <string>Return</string>
                  </property>
                 </widget>
                </item>
@@ -1261,7 +1261,7 @@
      <x>0</x>
      <y>0</y>
      <width>734</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

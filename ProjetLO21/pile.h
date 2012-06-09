@@ -13,12 +13,13 @@ private :
 
 public :
     Cellule(Donnee* cont = 0,Cellule* next = 0) : contenu(cont),succ(next) {}
+    ~Cellule() { delete contenu; }
     Donnee* getContent() const { return contenu; }
     Cellule* getSucc() const { return succ; }
     void setSucc(Cellule* next) { succ = next; }
 };
 
-class Pile // Pile pour les donnees
+class Pile
 {
 private :
     Cellule* tete;
@@ -32,6 +33,9 @@ public :
     Donnee* depiler();
     void afficher(std::ostream& f=std::cout) const;
     std::ostream& operator<<(std::ostream& f) { afficher(f); return f; }
+
+    void drop();
+    void clear();
 };
 
 #endif // PILE_H

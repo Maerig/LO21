@@ -16,7 +16,7 @@ Donnee* Pile::depiler()
         Cellule* cell = tete;
         tete = cell->getSucc();
         Donnee* data = tete->getContent();
-        delete cell;
+        cell->~Cellule();
         return data;
     }
     else
@@ -35,4 +35,19 @@ void Pile::afficher(std::ostream& f) const
         f<<"\n";
         cell = cell->getSucc();
     }
+}
+
+void Pile::drop()
+{
+    Cellule* cell = tete;
+    if(tete)
+    {
+        tete = tete->getSucc();
+        cell->~Cellule();
+    }
+}
+
+void Pile::clear()
+{
+    while(tete) drop();
 }

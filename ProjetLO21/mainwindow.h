@@ -34,8 +34,19 @@ private slots:
     void num7Pressed();
     void num8Pressed();
     void num9Pressed();
+    void numPOINTPressed();
+
+    void typeChanged();
+
+    void numPLUSPressed();
+    void numMINUSPressed();
+    void numMULTPressed();
+    void numDIVPressed();
 
     void enterPressed();
+
+    void dropPressed();
+    void clearPressed();
 };
 
 #endif // MAINWINDOW_H
