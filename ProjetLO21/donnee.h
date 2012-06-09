@@ -33,7 +33,7 @@ class Numerique : public Donnee {
 
 public :
     virtual void afficher(std::ostream& f=std::cout) const = 0;
-
+    std::ostream& operator<<(std::ostream& f) { afficher(f); return f; }
 };
 
 class Nombre : public Numerique {

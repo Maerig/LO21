@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <iostream>
+#include <sstream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -35,9 +37,11 @@ void MainWindow::num9Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "9
 
 void MainWindow::enterPressed(){
 
+    std::stringstream affichage;
     std::string saisie = ui->lineEdit->text().toStdString();
     stack->empiler(fact->make(saisie));
-
+    stack->afficher(affichage);
+    ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
     ui->lineEdit->clear();
 }
 

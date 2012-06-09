@@ -3,6 +3,7 @@
 
 #include "donnee.h"
 #include "factory.h"
+#include <iostream>
 
 class Cellule
 {
@@ -17,7 +18,7 @@ public :
     void setSucc(Cellule* next) { succ = next; }
 };
 
-class Pile // Pile pour les donnes
+class Pile // Pile pour les donnees
 {
 private :
     Cellule* tete;
@@ -29,6 +30,8 @@ public :
 
     void empiler(Donnee* elt);
     Donnee* depiler();
+    void afficher(std::ostream& f=std::cout) const;
+    std::ostream& operator<<(std::ostream& f) { afficher(f); return f; }
 };
 
 #endif // PILE_H
