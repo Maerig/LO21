@@ -36,6 +36,8 @@ private slots:
     void num9Pressed();
     void numPOINTPressed();
 
+    void typeChanged();
+
     void numPLUSPressed();
     void numMINUSPressed();
     void numMULTPressed();

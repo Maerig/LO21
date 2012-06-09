@@ -22,7 +22,7 @@ public :
     static bool getTypeComplexe() { return typecomplexe; }
     static TypeAngle getTypeAngles() { return typeangles; }
 
-    static void setTypeDonnees();
+    static void setTypeDonnees(std::string type);
     static void setTypeAngle();
     static void setTypeComplexe();
 

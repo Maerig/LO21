@@ -21,13 +21,14 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->num9,SIGNAL(clicked()),this,SLOT(num9Pressed()));
     QObject::connect(ui->numPOINT,SIGNAL(clicked()),this,SLOT(numPOINTPressed()));
 
+    QObject::connect(ui->numTYPE,SIGNAL(activated(QString)),this,SLOT(typeChanged()));
+
     QObject::connect(ui->numPLUS,SIGNAL(clicked()),this,SLOT(numPLUSPressed()));
     QObject::connect(ui->numMINUS,SIGNAL(clicked()),this,SLOT(numMINUSPressed()));
     QObject::connect(ui->numMULT,SIGNAL(clicked()),this,SLOT(numMULTPressed()));
     QObject::connect(ui->numDIV,SIGNAL(clicked()),this,SLOT(numDIVPressed()));
 
     QObject::connect(ui->numPUSH,SIGNAL(clicked()),this,SLOT(enterPressed()));
-
     QObject::connect(ui->pileDROP,SIGNAL(clicked()),this,SLOT(dropPressed()));
 
 }
@@ -48,6 +49,8 @@ void MainWindow::numPLUSPressed() { ui->lineEdit->setText(ui->lineEdit->text() +
 void MainWindow::numMINUSPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "-");}
 void MainWindow::numMULTPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "*");}
 void MainWindow::numDIVPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "/");}
+
+void MainWindow::typeChanged(){ Donnee::setTypeDonnees(ui->numTYPE->currentText().toStdString());}
 
 void MainWindow::enterPressed(){
 
