@@ -24,4 +24,5 @@ int main(int argc, char *argv[])
     {
         std::cout<<exc.getInfo()<<"\n";
     }
+    return 0;
 }

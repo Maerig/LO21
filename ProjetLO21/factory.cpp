@@ -24,6 +24,24 @@ Rationnel* Factory::make_rationnel(std::string str)
             return new Rationnel(num,denum);
 }
 
+Reel* Factory::make_reel(std::string str)
+{
+    if(fraction(str))
+    {
+        Rationnel* q = make_rationnel(str);
+        Reel* r = new Reel(*q);
+        delete q;
+        return r;
+    }
+    else
+    {
+        std::istringstream iss(str);
+        float nb;
+        iss >> nb;
+        return new Reel(nb);
+    }
+}
+
 Donnee* Factory::make(std::string str)
 {
     std::istringstream iss(str);
@@ -35,9 +53,7 @@ Donnee* Factory::make(std::string str)
     }
     else if(Donnee::getTypeDonnees()==reel)
     {
-        float nb;
-        iss >> nb;
-        return new Reel(nb);
+        return make_reel(str);
     }
     else if(Donnee::getTypeDonnees()==rationnel)
     {

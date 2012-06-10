@@ -4,8 +4,8 @@
 
 void OperateurBinaire::Calculer(){
 
-    Donnee* ElmtB;          //Dépiler premier élément, donc dernier entré
-    Donnee* ElmtA;          //Dépiler 2ème Element entré
+    Donnee* fg;          //Fils Gauche
+    Donnee* fd;          //Fils Droit
 
     switch (typeoperation) {
     case (PLUS):

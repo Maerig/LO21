@@ -27,3 +27,14 @@ void Donnee::setTypeDonnees(std::string type){
 }
 
 
+bool fraction(std::string str)
+{
+    int i=0;
+    while(str[i] != '/' && str[i] != '\0')
+        i++;
+    if(str[i] == '/')
+        return true;
+    else
+        return false;
+}
+

@@ -48,6 +48,8 @@ public :
 };
 
 
+bool fraction(std::string str);    //renvoie "vrai" si la chaîne de caractères s'apparente à une fraction
+
 
 
 #endif // DONNEE_H
