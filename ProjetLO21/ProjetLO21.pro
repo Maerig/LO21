@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     entier.cpp \
     complexe.cpp \
     operateur.cpp \
-    operateurbinaire.cpp
+    operateurbinaire.cpp \
+    operateurunaire.cpp
 
 HEADERS  += mainwindow.h \
     donnee.h \
@@ -32,6 +33,7 @@ HEADERS  += mainwindow.h \
     entier.h \
     complexe.h \
     operateur.h \
-    operateurbinaire.h
+    operateurbinaire.h \
+    operateurunaire.h
 
 FORMS    += mainwindow.ui

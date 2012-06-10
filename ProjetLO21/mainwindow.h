@@ -15,6 +15,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+    //Pile* getPile() ? Besoin pour dépiler empiler à partir d'Operateur
     
 private:
     Ui::MainWindow *ui;

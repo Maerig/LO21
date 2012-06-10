@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Sat Jun 9 17:53:26 2012
+** Created: Sun Jun 10 14:25:50 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -42,6 +42,14 @@ static const uint qt_meta_data_MainWindow[] = {
      124,   11,   11,   11, 0x08,
      138,   11,   11,   11, 0x08,
      152,   11,   11,   11, 0x08,
+     170,   11,   11,   11, 0x08,
+     184,   11,   11,   11, 0x08,
+     201,   11,   11,   11, 0x08,
+     219,   11,   11,   11, 0x08,
+     236,   11,   11,   11, 0x08,
+     252,   11,   11,   11, 0x08,
+     267,   11,   11,   11, 0x08,
+     281,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -50,7 +58,12 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0num0Pressed()\0num1Pressed()\0"
     "num2Pressed()\0num3Pressed()\0num4Pressed()\0"
     "num5Pressed()\0num6Pressed()\0num7Pressed()\0"
-    "num8Pressed()\0num9Pressed()\0enterPressed()\0"
+    "num8Pressed()\0num9Pressed()\0"
+    "numPOINTPressed()\0typeChanged()\0"
+    "numPLUSPressed()\0numMINUSPressed()\0"
+    "numMULTPressed()\0numDIVPressed()\0"
+    "enterPressed()\0dropPressed()\0"
+    "clearPressed()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -69,7 +82,15 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->num7Pressed(); break;
         case 8: _t->num8Pressed(); break;
         case 9: _t->num9Pressed(); break;
-        case 10: _t->enterPressed(); break;
+        case 10: _t->numPOINTPressed(); break;
+        case 11: _t->typeChanged(); break;
+        case 12: _t->numPLUSPressed(); break;
+        case 13: _t->numMINUSPressed(); break;
+        case 14: _t->numMULTPressed(); break;
+        case 15: _t->numDIVPressed(); break;
+        case 16: _t->enterPressed(); break;
+        case 17: _t->dropPressed(); break;
+        case 18: _t->clearPressed(); break;
         default: ;
         }
     }
@@ -108,9 +129,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 19;
     }
     return _id;
 }

@@ -7,7 +7,8 @@
 enum TypeDonnee {entier, reel, rationnel};
 enum TypeAngle {degre, radian};
 
-enum TypeOperation {plus,minus};
+enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
+enum TypeOperationUnaire {SINUS,COSINUS,SINUSH,COSINUSH,TANG,TANGH,LN,LOG,INV,SQRT,SQR,CUBE,FACT};      // EVAL ?
 
 class Donnee {
 
