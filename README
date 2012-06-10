@@ -1,2 +1,18 @@
 ﻿comment on donne un rationnel sur l'interface? Si on maintiens le /, c'est un peu chiant à coder. Mais je vois pas cmt faire autrement..
 Je pensais coder les opérateurs de façon qu'ils impliquent automatiquement un push au début..
+
+Bon, on s'était mis d'accord sur ce fonctionnement:
+Ce qui est entré dans la pile et push, est analysé par factory et empilé dans la pile. (Que ce soit un nombre ou un operateur (2 type d'Operateur: binaire et unaire, différenciés selon leur attributs)
+A ce moment le memento fait une copy de l'état de la pile.
+Si le dernier élément entré est un operateur, celui-ci est dépilé, et fait appel à la méthode PatronDeMethode() dans Operateur()
+PatrondeMethode() fait appel à Calculer(), qui est méthode virtuelle définie dans operateurBinaire et operateurUnaire.
+Dans Calculer(), les 2 dernières données sont dépilés (ou juste la dernière si c'est OperateurUnaire).
+Ensuite switch selon le typeOperation (attribut de l'operateur qui fait PatronDeMethode).
+
+Voilà, pour moi ça fonctionne comme ça pour le moment, t'es d'accord?
+
+Le problème maintenant: comment est ce que l'operateur peut faire appel à la Pile? faire passer la pile en paramètre? Mais la pile est private. Faut une methode alors qui la renvoie. 
+
+2) A la place du switch, je pense qu'on peut faire encore un 2ème Template Method. 
+
+PS ce site est trop bien pour les design pattern, bien expliqué avec des méthodes : http://sourcemaking.com/design_patterns/template_method
