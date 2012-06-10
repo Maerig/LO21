@@ -47,6 +47,7 @@ private slots:
 
     void dropPressed();
     void dupPressed();
+    void sumPressed();
     void swapPressed();
     void clearPressed();
 };

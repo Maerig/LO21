@@ -1,6 +1,8 @@
 #include "pile.h"
 #include "calculexception.h"
 #include <iostream>
+#include "entier.h"
+#include "reel.h"
 
 void Pile::empiler(Donnee* elt)
 {
@@ -63,6 +65,18 @@ void Pile::dup()
     }
     else
         throw CalculException("Pile vide.");
+}
+
+void Pile::sum()
+{
+    Reel somme(0);
+    Cellule* cell = tete;
+    while(cell)
+    {
+        somme = 0;  //todo
+        cell = cell->getSucc();
+    }
+    empiler(new Entier((double)somme.getVal()));
 }
 
 void Pile::swap()

@@ -38,6 +38,7 @@ public :
     void drop();
     void clear();
     void dup();
+    void sum();
     void swap();
 };
 

@@ -5,7 +5,7 @@
 
 class Entier : public Nombre {
 private :
-    double val;                         // pourquoi pas unsigned long int
+    double val;
 
 public :
     Entier(double v) : val(v) {}
