@@ -6,14 +6,13 @@
 class OperateurBinaire: public Operateur
 {
 
-    TypeOperation typeoperation;
+    TypeOperationBinaire typeoperation;
 
 public:
 
-    OperateurBinaire(TypeOperation t): typeoperation(t) {}
+    OperateurBinaire(TypeOperationBinaire t): typeoperation(t) {}
 
     void Calculer();
-
 
 };
 

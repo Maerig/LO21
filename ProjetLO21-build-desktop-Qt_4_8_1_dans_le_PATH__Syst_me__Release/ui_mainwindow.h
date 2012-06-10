@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed Jun 6 23:15:42 2012
+** Created: Sat Jun 9 19:09:59 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -611,7 +611,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 734, 25));
+        menuBar->setGeometry(QRect(0, 0, 734, 21));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
@@ -627,6 +627,7 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
         numPUSH->setText(QApplication::translate("MainWindow", "PUSH", 0, QApplication::UnicodeUTF8));
+        numPUSH->setShortcut(QApplication::translate("MainWindow", "Return", 0, QApplication::UnicodeUTF8));
         numTYPE->clear();
         numTYPE->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "Entier", 0, QApplication::UnicodeUTF8)
@@ -638,7 +639,6 @@ public:
         numRadian->setText(QApplication::translate("MainWindow", "Radians", 0, QApplication::UnicodeUTF8));
         numQUOTE->setText(QApplication::translate("MainWindow", "'", 0, QApplication::UnicodeUTF8));
         numEVAL->setText(QApplication::translate("MainWindow", "EVAL", 0, QApplication::UnicodeUTF8));
-        numEVAL->setShortcut(QApplication::translate("MainWindow", "Return", 0, QApplication::UnicodeUTF8));
         numIMA->setText(QApplication::translate("MainWindow", "$", 0, QApplication::UnicodeUTF8));
         numIMA->setShortcut(QApplication::translate("MainWindow", "(", 0, QApplication::UnicodeUTF8));
         numSPACE->setText(QApplication::translate("MainWindow", " SPACE", 0, QApplication::UnicodeUTF8));
