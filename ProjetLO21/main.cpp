@@ -22,6 +22,6 @@ int main(int argc, char *argv[])
     }
     catch(CalculException exc)
     {
-
+        std::cout<<exc.getInfo()<<"\n";
     }
 }

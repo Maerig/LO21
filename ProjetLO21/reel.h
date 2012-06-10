@@ -11,11 +11,12 @@ private :
 
 public :
     Reel(float v) : val(v) {}
-    Reel(Entier e);                                             // Constructeur de Réel à partir d'un Entier
-    Reel(Rationnel r);                                          // Constructeur de Réel à partir d'un Rationnel
+    Reel(Entier e);                                             // Constructeur de Réel �  partir d'un Entier
+    Reel(Rationnel r);                                          // Constructeur de Réel �  partir d'un Rationnel
 
     float getVal() {return val;}
     void afficher(std::ostream& f=std::cout) const { f<<val; }
+    virtual Donnee* clone() const;
 };
 
 

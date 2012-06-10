@@ -16,6 +16,7 @@ public :
     ~Cellule() { delete contenu; }
     Donnee* getContent() const { return contenu; }
     Cellule* getSucc() const { return succ; }
+    void setContent(Donnee* content) { contenu = content; }
     void setSucc(Cellule* next) { succ = next; }
 };
 
@@ -36,6 +37,8 @@ public :
 
     void drop();
     void clear();
+    void dup();
+    void swap();
 };
 
 #endif // PILE_H

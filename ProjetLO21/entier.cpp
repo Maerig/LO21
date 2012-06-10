@@ -1,5 +1,10 @@
 #include "entier.h"
 
+Donnee* Entier::clone() const
+{
+    return new Entier(val);
+}
+
 Entier operator+( Entier& a,  Entier& b){
 
     double val=a.getVal()+b.getVal();

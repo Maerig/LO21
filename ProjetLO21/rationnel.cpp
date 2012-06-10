@@ -44,6 +44,11 @@ void Rationnel::simplifier(){
 }
 
 
+Donnee* Rationnel::clone() const
+{
+    return new Rationnel(num,denum);
+}
+
 
 Rationnel operator+( Rationnel& a,  Rationnel& b){
 

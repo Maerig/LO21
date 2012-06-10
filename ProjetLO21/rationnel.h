@@ -21,6 +21,7 @@ public :
     Entier getDenumerateur() {return denum;}
 
     void afficher(std::ostream& f=std::cout) const { num.afficher(f); f<<"/"; denum.afficher(f); }
+    virtual Donnee* clone() const;
 };
 
 Rationnel operator+( Rationnel& a,  Rationnel& b);
