@@ -28,6 +28,7 @@ public :
     static void setTypeComplexe();
 
     virtual void afficher(std::ostream& f=std::cout) const = 0;
+    virtual Donnee* clone() const = 0;
 };
 
 class Numerique : public Donnee {
@@ -35,12 +36,14 @@ class Numerique : public Donnee {
 public :
     virtual void afficher(std::ostream& f=std::cout) const = 0;
     std::ostream& operator<<(std::ostream& f) { afficher(f); return f; }
+    virtual Donnee* clone() const = 0;
 };
 
-class Nombre : public Numerique {
+class Nombre : public Numerique {   //Numerique non complexe
 
 public :
     virtual void afficher(std::ostream& f=std::cout) const = 0;
+    virtual Donnee* clone() const = 0;
 
 };
 

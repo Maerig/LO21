@@ -13,6 +13,10 @@ Reel::Reel(Rationnel r){
     val=Num/Denum;
 }
 
+Donnee* Reel::clone() const
+{
+    return new Reel(val);
+}
 
 Reel operator+( Reel& a,  Reel& b){
 

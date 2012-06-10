@@ -48,6 +48,8 @@ private slots:
     void enterPressed();
 
     void dropPressed();
+    void dupPressed();
+    void swapPressed();
     void clearPressed();
 };
 

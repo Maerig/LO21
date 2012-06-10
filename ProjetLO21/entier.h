@@ -13,7 +13,7 @@ public :
     void setVal(double v){val=v;}
 
     void afficher(std::ostream& f=std::cout) const { f<<val; }
-
+    Donnee* clone() const;
 };
 
 

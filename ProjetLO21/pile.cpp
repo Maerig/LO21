@@ -44,10 +44,36 @@ void Pile::drop()
     {
         tete = tete->getSucc();
         cell->~Cellule();
+        --taille;
     }
 }
 
 void Pile::clear()
 {
     while(tete) drop();
+}
+
+void Pile::dup()
+{
+    if(taille>=1)
+    {
+        Cellule* cell = new Cellule(tete->getContent()->clone(),tete);
+        tete = cell;
+        ++taille;
+    }
+    else
+        throw CalculException("Pile vide.");
+}
+
+void Pile::swap()
+{
+    if(taille<2)
+        throw CalculException("La pile ne contient pas suffisamment d'éléments.");
+    else
+    {
+        Cellule* newhead = tete->getSucc();
+        tete->setSucc(newhead->getSucc());
+        newhead->setSucc(tete);
+        tete = newhead;
+    }
 }
