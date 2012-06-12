@@ -5,7 +5,7 @@
 #include <iostream>
 #include <typeinfo>
 
-enum TypeDonnee {entier, reel, rationnel};
+enum TypeDonnee {entier, reel, rationnel,expression};
 enum TypeAngle {degre, radian};
 
 enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
@@ -14,10 +14,12 @@ enum TypeOperationUnaire {SINUS,COSINUS,SINUSH,COSINUSH,TANG,TANGH,LN,LOG,INV,SQ
 class Donnee {
 
 protected :
-    static bool expression;    //indique si l'operande fait partie d'une expression
+
     static TypeDonnee typedonnees;      //contient le type de données à utiliser (paramètres)
     static bool typecomplexe;       //indique si les données à traiter sont de type complexe (paramètres)
     static TypeAngle typeangles;   //typeangle = degres/radians (paramètres)
+
+    bool expr_member;    //indique si l'operande fait partie d'une expression
 
 public :
     static TypeDonnee getTypeDonnees() { return typedonnees; }

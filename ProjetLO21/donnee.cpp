@@ -2,7 +2,6 @@
 #include "calculexception.h"
 
 /* Initialisation des paramètres */
-bool Donnee::expression = false;
 TypeDonnee Donnee::typedonnees = entier;
 bool Donnee::typecomplexe = false;
 TypeAngle Donnee::typeangles = degre;
@@ -19,10 +18,14 @@ void Donnee::setTypeDonnees(std::string type){
         }
         else if(type == "Reel")
             {
-        typedonnees = reel;
+                typedonnees = reel;
             }
-            else
-                throw CalculException("Type inconnu.");
+            else if(type == "Expression")
+                 {
+                      typedonnees = expression;
+                 }
+                else
+                    throw CalculException("Type inconnu.");
 
 }
 
