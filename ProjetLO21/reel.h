@@ -5,6 +5,7 @@
 #include "entier.h"
 #include "rationnel.h"
 
+
 class Reel : public Nombre {
 private :
     float val;
@@ -25,6 +26,11 @@ Reel operator-( Reel& a,  Reel& b);
 Reel operator*( Reel& a,  Reel& b);
 Reel operator/( Reel& a,  Reel& b);
 Reel operator^( Reel& a,  Entier& b);
+
+
+
+
+
 
 
 #endif // REEL_H

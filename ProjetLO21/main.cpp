@@ -16,7 +16,9 @@ int main(int argc, char *argv[])
         MainWindow w;
         w.show();
 
-
+        /*Entier b(5);
+        Rationnel c(3);
+        Rationnel d(c+b);*/
         return a.exec();
 
     }

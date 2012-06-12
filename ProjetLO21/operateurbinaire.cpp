@@ -2,10 +2,12 @@
 
 //enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
 
-void OperateurBinaire::Calculer(){
+void OperateurBinaire::Calculer(Pile* stack){
 
-    Donnee* fg;          //Fils Gauche
-    Donnee* fd;          //Fils Droit
+    Donnee* B= stack->depiler();
+    Donnee* A= stack->depiler();
+
+
 
     switch (typeoperation) {
     case (PLUS):
