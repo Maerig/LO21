@@ -2,7 +2,6 @@
 #define PILE_H
 
 #include "donnee.h"
-#include "factory.h"
 #include <iostream>
 
 class Cellule
@@ -28,6 +27,7 @@ private :
 
 public :
     Pile(Cellule* head = 0,int t = 0) : tete(head),taille(t) {}
+    ~Pile() { clear(); }
     int longueur() const { return taille; }
 
     void empiler(Donnee* elt);

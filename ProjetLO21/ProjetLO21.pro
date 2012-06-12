@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     complexe.cpp \
     operateur.cpp \
     operateurbinaire.cpp \
-    operateurunaire.cpp
+    operateurunaire.cpp \
+    expression.cpp
 
 HEADERS  += mainwindow.h \
     donnee.h \
@@ -34,6 +35,7 @@ HEADERS  += mainwindow.h \
     complexe.h \
     operateur.h \
     operateurbinaire.h \
-    operateurunaire.h
+    operateurunaire.h \
+    expression.h
 
 FORMS    += mainwindow.ui

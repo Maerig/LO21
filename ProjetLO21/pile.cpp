@@ -4,6 +4,7 @@
 #include "entier.h"
 #include "reel.h"
 
+
 void Pile::empiler(Donnee* elt)
 {
     Cellule* cell = new Cellule(elt,tete);
@@ -17,7 +18,7 @@ Donnee* Pile::depiler()
     {
         Cellule* cell = tete;
         tete = cell->getSucc();
-        Donnee* data = tete->getContent();
+        Donnee* data = cell->getContent()->clone();
         cell->~Cellule();
         return data;
     }

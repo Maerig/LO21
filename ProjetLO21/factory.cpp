@@ -2,6 +2,8 @@
 #include <sstream>
 #include "entier.h"
 #include "reel.h"
+#include "calculexception.h"
+#include "pile.h"
 
 
 Rationnel* Factory::make_rationnel(std::string str)
@@ -42,9 +44,56 @@ Reel* Factory::make_reel(std::string str)
     }
 }
 
+Expression* Factory::make_expression(std::string str)
+{
+    int i=1;
+    Cellule* cell=0;
+    Cellule* tete=0;    //Derniere cellule courante de la liste chainee en construction
+    if(str[0]!='\'')
+    {
+        throw CalculException("Syntaxe incorrecte.");
+        return 0;
+    }
+    while(str[i] != '\'' && str[i] != '\0')
+    {
+        std::string tmp;
+        while(str[i] != ' ' && str[i] != '\'' && str[i] != '\0')
+            tmp += str[i++];
+        if(tete==0) //Premier element
+        {
+            cell = new Cellule(make(tmp));
+            tete = cell;
+        }
+        else
+        {
+            Cellule* new_cell = new Cellule(make(tmp));
+            cell->setSucc(new_cell);
+            cell = new_cell;
+        }
+    }
+    if(str[i] == '\'' && str[i+1] == '\0');
+        return  new Expression(tete);
+    throw CalculException("Syntaxe incorrecte.");
+    return 0;
+}
+
 Donnee* Factory::make(std::string str)
 {
     std::istringstream iss(str);
+    if(str[0]=='\'')
+    {   std::cerr<<"Passe 1\n";
+        if(make_expression(str)->valide())
+            return make_expression(str);
+        throw CalculException("Syntaxe incorrecte.");
+        return 0;
+    }
+    if(Donnee::getTypeDonnees()==expression)
+    {   std::cerr<<"Passe 2\n";
+        if(Expression('\'' + str + '\'').valide())
+            return make_expression('\'' + str + '\'');
+        throw CalculException("Syntaxe incorrecte.");
+        return 0;
+    }
     if(Donnee::getTypeDonnees()==entier)
     {
         int nb;

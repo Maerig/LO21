@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "pile.h"
+#include "factory.h"
 
 namespace Ui {
 class MainWindow;
@@ -16,7 +17,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    //Pile* getPile() ? Besoin pour dépiler empiler à partir d'Operateur
+    //Pile* getPile() ? Besoin pour dépiler empiler �  partir d'Operateur
     
 private:
     Ui::MainWindow *ui;
@@ -37,6 +38,8 @@ private slots:
     void num8Pressed();
     void num9Pressed();
     void numPOINTPressed();
+    void numQUOTEPressed();
+    void numSPACEPressed();
 
     void typeChanged();
 

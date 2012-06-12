@@ -1,7 +1,6 @@
 #ifndef REEL_H
 #define REEL_H
 
-#include "donnee.h"
 #include "entier.h"
 #include "rationnel.h"
 

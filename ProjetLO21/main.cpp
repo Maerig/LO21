@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
     try
     {
     Pile stack;
-
         QApplication a(argc, argv);
         MainWindow w;
         w.show();
@@ -21,7 +20,7 @@ int main(int argc, char *argv[])
     }
     catch(CalculException exc)
     {
-        std::cout<<exc.getInfo()<<"\n";
+        std::cerr<<exc.getInfo()<<"\n";
     }
     return 0;
 }

@@ -4,9 +4,6 @@
 
 void OperateurBinaire::Calculer(){
 
-    Donnee* fg;          //Fils Gauche
-    Donnee* fd;          //Fils Droit
-
     switch (typeoperation) {
     case (PLUS):
 

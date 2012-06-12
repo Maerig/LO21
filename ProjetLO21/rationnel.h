@@ -1,7 +1,6 @@
 #ifndef RATIONNEL_H
 #define RATIONNEL_H
 
-#include "donnee.h"
 #include "entier.h"
 
 class Rationnel : public Nombre {
