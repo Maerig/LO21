@@ -12,8 +12,11 @@ public:
 
     OperateurBinaire(TypeOperationBinaire t): typeoperation(t) {}
 
-    void Calculer();
+    void Calculer(Pile* stack);
 
 };
+
+
+
 
 #endif // OPERATEURBINAIRE_H

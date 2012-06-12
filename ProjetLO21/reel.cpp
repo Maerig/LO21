@@ -52,3 +52,6 @@ Reel operator^( Reel& a,  Entier& b){              // POW a^b
     Entier res(val);
     return res;
 }
+
+
+

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Sun Jun 10 14:25:50 2012
+** Created: Tue Jun 12 01:54:08 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      19,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -50,6 +50,9 @@ static const uint qt_meta_data_MainWindow[] = {
      252,   11,   11,   11, 0x08,
      267,   11,   11,   11, 0x08,
      281,   11,   11,   11, 0x08,
+     294,   11,   11,   11, 0x08,
+     307,   11,   11,   11, 0x08,
+     321,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -62,8 +65,8 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "numPOINTPressed()\0typeChanged()\0"
     "numPLUSPressed()\0numMINUSPressed()\0"
     "numMULTPressed()\0numDIVPressed()\0"
-    "enterPressed()\0dropPressed()\0"
-    "clearPressed()\0"
+    "enterPressed()\0dropPressed()\0dupPressed()\0"
+    "sumPressed()\0swapPressed()\0clearPressed()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -90,7 +93,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 15: _t->numDIVPressed(); break;
         case 16: _t->enterPressed(); break;
         case 17: _t->dropPressed(); break;
-        case 18: _t->clearPressed(); break;
+        case 18: _t->dupPressed(); break;
+        case 19: _t->sumPressed(); break;
+        case 20: _t->swapPressed(); break;
+        case 21: _t->clearPressed(); break;
         default: ;
         }
     }
@@ -129,9 +135,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 19)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 19;
+        _id -= 22;
     }
     return _id;
 }

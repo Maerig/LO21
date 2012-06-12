@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sat Jun 9 19:09:59 2012
+** Created: Mon Jun 11 17:54:44 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -160,6 +160,7 @@ public:
 
         numDegre = new QRadioButton(layoutWidget);
         numDegre->setObjectName(QString::fromUtf8("numDegre"));
+        numDegre->setChecked(true);
 
         horizontalLayout_4->addWidget(numDegre);
 
@@ -633,6 +634,7 @@ public:
          << QApplication::translate("MainWindow", "Entier", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "Rationnel", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "Reel", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWindow", "Expression", 0, QApplication::UnicodeUTF8)
         );
         numComplexe->setText(QApplication::translate("MainWindow", "Complexe", 0, QApplication::UnicodeUTF8));
         numDegre->setText(QApplication::translate("MainWindow", "Degr\303\251", 0, QApplication::UnicodeUTF8));
@@ -689,6 +691,7 @@ public:
         num0->setText(QApplication::translate("MainWindow", "0", 0, QApplication::UnicodeUTF8));
         num0->setShortcut(QApplication::translate("MainWindow", "0", 0, QApplication::UnicodeUTF8));
         numPOINT->setText(QApplication::translate("MainWindow", ".", 0, QApplication::UnicodeUTF8));
+        numPOINT->setShortcut(QApplication::translate("MainWindow", ".", 0, QApplication::UnicodeUTF8));
         numSIGN->setText(QApplication::translate("MainWindow", "SIGN", 0, QApplication::UnicodeUTF8));
         pileDROP->setText(QApplication::translate("MainWindow", "DROP", 0, QApplication::UnicodeUTF8));
         pileDUP->setText(QApplication::translate("MainWindow", "DUP", 0, QApplication::UnicodeUTF8));

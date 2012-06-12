@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <typeinfo>
 
 enum TypeDonnee {entier, reel, rationnel,expression};
 enum TypeAngle {degre, radian};

@@ -14,23 +14,17 @@ class Operateur : public Donnee {
 
 
 public :
-    /*void patronDeMethode(Ui::MainWindow MW){
 
-        Calculer(MW);
-    }*/
+    void patronDeMethode(Pile* stack){
 
-    //virtual void Calculer(Ui::MainWindow MW)=0;
-
-    void patronDeMethode(){
-
-        Calculer();
+        Calculer(stack);
     }
 
-    virtual void Calculer()=0;
+    virtual void Calculer(Pile* stack)=0;
 
 };
 
-
+void Unifier(Donnee &A, Donnee &B, Pile* stack);
 
 
 

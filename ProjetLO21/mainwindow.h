@@ -17,7 +17,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    //Pile* getPile() ? Besoin pour d√©piler empiler √  partir d'Operateur
+
+    Pile* getPile(){return stack;}
+
     
 private:
     Ui::MainWindow *ui;
@@ -26,6 +28,8 @@ private:
     Factory* fact;
 
 private slots:
+
+
 
     void num0Pressed();
     void num1Pressed();
