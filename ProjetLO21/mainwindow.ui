@@ -148,6 +148,9 @@
                  <property name="text">
                   <string>'</string>
                  </property>
+                 <property name="shortcut">
+                  <string>'</string>
+                 </property>
                 </widget>
                </item>
                <item>
@@ -203,7 +206,7 @@
                   <string>$</string>
                  </property>
                  <property name="shortcut">
-                  <string>(</string>
+                  <string>$</string>
                  </property>
                 </widget>
                </item>
@@ -231,7 +234,7 @@
                   <string> SPACE</string>
                  </property>
                  <property name="shortcut">
-                  <string>)</string>
+                  <string>Space</string>
                  </property>
                 </widget>
                </item>
@@ -1280,22 +1283,5 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections>
-  <connection>
-   <sender>pileCLEAR</sender>
-   <signal>pressed()</signal>
-   <receiver>PileAffichage</receiver>
-   <slot>clear()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>697</x>
-     <y>295</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>532</x>
-     <y>186</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
