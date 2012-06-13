@@ -14,6 +14,8 @@ public :
 
     void afficher(std::ostream& f=std::cout) const { f<<val; }
     Donnee* clone() const;
+
+    operator float() const {return float(val);}
 };
 
 

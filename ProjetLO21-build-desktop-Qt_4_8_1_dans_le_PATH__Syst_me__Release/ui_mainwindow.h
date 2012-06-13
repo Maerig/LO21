@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon Jun 11 17:54:44 2012
+** Created: Wed Jun 13 20:33:26 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -619,7 +619,6 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
-        QObject::connect(pileCLEAR, SIGNAL(pressed()), PileAffichage, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -634,17 +633,17 @@ public:
          << QApplication::translate("MainWindow", "Entier", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "Rationnel", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("MainWindow", "Reel", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWindow", "Expression", 0, QApplication::UnicodeUTF8)
         );
         numComplexe->setText(QApplication::translate("MainWindow", "Complexe", 0, QApplication::UnicodeUTF8));
         numDegre->setText(QApplication::translate("MainWindow", "Degr\303\251", 0, QApplication::UnicodeUTF8));
         numRadian->setText(QApplication::translate("MainWindow", "Radians", 0, QApplication::UnicodeUTF8));
         numQUOTE->setText(QApplication::translate("MainWindow", "'", 0, QApplication::UnicodeUTF8));
+        numQUOTE->setShortcut(QApplication::translate("MainWindow", "Alt+'", 0, QApplication::UnicodeUTF8));
         numEVAL->setText(QApplication::translate("MainWindow", "EVAL", 0, QApplication::UnicodeUTF8));
         numIMA->setText(QApplication::translate("MainWindow", "$", 0, QApplication::UnicodeUTF8));
-        numIMA->setShortcut(QApplication::translate("MainWindow", "(", 0, QApplication::UnicodeUTF8));
+        numIMA->setShortcut(QApplication::translate("MainWindow", "$", 0, QApplication::UnicodeUTF8));
         numSPACE->setText(QApplication::translate("MainWindow", " SPACE", 0, QApplication::UnicodeUTF8));
-        numSPACE->setShortcut(QApplication::translate("MainWindow", ")", 0, QApplication::UnicodeUTF8));
+        numSPACE->setShortcut(QApplication::translate("MainWindow", "Space", 0, QApplication::UnicodeUTF8));
         numFACT->setText(QApplication::translate("MainWindow", "!", 0, QApplication::UnicodeUTF8));
         numFACT->setShortcut(QApplication::translate("MainWindow", "!", 0, QApplication::UnicodeUTF8));
         numCOSH->setText(QApplication::translate("MainWindow", "COSH", 0, QApplication::UnicodeUTF8));
