@@ -12,16 +12,19 @@ bool operateur_like(std::string str)
     return true;
 }
 
-/*
-void Unifier(Donnee &A, Donnee &B, Pile* stack){
+
+void Unifier(Donnee &A, Donnee &B){
 
     if ( (typeid(A).name()==Reel) || (typeid(B).name()==Reel) ) {
-         stack->empiler(Reel(A));
-         stack->empiler(Reel(B));
+
+        A=Reel(float(A));
+        B=Reel(float(B));
+
 }
     else if ( (typeid(A).name()==Rationnel) || (typeid(B).name()==Rationnel) ){
-        stack->empiler(Rationnel(A));
-        stack->empiler(Rationnel(B));
+
+        A=Rationnel(A);
+        B=Rationnel(B);
 }
 
 }
