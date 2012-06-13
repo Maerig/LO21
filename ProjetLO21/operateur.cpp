@@ -14,7 +14,7 @@ bool operateur_like(std::string str)
 
 
 void Unifier(Donnee &A, Donnee &B){
-
+/*
     if ( (typeid(A).name()==Reel) || (typeid(B).name()==Reel) ) {
 
         A=Reel(float(A));
@@ -27,9 +27,6 @@ void Unifier(Donnee &A, Donnee &B){
         B=Rationnel(B);
 }
 
-}
-
-
     stack.empiler(new Rationnel(2,4));
     Donnee* data = stack.depiler();
     Reel x(24);Reel* px=&x;
@@ -40,4 +37,5 @@ void Unifier(Donnee &A, Donnee &B){
 
 */
 
+}
 
