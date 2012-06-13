@@ -13,7 +13,33 @@ bool operateur_like(std::string str)
 }
 
 
-void Unifier(Donnee &A, Donnee &B){
+void Unifier(Donnee *A, Donnee *B){
+
+    const Reel* test1 = dynamic_cast<const Reel*>(A);
+    const Reel* test2 = dynamic_cast<const Reel*>(B);
+    const Rationnel* test3 = dynamic_cast<const Rationnel*>(A);
+    const Rationnel* test4 = dynamic_cast<const Rationnel*>(B);
+
+    if ( test1 || test2 ) {
+
+        *A=Reel(float(*A));
+        *B=Reel(float(*B));
+
+}
+    else if ( test3 || test4){
+
+        *A=Rationnel(*A);
+        *B=Rationnel(*B);
+}
+
+}
+
+/*
+    stack.empiler(new Rationnel(2,4));
+    Donnee* data = stack.depiler();
+
+    Rationnel* test = dynamic_cast<Rationnel*>(data);
+    std::cerr<<test<<"\n";
 
     if ( (typeid(A).name()==Reel) || (typeid(B).name()==Reel) ) {
 
@@ -26,16 +52,7 @@ void Unifier(Donnee &A, Donnee &B){
         A=Rationnel(A);
         B=Rationnel(B);
 }
-
-}
-
-
-    stack.empiler(new Rationnel(2,4));
-    Donnee* data = stack.depiler();
-    Reel x(24);Reel* px=&x;
-    Rationnel* test = dynamic_cast<Rationnel*>(data);
-    std::cerr<<test<<"\n";
-
+*/
 
 
 */
