@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Wed Jun 13 23:56:22 2012
+** Created: Thu Jun 14 00:39:42 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      24,   14, // methods
+      26,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -55,6 +55,8 @@ static const uint qt_meta_data_MainWindow[] = {
      330,   11,   11,   11, 0x08,
      343,   11,   11,   11, 0x08,
      357,   11,   11,   11, 0x08,
+     372,   11,   11,   11, 0x08,
+     382,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -70,6 +72,7 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "numMULTPressed()\0numDIVPressed()\0"
     "enterPressed()\0dropPressed()\0dupPressed()\0"
     "sumPressed()\0swapPressed()\0clearPressed()\0"
+    "annuler()\0retablir()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -102,6 +105,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 21: _t->sumPressed(); break;
         case 22: _t->swapPressed(); break;
         case 23: _t->clearPressed(); break;
+        case 24: _t->annuler(); break;
+        case 25: _t->retablir(); break;
         default: ;
         }
     }
@@ -140,9 +145,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 24)
+        if (_id < 26)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 24;
+        _id -= 26;
     }
     return _id;
 }

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed Jun 13 20:33:26 2012
+** Created: Thu Jun 14 00:39:35 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -21,6 +21,7 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLineEdit>
 #include <QtGui/QMainWindow>
+#include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
@@ -35,6 +36,8 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionAnnuler;
+    QAction *actionRetablir;
     QWidget *centralWidget;
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_6;
@@ -100,6 +103,7 @@ public:
     QPushButton *pileSWAP;
     QPushButton *pileCLEAR;
     QMenuBar *menuBar;
+    QMenu *menuEdition;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -107,6 +111,10 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(734, 351);
+        actionAnnuler = new QAction(MainWindow);
+        actionAnnuler->setObjectName(QString::fromUtf8("actionAnnuler"));
+        actionRetablir = new QAction(MainWindow);
+        actionRetablir->setObjectName(QString::fromUtf8("actionRetablir"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         layoutWidget = new QWidget(centralWidget);
@@ -613,10 +621,16 @@ public:
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 734, 21));
+        menuEdition = new QMenu(menuBar);
+        menuEdition->setObjectName(QString::fromUtf8("menuEdition"));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
+
+        menuBar->addAction(menuEdition->menuAction());
+        menuEdition->addAction(actionAnnuler);
+        menuEdition->addAction(actionRetablir);
 
         retranslateUi(MainWindow);
 
@@ -626,6 +640,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
+        actionAnnuler->setText(QApplication::translate("MainWindow", "Annuler", 0, QApplication::UnicodeUTF8));
+        actionAnnuler->setShortcut(QApplication::translate("MainWindow", "Ctrl+Z", 0, QApplication::UnicodeUTF8));
+        actionRetablir->setText(QApplication::translate("MainWindow", "R\303\251tablir", 0, QApplication::UnicodeUTF8));
+        actionRetablir->setShortcut(QApplication::translate("MainWindow", "Ctrl+Y", 0, QApplication::UnicodeUTF8));
         numPUSH->setText(QApplication::translate("MainWindow", "PUSH", 0, QApplication::UnicodeUTF8));
         numPUSH->setShortcut(QApplication::translate("MainWindow", "Return", 0, QApplication::UnicodeUTF8));
         numTYPE->clear();
@@ -698,6 +716,7 @@ public:
         pileSUM->setText(QApplication::translate("MainWindow", "SUM", 0, QApplication::UnicodeUTF8));
         pileSWAP->setText(QApplication::translate("MainWindow", "SWAP", 0, QApplication::UnicodeUTF8));
         pileCLEAR->setText(QApplication::translate("MainWindow", "CLEAR", 0, QApplication::UnicodeUTF8));
+        menuEdition->setTitle(QApplication::translate("MainWindow", "Edition", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
