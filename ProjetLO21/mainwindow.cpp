@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->pileSWAP,SIGNAL(clicked()),this,SLOT(swapPressed()));
     QObject::connect(ui->pileCLEAR,SIGNAL(clicked()),this,SLOT(clearPressed()));
 
+    setWindowTitle("Rotaluklak");
 }
 
 void MainWindow::num0Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "0");}

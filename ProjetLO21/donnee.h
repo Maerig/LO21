@@ -48,7 +48,8 @@ public :
 
 };
 
-
+bool number(char c);
+bool number(std::string str);   //renvoie "vrai" si la chaine de caracteres s'apparente a un nombre
 bool fraction(std::string str);    //renvoie "vrai" si la chaîne de caractères s'apparente à une fraction
 
 

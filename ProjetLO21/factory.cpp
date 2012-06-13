@@ -4,6 +4,7 @@
 #include "reel.h"
 #include "calculexception.h"
 #include "pile.h"
+#include "operateur.h"
 
 
 Rationnel* Factory::make_rationnel(std::string str)
@@ -79,28 +80,38 @@ Expression* Factory::make_expression(std::string str)
     return 0;
 }
 
+Operateur* Factory::make_operateur(std::string str) //todo
+{
+    return 0;
+}
+
 Donnee* Factory::make(std::string str)
 {
     std::istringstream iss(str);
     if(str[0]=='\'')
         return make_expression(str);
-    if(Donnee::getTypeDonnees()==entier)
-    {
-        int nb;
-        iss >> nb;
-        return new Entier(nb);
-    }
-    else if(Donnee::getTypeDonnees()==reel)
-    {
-        return make_reel(str);
-    }
-    else if(Donnee::getTypeDonnees()==rationnel)
-    {
-        return make_rationnel(str);
-    }
-
-    else
-
-
-        return 0;   // à enlever
+    else if(number(str))
+           {
+            if(Donnee::getTypeDonnees()==entier)
+            {
+                int nb;
+                iss >> nb;
+                return new Entier(nb);
+            }
+            else if(Donnee::getTypeDonnees()==reel)
+            {
+                return make_reel(str);
+            }
+            else if(Donnee::getTypeDonnees()==rationnel)
+            {
+                return make_rationnel(str);
+            }
+           }
+        else
+        {
+            if(operateur_like(str))
+                return make_operateur(str);
+            throw CalculException("Syntaxe incorrecte.");
+        }
+    return 0;
 }

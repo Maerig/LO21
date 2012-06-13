@@ -25,6 +25,25 @@ void Donnee::setTypeDonnees(std::string type){
 
 }
 
+bool number(char c)
+{
+    if(c >='0' && c <= '9')
+        return true;
+    return false;
+}
+
+bool number(std::string str)
+{
+    int i=0;
+    while(str[i])
+    {
+        if(number(str[i]) || (str[i]=='/' && i>0 && number(str[i-1]) && number(str[i+1])))
+            ++i;
+        else
+            return false;
+    }
+    return true;
+}
 
 bool fraction(std::string str)
 {

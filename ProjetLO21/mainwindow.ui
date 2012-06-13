@@ -144,7 +144,7 @@
                   <string>'</string>
                  </property>
                  <property name="shortcut">
-                  <string>'</string>
+                  <string>Alt+'</string>
                  </property>
                 </widget>
                </item>

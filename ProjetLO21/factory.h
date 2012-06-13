@@ -4,6 +4,7 @@
 #include "rationnel.h"
 #include "reel.h"
 #include "expression.h"
+#include "operateur.h"
 
 class Factory
 {
@@ -11,6 +12,7 @@ public:
     Reel* make_reel(std::string str);
     Rationnel* make_rationnel(std::string str);
     Expression* make_expression(std::string str);
+    Operateur* make_operateur(std::string str);
     Donnee* make(std::string str);
 
 };
