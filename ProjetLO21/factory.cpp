@@ -4,8 +4,8 @@
 #include "reel.h"
 #include "calculexception.h"
 #include "pile.h"
-#include "operateur.h"
-
+#include "operateurbinaire.h"
+#include "operateurunaire.h"
 
 Rationnel* Factory::make_rationnel(std::string str)
 {
@@ -82,7 +82,7 @@ Expression* Factory::make_expression(std::string str)
 
 Operateur* Factory::make_operateur(std::string str) //todo
 {
-    return 0;
+        return 0;
 }
 
 Donnee* Factory::make(std::string str)
