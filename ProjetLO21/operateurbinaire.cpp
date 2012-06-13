@@ -7,8 +7,11 @@ void OperateurBinaire::Calculer(Pile* stack){
     Donnee* B= stack->depiler();
     Donnee* A= stack->depiler();
 
+
+
     switch (typeoperation) {
     case (PLUS):
+
 
         break;
 
