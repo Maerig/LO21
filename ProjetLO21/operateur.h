@@ -16,7 +16,7 @@ public :
 
 bool operateur_like(std::string str);
 
-void Unifier(Donnee *A, Donnee *B);
+int Unifier(Donnee *A, Donnee *B);
 
 
 
