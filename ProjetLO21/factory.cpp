@@ -47,8 +47,8 @@ Reel* Factory::make_reel(std::string str)
 Expression* Factory::make_expression(std::string str)
 {
     int i=1;
-    Cellule* cell=0;
-    Cellule* tete=0;    //Derniere cellule courante de la liste chainee en construction
+    Cellule* cell=0;    //Derniere cellule courante de la liste chainee en construction
+    Cellule* tete=0;
     if(str[0]!='\'')
     {
         throw CalculException("Syntaxe incorrecte.");
@@ -70,8 +70,10 @@ Expression* Factory::make_expression(std::string str)
             cell->setSucc(new_cell);
             cell = new_cell;
         }
+        while(str[i] == ' ')
+            ++i;
     }
-    if(str[i] == '\'' && str[i+1] == '\0');
+    if(str[i] == '\'' && str[i+1] == '\0')
         return  new Expression(tete);
     throw CalculException("Syntaxe incorrecte.");
     return 0;
@@ -81,19 +83,7 @@ Donnee* Factory::make(std::string str)
 {
     std::istringstream iss(str);
     if(str[0]=='\'')
-    {   std::cerr<<"Passe 1\n";
-        if(make_expression(str)->valide())
-            return make_expression(str);
-        throw CalculException("Syntaxe incorrecte.");
-        return 0;
-    }
-    if(Donnee::getTypeDonnees()==expression)
-    {   std::cerr<<"Passe 2\n";
-        if(Expression('\'' + str + '\'').valide())
-            return make_expression('\'' + str + '\'');
-        throw CalculException("Syntaxe incorrecte.");
-        return 0;
-    }
+        return make_expression(str);
     if(Donnee::getTypeDonnees()==entier)
     {
         int nb;

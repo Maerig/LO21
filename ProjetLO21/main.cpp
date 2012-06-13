@@ -5,12 +5,14 @@
 #include "rationnel.h"
 #include "reel.h"
 #include "complexe.h"
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
     try
     {
     Pile stack;
+
         QApplication a(argc, argv);
         MainWindow w;
         w.show();

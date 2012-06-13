@@ -20,6 +20,7 @@ Donnee* Pile::depiler()
         tete = cell->getSucc();
         Donnee* data = cell->getContent()->clone();
         cell->~Cellule();
+        --taille;
         return data;
     }
     else

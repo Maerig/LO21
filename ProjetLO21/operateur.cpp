@@ -13,4 +13,16 @@ void Unifier(Donnee &A, Donnee &B, Pile* stack){
 }
 
 }
+
+
+    stack.empiler(new Rationnel(2,4));
+    Donnee* data = stack.depiler();
+    Reel x(24);Reel* px=&x;
+    Rationnel* test = dynamic_cast<Rationnel*>(data);
+    std::cerr<<test<<"\n";
+
+
+
 */
+
+

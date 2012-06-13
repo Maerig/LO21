@@ -20,12 +20,8 @@ void Donnee::setTypeDonnees(std::string type){
             {
                 typedonnees = reel;
             }
-            else if(type == "Expression")
-                 {
-                      typedonnees = expression;
-                 }
-                else
-                    throw CalculException("Type inconnu.");
+            else
+                throw CalculException("Type inconnu.");
 
 }
 

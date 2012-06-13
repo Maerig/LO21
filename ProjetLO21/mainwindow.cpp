@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <iostream>
 #include <sstream>
+#include "calculexception.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -63,10 +64,20 @@ void MainWindow::typeChanged(){ Donnee::setTypeDonnees(ui->numTYPE->currentText(
 void MainWindow::enterPressed(){
     std::stringstream affichage;
     std::string saisie = ui->lineEdit->text().toStdString();
-    stack->empiler(fact->make(saisie));
-    stack->afficher(affichage);
-    ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
-    ui->lineEdit->clear();
+    if(saisie[0])   //Permet de ne pas saisir un chaine vide
+    {
+        try
+        {
+            stack->empiler(fact->make(saisie));
+        }
+        catch(CalculException exc)
+        {
+            std::cerr<<exc.getInfo()<<"\n";
+        }
+        stack->afficher(affichage);
+        ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+        ui->lineEdit->clear();
+    }
 }
 
 void MainWindow::dropPressed(){
@@ -82,7 +93,15 @@ void MainWindow::dupPressed(){
 
     std::stringstream affichage;
 
+    try
+    {
     stack->dup();
+    }
+    catch (CalculException exc)
+    {
+        std::cerr<<exc.getInfo()<<"\n";
+    }
+
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
 }
@@ -100,7 +119,15 @@ void MainWindow::swapPressed(){
 
     std::stringstream affichage;
 
-    stack->swap();
+    try
+    {
+        stack->swap();
+    }
+    catch(CalculException exc)
+    {
+        std::cerr<<exc.getInfo()<<"\n";
+    }
+
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
 }

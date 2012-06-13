@@ -16,6 +16,9 @@ public :
     Expression(std::string str);
     bool valide() const;  //Renvoie vrai si l'expression est syntaxiquement correcte
 
+    void enfiler_debut(Donnee* elt);
+    void enfiler_fin(Donnee* elt);
+
     void afficher(std::ostream& f=std::cout) const;
     Donnee* clone() const;
 };

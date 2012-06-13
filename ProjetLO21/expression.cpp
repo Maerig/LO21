@@ -39,9 +39,9 @@ Donnee* Expression::clone() const {
     Cellule* next = tete->getSucc();
     while(next)
     {
-        Cellule* tmp = new Cellule(next->getContent()->clone());
-        cell->setSucc(tmp);
+        cell->setSucc(new Cellule(next->getContent()->clone()));
         next = next->getSucc();
+        cell = cell->getSucc();
     }
     return new Expression(newhead);
 }
@@ -77,4 +77,33 @@ bool Expression::valide() const //Verifie que la syntaxe de l'expression est con
     if(test)
         return true;
     return false;
+}
+
+void Expression::enfiler_debut(Donnee *elt)
+{
+    Expression* exp = dynamic_cast<Expression*>(elt);  //Si on enfile une expression
+    if(exp)
+    {
+        exp->enfiler_fin(this); //Cela revient a enfiler la premiere a la fin de la seconde
+        tete = exp->tete;
+    }
+    else
+        tete = new Cellule(elt,tete);
+}
+
+void Expression::enfiler_fin(Donnee *elt)
+{
+    if(!tete)
+        throw CalculException("Expression vide.");
+    else
+    {
+        Cellule* cell = tete;
+        while(cell->getSucc())
+            cell = cell->getSucc();
+        Expression* exp = dynamic_cast<Expression*>(elt);  //Si on enfile une expression
+        if(exp)
+            cell->setSucc(exp->tete); //On la concatene
+        else{
+            cell->setSucc(new Cellule(elt->clone()));}
+    }
 }

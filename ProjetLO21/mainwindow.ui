@@ -86,11 +86,6 @@
                <string>Reel</string>
               </property>
              </item>
-             <item>
-              <property name="text">
-               <string>Expression</string>
-              </property>
-             </item>
             </widget>
            </item>
            <item>
