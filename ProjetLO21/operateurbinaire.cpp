@@ -4,39 +4,173 @@
 
 void OperateurBinaire::Calculer(Pile* stack){
 
-    Donnee* B= stack->depiler();
-    Donnee* A= stack->depiler();
+    Donnee* dB= stack->depiler();
+    Donnee* dA= stack->depiler();
+
+    const Reel* test1 = dynamic_cast<const Reel*>(dA);
+    const Reel* test2 = dynamic_cast<const Reel*>(dB);
+    const Rationnel* test3 = dynamic_cast<const Rationnel*>(dA);
+    const Rationnel* test4 = dynamic_cast<const Rationnel*>(dB);
+    const Entier* test5 = dynamic_cast<const Entier*>(dA);
+    const Entier* test6 = dynamic_cast<const Entier*>(dB);
+    /*
+    Reel dA(3.4);
+    Reel dB(11.3);
+
+    Reel* A1=&dA;
+    Reel* B1=&dB;
+
+    const Reel* test1 = dynamic_cast<const Reel*>(A1);
+    const Reel* test2 = dynamic_cast<const Reel*>(B1);
 
 
+    if ( test1 || test2 ) {
 
-    switch (typeoperation) {
-    case (PLUS):
+            const Reel A=*test1;
+            const Reel B=*test2;
+            Reel C(A+B);
+            std::cout<<C.getVal();
+   }*/
 
 
-        break;
+    if ( test1 || test2 ) {
 
-    case(MINUS):
+        switch (typeoperation) {
+        case (PLUS):
+{
+            const Reel A=*test1;
+            const Reel B=*test2;
+            Reel C(A+B);
 
-        break;
+            Reel* dC=&C;
+            stack->empiler(dC);
+}
+            break;
 
-    case(DIV):
+        case(MINUS):
 
-        break;
+            break;
 
-    case (MULT):
+        case(DIV):
 
-        break;
+            break;
 
-    case(MODULO):
+        case (MULT):
 
-        break;
+            break;
 
-    case (POW):
+        case(MODULO):
 
-        break;
+            break;
+
+        case (POW):
+
+            break;
+
+    }
+    }
+
+    else if ( test3 || test4 ) {
+
+            switch (typeoperation) {
+            case (PLUS):
+    {
+                const Reel A=*test1;
+                const Reel B=*test2;
+                Reel C(A+B);
+
+                Reel* dC=&C;
+                stack->empiler(dC);
+
+                break;
+    }
+            case(MINUS):
+
+                break;
+
+            case(DIV):
+
+                break;
+
+            case (MULT):
+
+                break;
+
+            case(MODULO):
+
+                break;
+
+            case (POW):
+
+                break;
+
+        }
+    }
+
+    else if ( *test5 || *test6){
+
+            switch (typeoperation) {
+            case (PLUS):
+                {
+                        const Entier A=*test5;
+                        const Entier B=*test6;
+
+                        Entier C(A+B);
+                        Entier* dC=&C;
+                        stack->empiler(dC);
+                }
+                break;
+            case(MINUS):
+            {
+                    const Entier A=*test5;
+                    const Entier B=*test6;
+
+                    Entier C(A-B);
+                    Entier* dC=&C;
+                    stack->empiler(dC);
+            }
+
+                break;
+
+            case(DIV):
+            {
+                    const Entier A=*test5;
+                    const Entier B=*test6;
+
+                    Entier C(A/B);
+                    Entier* dC=&C;
+                    stack->empiler(dC);
+            }
+                    break;
+
+
+                break;
+
+            case (MULT):
+            {
+                const Entier A=*test5;
+                const Entier B=*test6;
+
+                Entier C(A*B);
+                Entier* dC=&C;
+                stack->empiler(dC);
+            }
+                break;
+
+            case(MODULO):
+
+            {
+
+            }
+
+                break;
+
+            case (POW):
+
+                break;
+
+            }
 
 }
 
 }
-
-

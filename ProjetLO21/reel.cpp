@@ -18,11 +18,11 @@ Donnee* Reel::clone() const
     return new Reel(val);
 }
 
-Reel operator+( Reel& a,  Reel& b){
+Reel* operator+( Reel& a,  Reel& b){
 
     float val=a.getVal()+b.getVal();
     Reel res(val);
-    return res;
+    return &res;
 }
 
 Reel operator-( Reel& a,  Reel& b){

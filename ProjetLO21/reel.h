@@ -21,7 +21,7 @@ public :
 };
 
 
-Reel operator+( Reel& a,  Reel& b);
+Reel* operator+( Reel& a,  Reel& b);
 Reel operator-( Reel& a,  Reel& b);
 Reel operator*( Reel& a,  Reel& b);
 Reel operator/( Reel& a,  Reel& b);

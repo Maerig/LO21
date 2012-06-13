@@ -19,12 +19,12 @@ public :
 };
 
 
-Entier operator+( Entier const &a,  Entier const &b);
-Entier operator-( Entier const &a,  Entier const &b);
-Entier operator*( Entier const &a,  Entier const &b);
-Entier operator/( Entier const &a,  Entier const &b);
-Entier operator%( Entier const &a,  Entier const &b);
-Entier operator^( Entier const &a,  Entier const &b);
+Entier* operator+( Entier  &a,  Entier  &b);
+Entier* operator-( Entier  &a,  Entier  &b);
+Entier* operator*( Entier  &a,  Entier  &b);
+Entier* operator/( Entier  &a,  Entier  &b);
+Entier* operator%( Entier  &a,  Entier  &b);
+Entier* operator^( Entier  &a,  Entier  &b);
 
 
 #endif // ENTIER_H
