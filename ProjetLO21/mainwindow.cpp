@@ -6,7 +6,7 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow), stack(new Pile), fact(new Factory)
+    ui(new Ui::MainWindow), stack(new Pile), fact(new Factory), memundo(new Memento), memredo(new Memento)
 
 {
     ui->setupUi(this);
@@ -38,7 +38,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->pileSWAP,SIGNAL(clicked()),this,SLOT(swapPressed()));
     QObject::connect(ui->pileCLEAR,SIGNAL(clicked()),this,SLOT(clearPressed()));
 
+    QObject::connect(ui->actionAnnuler,SIGNAL(triggered()),this,SLOT(annuler()));
+    QObject::connect(ui->actionRetablir,SIGNAL(triggered()),this,SLOT(retablir()));
+
     setWindowTitle("Rotaluklak");
+
 }
 
 void MainWindow::num0Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "0");}
@@ -69,6 +73,7 @@ void MainWindow::enterPressed(){
     {
         try
         {
+            memundo->save(stack);
             stack->empiler(fact->make(saisie));
         }
         catch(CalculException exc)
@@ -85,6 +90,7 @@ void MainWindow::dropPressed(){
 
     std::stringstream affichage;
 
+    memundo->save(stack);
     stack->drop();
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
@@ -96,7 +102,8 @@ void MainWindow::dupPressed(){
 
     try
     {
-    stack->dup();
+        memundo->save(stack);
+        stack->dup();
     }
     catch (CalculException exc)
     {
@@ -111,6 +118,7 @@ void MainWindow::sumPressed(){
 
     std::stringstream affichage;
 
+    memundo->save(stack);
     stack->sum();
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
@@ -122,6 +130,7 @@ void MainWindow::swapPressed(){
 
     try
     {
+        memundo->save(stack);
         stack->swap();
     }
     catch(CalculException exc)
@@ -137,9 +146,54 @@ void MainWindow::clearPressed(){
 
     std::stringstream affichage;
 
+    memundo->save(stack);
     stack->clear();
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+}
+
+void MainWindow::annuler()
+{
+    try
+    {
+        std::stringstream affichage;
+
+        if(memundo->longueur()>0)
+        {
+            memredo->save(stack);
+            stack->~Pile();
+            stack = memundo->restore();
+            stack->afficher(affichage);
+            ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+        }
+        else throw(CalculException("Impossible d'annuler."));
+    }
+    catch(CalculException exc)
+    {
+        std::cerr<<exc.getInfo()<<"\n";
+    }
+}
+
+void MainWindow::retablir()
+{
+    try
+    {
+        std::stringstream affichage;
+
+        if(memredo->longueur()>0)
+        {
+            memundo->save(stack);
+            stack->~Pile();
+            stack = memredo->restore();
+            stack->afficher(affichage);
+            ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+        }
+        else throw(CalculException("Impossible de retablir."));
+    }
+    catch(CalculException exc)
+    {
+        std::cerr<<exc.getInfo()<<"\n";
+    }
 }
 
 MainWindow::~MainWindow()

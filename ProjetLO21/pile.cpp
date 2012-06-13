@@ -41,6 +41,21 @@ void Pile::afficher(std::ostream& f) const
     }
 }
 
+Pile* Pile::clone() const {
+    if(taille == 0)
+        return new Pile;
+    Cellule* cell = new Cellule(tete->getContent()->clone());
+    Cellule* newhead = cell;
+    Cellule* next = tete->getSucc();
+    while(next)
+    {
+        cell->setSucc(new Cellule(next->getContent()->clone()));
+        next = next->getSucc();
+        cell = cell->getSucc();
+    }
+    return new Pile(newhead,taille);
+}
+
 void Pile::drop()
 {
     Cellule* cell = tete;

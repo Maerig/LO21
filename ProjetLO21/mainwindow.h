@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "pile.h"
 #include "factory.h"
+#include "memento.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,8 +24,9 @@ public:
 private:
     Ui::MainWindow *ui;
     Pile* stack;
-
     Factory* fact;
+    Memento* memundo;
+    Memento* memredo;
 
 private slots:
 
@@ -59,6 +60,9 @@ private slots:
     void sumPressed();
     void swapPressed();
     void clearPressed();
+
+    void annuler();
+    void retablir();
 };
 
 #endif // MAINWINDOW_H

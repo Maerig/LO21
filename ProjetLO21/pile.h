@@ -34,6 +34,7 @@ public :
     Donnee* depiler();
     void afficher(std::ostream& f=std::cout) const;
     std::ostream& operator<<(std::ostream& f) { afficher(f); return f; }
+    Pile* clone() const;
 
     void drop();
     void clear();
