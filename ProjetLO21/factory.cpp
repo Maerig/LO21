@@ -47,7 +47,7 @@ Reel* Factory::make_reel(std::string str)
 
 Expression* Factory::make_expression(std::string str)
 {
-    int i=1;
+    int i=1,n=0;
     Cellule* cell=0;    //Derniere cellule courante de la liste chainee en construction
     Cellule* tete=0;
     if(str[0]!='\'')
@@ -60,6 +60,7 @@ Expression* Factory::make_expression(std::string str)
         std::string tmp;
         while(str[i] != ' ' && str[i] != '\'' && str[i] != '\0')
             tmp += str[i++];
+        ++n;
         if(tete==0) //Premier element
         {
             cell = new Cellule(make(tmp));
@@ -75,7 +76,7 @@ Expression* Factory::make_expression(std::string str)
             ++i;
     }
     if(str[i] == '\'' && str[i+1] == '\0')
-        return  new Expression(tete);
+        return  new Expression(tete,n);
     throw CalculException("Syntaxe incorrecte.");
     return 0;
 }

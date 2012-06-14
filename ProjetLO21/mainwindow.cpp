@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->numDIV,SIGNAL(clicked()),this,SLOT(numDIVPressed()));
 
     QObject::connect(ui->numPUSH,SIGNAL(clicked()),this,SLOT(enterPressed()));
+    QObject::connect(ui->numEVAL,SIGNAL(clicked()),this,SLOT(evalPressed()));
     QObject::connect(ui->pileDROP,SIGNAL(clicked()),this,SLOT(dropPressed()));
     QObject::connect(ui->pileDUP,SIGNAL(clicked()),this,SLOT(dupPressed()));
     QObject::connect(ui->pileSUM,SIGNAL(clicked()),this,SLOT(sumPressed()));
@@ -83,6 +84,41 @@ void MainWindow::enterPressed(){
         stack->afficher(affichage);
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
         ui->lineEdit->clear();
+    }
+}
+
+void MainWindow::evalPressed()
+{
+    std::stringstream affichage;
+    Donnee* data = 0;
+    try
+    {
+        data = stack->depiler();
+    }
+    catch(CalculException exc)
+    {
+        std::cerr<<exc.getInfo()<<"\n";
+    }
+    Expression* exp = dynamic_cast<Expression*>(data);
+    if(exp)     //Il s'agit d'une expression
+    {
+        try
+        {
+            while(exp->longueur()>0)
+                stack->empiler(exp->defiler());
+        }
+        catch(CalculException exc)
+        {
+            std::cerr<<exc.getInfo()<<"\n";
+        }
+        stack->afficher(affichage);
+        ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+        ui->lineEdit->clear();
+    }
+    else
+    {
+        stack->empiler(data);
+        std::cerr<<("Erreur : Expression non reconnue.");
     }
 }
 
