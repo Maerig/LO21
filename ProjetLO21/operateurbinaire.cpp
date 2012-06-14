@@ -161,12 +161,7 @@ void OperateurBinaire::Calculer(Pile* stack){
                 case (PLUS):
                 {
                     Entier* C = new Entier;
-                    std::cerr<<"Passe 1\n";
-                    test5->afficher(std::cerr);
-                    test6->afficher(std::cerr);
                     *C = *test5 + *test6;
-                    std::cerr<<"C = ";
-                    C->afficher(std::cerr);
                     stack->empiler(C);
                 }
 

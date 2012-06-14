@@ -4,6 +4,8 @@
 #include <typeinfo>
 #include "factory.h"
 
+#include <iostream>
+
 
 Expression::Expression(std::string str)
 {
