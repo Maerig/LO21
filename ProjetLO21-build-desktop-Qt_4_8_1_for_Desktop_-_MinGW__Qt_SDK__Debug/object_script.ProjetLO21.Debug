@@ -1,0 +1,17 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\donnee.o
+./debug\pile.o
+./debug\factory.o
+./debug\reel.o
+./debug\rationnel.o
+./debug\entier.o
+./debug\complexe.o
+./debug\operateur.o
+./debug\operateurbinaire.o
+./debug\operateurunaire.o
+./debug\expression.o
+./debug\memento.o
+./debug\moc_mainwindow.o
+);

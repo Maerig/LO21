@@ -43,7 +43,7 @@ Donnee* Expression::clone() const {
         next = next->getSucc();
         cell = cell->getSucc();
     }
-    return new Expression(newhead);
+    return new Expression(newhead,taille);
 }
 
 bool Expression::valide() const //Verifie que la syntaxe de l'expression est conforme a la notation polonaise inversee
@@ -84,11 +84,15 @@ void Expression::enfiler_debut(Donnee *elt)
     Expression* exp = dynamic_cast<Expression*>(elt);  //Si on enfile une expression
     if(exp)
     {
+        taille += exp->longueur();
         exp->enfiler_fin(this); //Cela revient a enfiler la premiere a la fin de la seconde
         tete = exp->tete;
     }
     else
+    {
         tete = new Cellule(elt,tete);
+        ++taille;
+    }
 }
 
 void Expression::enfiler_fin(Donnee *elt)
@@ -102,8 +106,29 @@ void Expression::enfiler_fin(Donnee *elt)
             cell = cell->getSucc();
         Expression* exp = dynamic_cast<Expression*>(elt);  //Si on enfile une expression
         if(exp)
+        {
+            taille += exp->longueur();
             cell->setSucc(exp->tete); //On la concatene
-        else{
-            cell->setSucc(new Cellule(elt->clone()));}
+        }
+        else
+        {
+            cell->setSucc(new Cellule(elt->clone()));
+            ++taille;
+        }
     }
+}
+
+Donnee* Expression::defiler()
+{
+    if(taille>0)
+    {
+        Cellule* cell = tete;
+        tete = cell->getSucc();
+        Donnee* data = cell->getContent()->clone();
+        cell->~Cellule();
+        --taille;
+        return data;
+    }
+    else
+        throw CalculException("Expression vide.");
 }

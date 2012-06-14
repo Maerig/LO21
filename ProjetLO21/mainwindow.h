@@ -54,6 +54,7 @@ private slots:
     void numDIVPressed();
 
     void enterPressed();
+    void evalPressed();
 
     void dropPressed();
     void dupPressed();

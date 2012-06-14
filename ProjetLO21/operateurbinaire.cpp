@@ -13,7 +13,6 @@ OperateurBinaire::OperateurBinaire(std::string str)
 
 void OperateurBinaire::Calculer(Pile* stack){
 
-    stack->afficher(std::cerr);
     Donnee* dB= stack->depiler();
     Donnee* dA= stack->depiler();
 
@@ -129,17 +128,6 @@ void OperateurBinaire::Calculer(Pile* stack){
 
             switch (typeoperation) {
 
-                /*case (PLUS):
-
-                    {
-                            const Entier A=*test5;
-                            const Entier B=*test6;
-
-                            Entier C(A+B);
-                            Entier* dC=&C;
-                            stack->empiler(dC);
-                    }
-                    break;*/
                 case (PLUS):
                 {
                     Entier* C = new Entier;
@@ -154,38 +142,17 @@ void OperateurBinaire::Calculer(Pile* stack){
 
                     break;
 
-                case(MINUS):
-
-                {
-                        /*const Entier A=*test5;
-                        const Entier B=*test6;
-
-                        Entier C(A-B);
-                        Entier* dC=&C;
-                        stack->empiler(dC);
-                Entier* C = new Entier;
-                std::cerr<<"Passe 1\n";
-                test5->afficher(std::cerr);
-                test6->afficher(std::cerr);
-                *C = *test5 - *test6;
-                std::cerr<<"C = ";
-                C->afficher(std::cerr);
-                stack->empiler(C); */
-                }
-                    break;
+                case(MINUS):{
 
 
+		}
+		    break;
 
 
                 case(DIV):
 
                 {
-                        const Entier A=*test5;
-                        const Entier B=*test6;
-
-                        Entier C(A/B);
-                        Entier* dC=&C;
-                        stack->empiler(dC);
+                        
                 }
                     break;
 

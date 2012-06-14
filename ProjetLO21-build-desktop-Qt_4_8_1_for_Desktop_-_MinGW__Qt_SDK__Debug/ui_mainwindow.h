@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue 5. Jun 17:50:25 2012
+** Created: Thu 14. Jun 13:59:17 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -21,13 +21,13 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLineEdit>
 #include <QtGui/QMainWindow>
+#include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QRadioButton>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QStatusBar>
-#include <QtGui/QToolBar>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
@@ -36,13 +36,15 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionAnnuler;
+    QAction *actionRetablir;
     QWidget *centralWidget;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_6;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_5;
     QLineEdit *lineEdit;
-    QCheckBox *numExpression;
+    QPushButton *numPUSH;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_4;
     QComboBox *numTYPE;
@@ -52,11 +54,11 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
+    QPushButton *numQUOTE;
     QPushButton *numEVAL;
-    QPushButton *numPUSH;
     QGridLayout *gridLayout;
-    QPushButton *numParGch;
-    QPushButton *numParDrt;
+    QPushButton *numIMA;
+    QPushButton *numSPACE;
     QPushButton *numFACT;
     QPushButton *numCOSH;
     QPushButton *numCOS;
@@ -101,7 +103,7 @@ public:
     QPushButton *pileSWAP;
     QPushButton *pileCLEAR;
     QMenuBar *menuBar;
-    QToolBar *mainToolBar;
+    QMenu *menuEdition;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -109,12 +111,16 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(734, 351);
+        actionAnnuler = new QAction(MainWindow);
+        actionAnnuler->setObjectName(QString::fromUtf8("actionAnnuler"));
+        actionRetablir = new QAction(MainWindow);
+        actionRetablir->setObjectName(QString::fromUtf8("actionRetablir"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(11, 11, 719, 276));
-        horizontalLayout_6 = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(11, 11, 719, 276));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget);
         horizontalLayout_6->setSpacing(6);
         horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
@@ -126,18 +132,19 @@ public:
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setSpacing(6);
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        lineEdit = new QLineEdit(widget);
+        lineEdit = new QLineEdit(layoutWidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setBaseSize(QSize(257, 27));
-        lineEdit->setLayoutDirection(Qt::RightToLeft);
+        lineEdit->setLayoutDirection(Qt::LeftToRight);
+        lineEdit->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         lineEdit->setReadOnly(true);
 
         horizontalLayout_5->addWidget(lineEdit);
 
-        numExpression = new QCheckBox(widget);
-        numExpression->setObjectName(QString::fromUtf8("numExpression"));
+        numPUSH = new QPushButton(layoutWidget);
+        numPUSH->setObjectName(QString::fromUtf8("numPUSH"));
 
-        horizontalLayout_5->addWidget(numExpression);
+        horizontalLayout_5->addWidget(numPUSH);
 
 
         verticalLayout_4->addLayout(horizontalLayout_5);
@@ -149,22 +156,23 @@ public:
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        numTYPE = new QComboBox(widget);
+        numTYPE = new QComboBox(layoutWidget);
         numTYPE->setObjectName(QString::fromUtf8("numTYPE"));
 
         horizontalLayout_4->addWidget(numTYPE);
 
-        numComplexe = new QCheckBox(widget);
+        numComplexe = new QCheckBox(layoutWidget);
         numComplexe->setObjectName(QString::fromUtf8("numComplexe"));
 
         horizontalLayout_4->addWidget(numComplexe);
 
-        numDegre = new QRadioButton(widget);
+        numDegre = new QRadioButton(layoutWidget);
         numDegre->setObjectName(QString::fromUtf8("numDegre"));
+        numDegre->setChecked(true);
 
         horizontalLayout_4->addWidget(numDegre);
 
-        numRadian = new QRadioButton(widget);
+        numRadian = new QRadioButton(layoutWidget);
         numRadian->setObjectName(QString::fromUtf8("numRadian"));
 
         horizontalLayout_4->addWidget(numRadian);
@@ -181,26 +189,26 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        numEVAL = new QPushButton(widget);
-        numEVAL->setObjectName(QString::fromUtf8("numEVAL"));
+        numQUOTE = new QPushButton(layoutWidget);
+        numQUOTE->setObjectName(QString::fromUtf8("numQUOTE"));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(numQUOTE->sizePolicy().hasHeightForWidth());
+        numQUOTE->setSizePolicy(sizePolicy);
+        numQUOTE->setMaximumSize(QSize(85, 27));
+        numQUOTE->setBaseSize(QSize(85, 27));
+
+        horizontalLayout->addWidget(numQUOTE);
+
+        numEVAL = new QPushButton(layoutWidget);
+        numEVAL->setObjectName(QString::fromUtf8("numEVAL"));
         sizePolicy.setHeightForWidth(numEVAL->sizePolicy().hasHeightForWidth());
         numEVAL->setSizePolicy(sizePolicy);
-        numEVAL->setMaximumSize(QSize(85, 27));
-        numEVAL->setBaseSize(QSize(85, 27));
+        numEVAL->setMaximumSize(QSize(16777215, 16777215));
+        numEVAL->setBaseSize(QSize(0, 0));
 
         horizontalLayout->addWidget(numEVAL);
-
-        numPUSH = new QPushButton(widget);
-        numPUSH->setObjectName(QString::fromUtf8("numPUSH"));
-        sizePolicy.setHeightForWidth(numPUSH->sizePolicy().hasHeightForWidth());
-        numPUSH->setSizePolicy(sizePolicy);
-        numPUSH->setMaximumSize(QSize(16777215, 16777215));
-        numPUSH->setBaseSize(QSize(0, 0));
-
-        horizontalLayout->addWidget(numPUSH);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -208,25 +216,25 @@ public:
         gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        numParGch = new QPushButton(widget);
-        numParGch->setObjectName(QString::fromUtf8("numParGch"));
-        sizePolicy.setHeightForWidth(numParGch->sizePolicy().hasHeightForWidth());
-        numParGch->setSizePolicy(sizePolicy);
-        numParGch->setMaximumSize(QSize(51, 27));
-        numParGch->setBaseSize(QSize(51, 27));
+        numIMA = new QPushButton(layoutWidget);
+        numIMA->setObjectName(QString::fromUtf8("numIMA"));
+        sizePolicy.setHeightForWidth(numIMA->sizePolicy().hasHeightForWidth());
+        numIMA->setSizePolicy(sizePolicy);
+        numIMA->setMaximumSize(QSize(51, 27));
+        numIMA->setBaseSize(QSize(51, 27));
 
-        gridLayout->addWidget(numParGch, 0, 0, 1, 1);
+        gridLayout->addWidget(numIMA, 0, 0, 1, 1);
 
-        numParDrt = new QPushButton(widget);
-        numParDrt->setObjectName(QString::fromUtf8("numParDrt"));
-        sizePolicy.setHeightForWidth(numParDrt->sizePolicy().hasHeightForWidth());
-        numParDrt->setSizePolicy(sizePolicy);
-        numParDrt->setMaximumSize(QSize(51, 27));
-        numParDrt->setBaseSize(QSize(51, 27));
+        numSPACE = new QPushButton(layoutWidget);
+        numSPACE->setObjectName(QString::fromUtf8("numSPACE"));
+        sizePolicy.setHeightForWidth(numSPACE->sizePolicy().hasHeightForWidth());
+        numSPACE->setSizePolicy(sizePolicy);
+        numSPACE->setMaximumSize(QSize(51, 27));
+        numSPACE->setBaseSize(QSize(51, 27));
 
-        gridLayout->addWidget(numParDrt, 0, 1, 1, 1);
+        gridLayout->addWidget(numSPACE, 0, 1, 1, 1);
 
-        numFACT = new QPushButton(widget);
+        numFACT = new QPushButton(layoutWidget);
         numFACT->setObjectName(QString::fromUtf8("numFACT"));
         sizePolicy.setHeightForWidth(numFACT->sizePolicy().hasHeightForWidth());
         numFACT->setSizePolicy(sizePolicy);
@@ -235,7 +243,7 @@ public:
 
         gridLayout->addWidget(numFACT, 0, 2, 1, 1);
 
-        numCOSH = new QPushButton(widget);
+        numCOSH = new QPushButton(layoutWidget);
         numCOSH->setObjectName(QString::fromUtf8("numCOSH"));
         sizePolicy.setHeightForWidth(numCOSH->sizePolicy().hasHeightForWidth());
         numCOSH->setSizePolicy(sizePolicy);
@@ -244,7 +252,7 @@ public:
 
         gridLayout->addWidget(numCOSH, 1, 0, 1, 1);
 
-        numCOS = new QPushButton(widget);
+        numCOS = new QPushButton(layoutWidget);
         numCOS->setObjectName(QString::fromUtf8("numCOS"));
         sizePolicy.setHeightForWidth(numCOS->sizePolicy().hasHeightForWidth());
         numCOS->setSizePolicy(sizePolicy);
@@ -253,7 +261,7 @@ public:
 
         gridLayout->addWidget(numCOS, 1, 1, 1, 1);
 
-        numPOW2 = new QPushButton(widget);
+        numPOW2 = new QPushButton(layoutWidget);
         numPOW2->setObjectName(QString::fromUtf8("numPOW2"));
         sizePolicy.setHeightForWidth(numPOW2->sizePolicy().hasHeightForWidth());
         numPOW2->setSizePolicy(sizePolicy);
@@ -262,7 +270,7 @@ public:
 
         gridLayout->addWidget(numPOW2, 1, 2, 1, 1);
 
-        numSINH = new QPushButton(widget);
+        numSINH = new QPushButton(layoutWidget);
         numSINH->setObjectName(QString::fromUtf8("numSINH"));
         sizePolicy.setHeightForWidth(numSINH->sizePolicy().hasHeightForWidth());
         numSINH->setSizePolicy(sizePolicy);
@@ -271,7 +279,7 @@ public:
 
         gridLayout->addWidget(numSINH, 2, 0, 1, 1);
 
-        numSIN = new QPushButton(widget);
+        numSIN = new QPushButton(layoutWidget);
         numSIN->setObjectName(QString::fromUtf8("numSIN"));
         sizePolicy.setHeightForWidth(numSIN->sizePolicy().hasHeightForWidth());
         numSIN->setSizePolicy(sizePolicy);
@@ -280,7 +288,7 @@ public:
 
         gridLayout->addWidget(numSIN, 2, 1, 1, 1);
 
-        numPOW3 = new QPushButton(widget);
+        numPOW3 = new QPushButton(layoutWidget);
         numPOW3->setObjectName(QString::fromUtf8("numPOW3"));
         sizePolicy.setHeightForWidth(numPOW3->sizePolicy().hasHeightForWidth());
         numPOW3->setSizePolicy(sizePolicy);
@@ -289,7 +297,7 @@ public:
 
         gridLayout->addWidget(numPOW3, 2, 2, 1, 1);
 
-        numTANH = new QPushButton(widget);
+        numTANH = new QPushButton(layoutWidget);
         numTANH->setObjectName(QString::fromUtf8("numTANH"));
         sizePolicy.setHeightForWidth(numTANH->sizePolicy().hasHeightForWidth());
         numTANH->setSizePolicy(sizePolicy);
@@ -298,7 +306,7 @@ public:
 
         gridLayout->addWidget(numTANH, 3, 0, 1, 1);
 
-        numTAN = new QPushButton(widget);
+        numTAN = new QPushButton(layoutWidget);
         numTAN->setObjectName(QString::fromUtf8("numTAN"));
         sizePolicy.setHeightForWidth(numTAN->sizePolicy().hasHeightForWidth());
         numTAN->setSizePolicy(sizePolicy);
@@ -307,7 +315,7 @@ public:
 
         gridLayout->addWidget(numTAN, 3, 1, 1, 1);
 
-        numRACINE = new QPushButton(widget);
+        numRACINE = new QPushButton(layoutWidget);
         numRACINE->setObjectName(QString::fromUtf8("numRACINE"));
         sizePolicy.setHeightForWidth(numRACINE->sizePolicy().hasHeightForWidth());
         numRACINE->setSizePolicy(sizePolicy);
@@ -316,7 +324,7 @@ public:
 
         gridLayout->addWidget(numRACINE, 3, 2, 1, 1);
 
-        numLN = new QPushButton(widget);
+        numLN = new QPushButton(layoutWidget);
         numLN->setObjectName(QString::fromUtf8("numLN"));
         sizePolicy.setHeightForWidth(numLN->sizePolicy().hasHeightForWidth());
         numLN->setSizePolicy(sizePolicy);
@@ -325,7 +333,7 @@ public:
 
         gridLayout->addWidget(numLN, 4, 0, 1, 1);
 
-        numLOG = new QPushButton(widget);
+        numLOG = new QPushButton(layoutWidget);
         numLOG->setObjectName(QString::fromUtf8("numLOG"));
         sizePolicy.setHeightForWidth(numLOG->sizePolicy().hasHeightForWidth());
         numLOG->setSizePolicy(sizePolicy);
@@ -334,7 +342,7 @@ public:
 
         gridLayout->addWidget(numLOG, 4, 1, 1, 1);
 
-        numINV = new QPushButton(widget);
+        numINV = new QPushButton(layoutWidget);
         numINV->setObjectName(QString::fromUtf8("numINV"));
         sizePolicy.setHeightForWidth(numINV->sizePolicy().hasHeightForWidth());
         numINV->setSizePolicy(sizePolicy);
@@ -359,7 +367,7 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        numMOD = new QPushButton(widget);
+        numMOD = new QPushButton(layoutWidget);
         numMOD->setObjectName(QString::fromUtf8("numMOD"));
         sizePolicy.setHeightForWidth(numMOD->sizePolicy().hasHeightForWidth());
         numMOD->setSizePolicy(sizePolicy);
@@ -368,7 +376,7 @@ public:
 
         horizontalLayout_2->addWidget(numMOD);
 
-        numPOW = new QPushButton(widget);
+        numPOW = new QPushButton(layoutWidget);
         numPOW->setObjectName(QString::fromUtf8("numPOW"));
         sizePolicy.setHeightForWidth(numPOW->sizePolicy().hasHeightForWidth());
         numPOW->setSizePolicy(sizePolicy);
@@ -377,7 +385,7 @@ public:
 
         horizontalLayout_2->addWidget(numPOW);
 
-        numDIV = new QPushButton(widget);
+        numDIV = new QPushButton(layoutWidget);
         numDIV->setObjectName(QString::fromUtf8("numDIV"));
         sizePolicy.setHeightForWidth(numDIV->sizePolicy().hasHeightForWidth());
         numDIV->setSizePolicy(sizePolicy);
@@ -392,7 +400,7 @@ public:
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setSpacing(6);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        numMINUS = new QPushButton(widget);
+        numMINUS = new QPushButton(layoutWidget);
         numMINUS->setObjectName(QString::fromUtf8("numMINUS"));
         sizePolicy.setHeightForWidth(numMINUS->sizePolicy().hasHeightForWidth());
         numMINUS->setSizePolicy(sizePolicy);
@@ -401,7 +409,7 @@ public:
 
         gridLayout_2->addWidget(numMINUS, 0, 0, 1, 1);
 
-        numPLUS = new QPushButton(widget);
+        numPLUS = new QPushButton(layoutWidget);
         numPLUS->setObjectName(QString::fromUtf8("numPLUS"));
         sizePolicy.setHeightForWidth(numPLUS->sizePolicy().hasHeightForWidth());
         numPLUS->setSizePolicy(sizePolicy);
@@ -410,7 +418,7 @@ public:
 
         gridLayout_2->addWidget(numPLUS, 0, 1, 1, 1);
 
-        numMULT = new QPushButton(widget);
+        numMULT = new QPushButton(layoutWidget);
         numMULT->setObjectName(QString::fromUtf8("numMULT"));
         sizePolicy.setHeightForWidth(numMULT->sizePolicy().hasHeightForWidth());
         numMULT->setSizePolicy(sizePolicy);
@@ -419,7 +427,7 @@ public:
 
         gridLayout_2->addWidget(numMULT, 0, 2, 1, 1);
 
-        num7 = new QPushButton(widget);
+        num7 = new QPushButton(layoutWidget);
         num7->setObjectName(QString::fromUtf8("num7"));
         sizePolicy.setHeightForWidth(num7->sizePolicy().hasHeightForWidth());
         num7->setSizePolicy(sizePolicy);
@@ -428,7 +436,7 @@ public:
 
         gridLayout_2->addWidget(num7, 1, 0, 1, 1);
 
-        num8 = new QPushButton(widget);
+        num8 = new QPushButton(layoutWidget);
         num8->setObjectName(QString::fromUtf8("num8"));
         sizePolicy.setHeightForWidth(num8->sizePolicy().hasHeightForWidth());
         num8->setSizePolicy(sizePolicy);
@@ -437,7 +445,7 @@ public:
 
         gridLayout_2->addWidget(num8, 1, 1, 1, 1);
 
-        num9 = new QPushButton(widget);
+        num9 = new QPushButton(layoutWidget);
         num9->setObjectName(QString::fromUtf8("num9"));
         sizePolicy.setHeightForWidth(num9->sizePolicy().hasHeightForWidth());
         num9->setSizePolicy(sizePolicy);
@@ -446,7 +454,7 @@ public:
 
         gridLayout_2->addWidget(num9, 1, 2, 1, 1);
 
-        num4 = new QPushButton(widget);
+        num4 = new QPushButton(layoutWidget);
         num4->setObjectName(QString::fromUtf8("num4"));
         sizePolicy.setHeightForWidth(num4->sizePolicy().hasHeightForWidth());
         num4->setSizePolicy(sizePolicy);
@@ -455,7 +463,7 @@ public:
 
         gridLayout_2->addWidget(num4, 2, 0, 1, 1);
 
-        num5 = new QPushButton(widget);
+        num5 = new QPushButton(layoutWidget);
         num5->setObjectName(QString::fromUtf8("num5"));
         sizePolicy.setHeightForWidth(num5->sizePolicy().hasHeightForWidth());
         num5->setSizePolicy(sizePolicy);
@@ -464,7 +472,7 @@ public:
 
         gridLayout_2->addWidget(num5, 2, 1, 1, 1);
 
-        num6 = new QPushButton(widget);
+        num6 = new QPushButton(layoutWidget);
         num6->setObjectName(QString::fromUtf8("num6"));
         sizePolicy.setHeightForWidth(num6->sizePolicy().hasHeightForWidth());
         num6->setSizePolicy(sizePolicy);
@@ -473,7 +481,7 @@ public:
 
         gridLayout_2->addWidget(num6, 2, 2, 1, 1);
 
-        num1 = new QPushButton(widget);
+        num1 = new QPushButton(layoutWidget);
         num1->setObjectName(QString::fromUtf8("num1"));
         sizePolicy.setHeightForWidth(num1->sizePolicy().hasHeightForWidth());
         num1->setSizePolicy(sizePolicy);
@@ -482,7 +490,7 @@ public:
 
         gridLayout_2->addWidget(num1, 3, 0, 1, 1);
 
-        num2 = new QPushButton(widget);
+        num2 = new QPushButton(layoutWidget);
         num2->setObjectName(QString::fromUtf8("num2"));
         sizePolicy.setHeightForWidth(num2->sizePolicy().hasHeightForWidth());
         num2->setSizePolicy(sizePolicy);
@@ -491,7 +499,7 @@ public:
 
         gridLayout_2->addWidget(num2, 3, 1, 1, 1);
 
-        num3 = new QPushButton(widget);
+        num3 = new QPushButton(layoutWidget);
         num3->setObjectName(QString::fromUtf8("num3"));
         sizePolicy.setHeightForWidth(num3->sizePolicy().hasHeightForWidth());
         num3->setSizePolicy(sizePolicy);
@@ -500,7 +508,7 @@ public:
 
         gridLayout_2->addWidget(num3, 3, 2, 1, 1);
 
-        num0 = new QPushButton(widget);
+        num0 = new QPushButton(layoutWidget);
         num0->setObjectName(QString::fromUtf8("num0"));
         sizePolicy.setHeightForWidth(num0->sizePolicy().hasHeightForWidth());
         num0->setSizePolicy(sizePolicy);
@@ -509,7 +517,7 @@ public:
 
         gridLayout_2->addWidget(num0, 4, 0, 1, 1);
 
-        numPOINT = new QPushButton(widget);
+        numPOINT = new QPushButton(layoutWidget);
         numPOINT->setObjectName(QString::fromUtf8("numPOINT"));
         sizePolicy.setHeightForWidth(numPOINT->sizePolicy().hasHeightForWidth());
         numPOINT->setSizePolicy(sizePolicy);
@@ -518,7 +526,7 @@ public:
 
         gridLayout_2->addWidget(numPOINT, 4, 1, 1, 1);
 
-        numSIGN = new QPushButton(widget);
+        numSIGN = new QPushButton(layoutWidget);
         numSIGN->setObjectName(QString::fromUtf8("numSIGN"));
         sizePolicy.setHeightForWidth(numSIGN->sizePolicy().hasHeightForWidth());
         numSIGN->setSizePolicy(sizePolicy);
@@ -542,8 +550,9 @@ public:
 
         horizontalLayout_6->addLayout(verticalLayout_4);
 
-        PileAffichage = new QPlainTextEdit(widget);
+        PileAffichage = new QPlainTextEdit(layoutWidget);
         PileAffichage->setObjectName(QString::fromUtf8("PileAffichage"));
+        PileAffichage->setStyleSheet(QString::fromUtf8(""));
         PileAffichage->setReadOnly(true);
 
         horizontalLayout_6->addWidget(PileAffichage);
@@ -551,7 +560,7 @@ public:
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        pileDROP = new QPushButton(widget);
+        pileDROP = new QPushButton(layoutWidget);
         pileDROP->setObjectName(QString::fromUtf8("pileDROP"));
         sizePolicy.setHeightForWidth(pileDROP->sizePolicy().hasHeightForWidth());
         pileDROP->setSizePolicy(sizePolicy);
@@ -560,7 +569,7 @@ public:
 
         verticalLayout_5->addWidget(pileDROP);
 
-        pileDUP = new QPushButton(widget);
+        pileDUP = new QPushButton(layoutWidget);
         pileDUP->setObjectName(QString::fromUtf8("pileDUP"));
         sizePolicy.setHeightForWidth(pileDUP->sizePolicy().hasHeightForWidth());
         pileDUP->setSizePolicy(sizePolicy);
@@ -569,7 +578,7 @@ public:
 
         verticalLayout_5->addWidget(pileDUP);
 
-        pileMEAN = new QPushButton(widget);
+        pileMEAN = new QPushButton(layoutWidget);
         pileMEAN->setObjectName(QString::fromUtf8("pileMEAN"));
         sizePolicy.setHeightForWidth(pileMEAN->sizePolicy().hasHeightForWidth());
         pileMEAN->setSizePolicy(sizePolicy);
@@ -578,7 +587,7 @@ public:
 
         verticalLayout_5->addWidget(pileMEAN);
 
-        pileSUM = new QPushButton(widget);
+        pileSUM = new QPushButton(layoutWidget);
         pileSUM->setObjectName(QString::fromUtf8("pileSUM"));
         sizePolicy.setHeightForWidth(pileSUM->sizePolicy().hasHeightForWidth());
         pileSUM->setSizePolicy(sizePolicy);
@@ -587,7 +596,7 @@ public:
 
         verticalLayout_5->addWidget(pileSUM);
 
-        pileSWAP = new QPushButton(widget);
+        pileSWAP = new QPushButton(layoutWidget);
         pileSWAP->setObjectName(QString::fromUtf8("pileSWAP"));
         sizePolicy.setHeightForWidth(pileSWAP->sizePolicy().hasHeightForWidth());
         pileSWAP->setSizePolicy(sizePolicy);
@@ -596,7 +605,7 @@ public:
 
         verticalLayout_5->addWidget(pileSWAP);
 
-        pileCLEAR = new QPushButton(widget);
+        pileCLEAR = new QPushButton(layoutWidget);
         pileCLEAR->setObjectName(QString::fromUtf8("pileCLEAR"));
         sizePolicy.setHeightForWidth(pileCLEAR->sizePolicy().hasHeightForWidth());
         pileCLEAR->setSizePolicy(sizePolicy);
@@ -611,17 +620,19 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 734, 25));
+        menuBar->setGeometry(QRect(0, 0, 734, 21));
+        menuEdition = new QMenu(menuBar);
+        menuEdition->setObjectName(QString::fromUtf8("menuEdition"));
         MainWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
+        menuBar->addAction(menuEdition->menuAction());
+        menuEdition->addAction(actionAnnuler);
+        menuEdition->addAction(actionRetablir);
+
         retranslateUi(MainWindow);
-        QObject::connect(pileCLEAR, SIGNAL(pressed()), PileAffichage, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -629,7 +640,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        numExpression->setText(QApplication::translate("MainWindow", "Expression", 0, QApplication::UnicodeUTF8));
+        actionAnnuler->setText(QApplication::translate("MainWindow", "Annuler", 0, QApplication::UnicodeUTF8));
+        actionAnnuler->setShortcut(QApplication::translate("MainWindow", "Ctrl+Z", 0, QApplication::UnicodeUTF8));
+        actionRetablir->setText(QApplication::translate("MainWindow", "R\303\251tablir", 0, QApplication::UnicodeUTF8));
+        actionRetablir->setShortcut(QApplication::translate("MainWindow", "Ctrl+Y", 0, QApplication::UnicodeUTF8));
+        numPUSH->setText(QApplication::translate("MainWindow", "PUSH", 0, QApplication::UnicodeUTF8));
+        numPUSH->setShortcut(QApplication::translate("MainWindow", "Return", 0, QApplication::UnicodeUTF8));
         numTYPE->clear();
         numTYPE->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "Entier", 0, QApplication::UnicodeUTF8)
@@ -639,13 +655,13 @@ public:
         numComplexe->setText(QApplication::translate("MainWindow", "Complexe", 0, QApplication::UnicodeUTF8));
         numDegre->setText(QApplication::translate("MainWindow", "Degr\303\251", 0, QApplication::UnicodeUTF8));
         numRadian->setText(QApplication::translate("MainWindow", "Radians", 0, QApplication::UnicodeUTF8));
+        numQUOTE->setText(QApplication::translate("MainWindow", "'", 0, QApplication::UnicodeUTF8));
+        numQUOTE->setShortcut(QApplication::translate("MainWindow", "Alt+'", 0, QApplication::UnicodeUTF8));
         numEVAL->setText(QApplication::translate("MainWindow", "EVAL", 0, QApplication::UnicodeUTF8));
-        numPUSH->setText(QApplication::translate("MainWindow", "PUSH", 0, QApplication::UnicodeUTF8));
-        numPUSH->setShortcut(QApplication::translate("MainWindow", "Return", 0, QApplication::UnicodeUTF8));
-        numParGch->setText(QApplication::translate("MainWindow", "(", 0, QApplication::UnicodeUTF8));
-        numParGch->setShortcut(QApplication::translate("MainWindow", "(", 0, QApplication::UnicodeUTF8));
-        numParDrt->setText(QApplication::translate("MainWindow", ")", 0, QApplication::UnicodeUTF8));
-        numParDrt->setShortcut(QApplication::translate("MainWindow", ")", 0, QApplication::UnicodeUTF8));
+        numIMA->setText(QApplication::translate("MainWindow", "$", 0, QApplication::UnicodeUTF8));
+        numIMA->setShortcut(QApplication::translate("MainWindow", "$", 0, QApplication::UnicodeUTF8));
+        numSPACE->setText(QApplication::translate("MainWindow", " SPACE", 0, QApplication::UnicodeUTF8));
+        numSPACE->setShortcut(QApplication::translate("MainWindow", "Space", 0, QApplication::UnicodeUTF8));
         numFACT->setText(QApplication::translate("MainWindow", "!", 0, QApplication::UnicodeUTF8));
         numFACT->setShortcut(QApplication::translate("MainWindow", "!", 0, QApplication::UnicodeUTF8));
         numCOSH->setText(QApplication::translate("MainWindow", "COSH", 0, QApplication::UnicodeUTF8));
@@ -666,7 +682,7 @@ public:
         numDIV->setText(QApplication::translate("MainWindow", "/", 0, QApplication::UnicodeUTF8));
         numDIV->setShortcut(QApplication::translate("MainWindow", "/", 0, QApplication::UnicodeUTF8));
         numMINUS->setText(QApplication::translate("MainWindow", "-", 0, QApplication::UnicodeUTF8));
-        numMINUS->setShortcut(QApplication::translate("MainWindow", "-", 0, QApplication::UnicodeUTF8));
+        numMINUS->setShortcut(QApplication::translate("MainWindow", "Alt+-", 0, QApplication::UnicodeUTF8));
         numPLUS->setText(QApplication::translate("MainWindow", "+", 0, QApplication::UnicodeUTF8));
         numPLUS->setShortcut(QApplication::translate("MainWindow", "+", 0, QApplication::UnicodeUTF8));
         numMULT->setText(QApplication::translate("MainWindow", "*", 0, QApplication::UnicodeUTF8));
@@ -692,6 +708,7 @@ public:
         num0->setText(QApplication::translate("MainWindow", "0", 0, QApplication::UnicodeUTF8));
         num0->setShortcut(QApplication::translate("MainWindow", "0", 0, QApplication::UnicodeUTF8));
         numPOINT->setText(QApplication::translate("MainWindow", ".", 0, QApplication::UnicodeUTF8));
+        numPOINT->setShortcut(QApplication::translate("MainWindow", ".", 0, QApplication::UnicodeUTF8));
         numSIGN->setText(QApplication::translate("MainWindow", "SIGN", 0, QApplication::UnicodeUTF8));
         pileDROP->setText(QApplication::translate("MainWindow", "DROP", 0, QApplication::UnicodeUTF8));
         pileDUP->setText(QApplication::translate("MainWindow", "DUP", 0, QApplication::UnicodeUTF8));
@@ -699,6 +716,7 @@ public:
         pileSUM->setText(QApplication::translate("MainWindow", "SUM", 0, QApplication::UnicodeUTF8));
         pileSWAP->setText(QApplication::translate("MainWindow", "SWAP", 0, QApplication::UnicodeUTF8));
         pileCLEAR->setText(QApplication::translate("MainWindow", "CLEAR", 0, QApplication::UnicodeUTF8));
+        menuEdition->setTitle(QApplication::translate("MainWindow", "Edition", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
