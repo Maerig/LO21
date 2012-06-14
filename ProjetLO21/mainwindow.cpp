@@ -75,6 +75,7 @@ void MainWindow::enterPressed(){
         try
         {
             memundo->save(stack);
+            memredo->reset();
             stack->empiler(fact->make(saisie));
         }
         catch(CalculException exc)
@@ -127,6 +128,7 @@ void MainWindow::dropPressed(){
     std::stringstream affichage;
 
     memundo->save(stack);
+    memredo->reset();
     stack->drop();
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
@@ -139,6 +141,7 @@ void MainWindow::dupPressed(){
     try
     {
         memundo->save(stack);
+        memredo->reset();
         stack->dup();
     }
     catch (CalculException exc)
@@ -155,6 +158,7 @@ void MainWindow::sumPressed(){
     std::stringstream affichage;
 
     memundo->save(stack);
+    memredo->reset();
     stack->sum();
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
@@ -167,6 +171,7 @@ void MainWindow::swapPressed(){
     try
     {
         memundo->save(stack);
+        memredo->reset();
         stack->swap();
     }
     catch(CalculException exc)
@@ -183,6 +188,7 @@ void MainWindow::clearPressed(){
     std::stringstream affichage;
 
     memundo->save(stack);
+    memredo->reset();
     stack->clear();
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));

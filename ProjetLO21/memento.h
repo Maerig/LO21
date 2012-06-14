@@ -27,6 +27,7 @@ public :
 
     void save(Pile* stack);
     Pile* restore();
+    void reset();
 };
 
 #endif // MEMENTO_H

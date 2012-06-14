@@ -20,3 +20,8 @@ Pile* Memento::restore()
     }
         throw CalculException("Impossible d'annuler.");
 }
+
+void Memento::reset()
+{
+    while(tete) restore();
+}
