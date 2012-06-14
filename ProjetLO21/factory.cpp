@@ -84,8 +84,8 @@ Operateur* Factory::make_operateur(std::string str) //todo
 {
     if(str=="+" || str=="-" || str=="*" || str=="/" || str=="MOD" || str=="POW")
         return new OperateurBinaire(str);
-    else
-        return new OperateurUnaire(str);
+/*    else
+        return new OperateurUnaire(str);        TODO    */
 }
 
 Donnee* Factory::make(std::string str)

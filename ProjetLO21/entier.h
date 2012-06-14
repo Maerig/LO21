@@ -8,7 +8,7 @@ private :
     double val;
 
 public :
-    Entier(double v) : val(v) {}
+    Entier(double v=0) : val(v) {}
     double getVal() {return val;}
     void setVal(double v){val=v;}
 
@@ -16,10 +16,11 @@ public :
     Donnee* clone() const;
 
     operator float() const {return float(val);}
+    Entier& operator=(const Entier& n);
 };
 
 
-Entier* operator+( Entier  &a,  Entier  &b);
+Entier operator+( Entier  &a,  Entier  &b);
 Entier* operator-( Entier  &a,  Entier  &b);
 Entier* operator*( Entier  &a,  Entier  &b);
 Entier* operator/( Entier  &a,  Entier  &b);

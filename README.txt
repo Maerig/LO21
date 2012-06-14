@@ -6,4 +6,7 @@
 
 - Pourquoi ne pas faire comme OperateurBinaire pour OperateurUnaire ?
 
+- J'ai implémenté l'opérateur + pour les entiers. On pourra probablement pas faire pareil avec les réels et les rationnels,
+  vu qu'il y aura au moins un des deux testX égal à 0.
+
 http://sourcemaking.com/design_patterns/template_method

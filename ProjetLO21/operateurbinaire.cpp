@@ -5,8 +5,15 @@
 
 //enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
 
+OperateurBinaire::OperateurBinaire(std::string str)
+{
+    if(str=="+")
+        typeoperation = PLUS;
+}
+
 void OperateurBinaire::Calculer(Pile* stack){
 
+    stack->afficher(std::cerr);
     Donnee* dB= stack->depiler();
     Donnee* dA= stack->depiler();
 
@@ -110,21 +117,21 @@ void OperateurBinaire::Calculer(Pile* stack){
         }
     }
 
-    else if ( *test5 || *test6){
-
-        std::cerr<<"Passe 1 \n";
+    else if ( *test5 || *test6){    //On a forcément deux entiers
 
             switch (typeoperation) {
             case (PLUS):
-                {
-                        const Entier A=*test5;
-                        const Entier B=*test6;
-
-                        Entier C(A+B);
-                        Entier* dC=&C;
-                        stack->empiler(dC);
-                }
+            {
+                Entier* C = new Entier;
+                std::cerr<<"Passe 1\n";
+                test5->afficher(std::cerr);
+                test6->afficher(std::cerr);
+                *C = *test5 + *test6;
+                std::cerr<<"C = ";
+                C->afficher(std::cerr);
+                stack->empiler(C);
                 break;
+            }
             case(MINUS):
             {
                     const Entier A=*test5;
