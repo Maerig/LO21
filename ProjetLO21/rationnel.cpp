@@ -54,6 +54,7 @@ Rationnel& Rationnel::operator=(const Rationnel& n){
         num = n.num;
         denum= n.denum;
     }
+    return *this;
 }
 
 

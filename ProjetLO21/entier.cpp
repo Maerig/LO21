@@ -9,6 +9,7 @@ Entier& Entier::operator=(const Entier& n)
 {
     if(this != &n)
         val = n.val;
+    return *this;
 }
 
 Entier operator+(Entier& a,  Entier& b){

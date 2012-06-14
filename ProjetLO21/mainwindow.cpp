@@ -101,7 +101,7 @@ void MainWindow::evalPressed()
         exc.afficher();
     }
     Expression* exp = dynamic_cast<Expression*>(data);
-    if(exp)     //Il s'agit d'une expression
+    if(exp && exp->valide())     //Il s'agit d'une expression valide
     {
         try
         {
@@ -121,7 +121,10 @@ void MainWindow::evalPressed()
         stack->empiler(data);
         try
         {
-            throw(CalculException("Expression non reconnue."));
+            if(exp)
+                throw(CalculException("Erreur de syntaxe."));
+            else
+                throw(CalculException("Expression non reconnue."));
         }
         catch(CalculException exc)
         {
