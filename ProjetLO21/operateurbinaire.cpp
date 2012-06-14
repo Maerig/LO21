@@ -1,4 +1,7 @@
 #include "operateurbinaire.h"
+#include "calculexception.h"
+
+#include <iostream>
 
 //enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
 
@@ -109,6 +112,8 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     else if ( *test5 || *test6){
 
+        std::cerr<<"Passe 1 \n";
+
             switch (typeoperation) {
             case (PLUS):
                 {
@@ -173,4 +178,19 @@ void OperateurBinaire::Calculer(Pile* stack){
 
 }
 
+}
+
+
+void OperateurBinaire::afficher(std::ostream& f) const
+{
+    switch(typeoperation)
+    {
+        case(PLUS): f<<"+"; break;
+        default : throw CalculException("Type d'operateur inconnu."); break;
+    }
+}
+
+Donnee* OperateurBinaire::clone() const
+{
+    return new OperateurBinaire(typeoperation);
 }

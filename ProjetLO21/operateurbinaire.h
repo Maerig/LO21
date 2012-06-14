@@ -13,7 +13,8 @@ public:
     OperateurBinaire(TypeOperationBinaire t): typeoperation(t) {}
 
     void Calculer(Pile* stack);
-
+    void afficher(std::ostream& f=std::cout) const;
+    Donnee* clone() const;
 };
 
 

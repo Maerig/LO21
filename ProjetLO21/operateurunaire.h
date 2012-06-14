@@ -12,7 +12,8 @@ public:
     }
 
     virtual void CalculUnaire(Pile* stack)=0;
-
+    void afficher(std::ostream& f=std::cout) const;
+    Donnee* clone() const;
 };
 
 
