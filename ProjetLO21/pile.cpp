@@ -4,6 +4,7 @@
 #include "entier.h"
 #include "reel.h"
 #include "operateur.h"
+#include "factory.h"
 
 
 void Pile::empiler(Donnee* elt)
@@ -96,14 +97,9 @@ void Pile::dup()
 
 void Pile::sum()
 {
-    Reel somme(0);
-    Cellule* cell = tete;
-    while(cell)
-    {
-        somme = 0;  //todo
-        cell = cell->getSucc();
-    }
-    empiler(new Entier((double)somme.getVal()));
+    Factory fact;
+    while(taille > 1)
+        empiler(fact.make_operateur("+"));
 }
 
 void Pile::swap()
