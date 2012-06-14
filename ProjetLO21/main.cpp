@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     }
     catch(CalculException exc)
     {
-        std::cerr<<exc.getInfo()<<"\n";
+        exc.afficher();
     }
     return 0;
 }
