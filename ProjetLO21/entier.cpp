@@ -35,7 +35,7 @@ Entier operator*( Entier& a,  Entier& b){
 
 Entier operator/( Entier& a,  Entier& b){
 
-    double val=a.getVal()/b.getVal();
+    unsigned int val=a.getVal()/b.getVal();
     Entier res(val);
     return res;
 }
