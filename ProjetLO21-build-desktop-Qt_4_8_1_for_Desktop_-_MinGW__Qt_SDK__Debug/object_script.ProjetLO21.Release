@@ -1,0 +1,17 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\donnee.o
+./release\pile.o
+./release\factory.o
+./release\reel.o
+./release\rationnel.o
+./release\entier.o
+./release\complexe.o
+./release\operateur.o
+./release\operateurbinaire.o
+./release\operateurunaire.o
+./release\expression.o
+./release\memento.o
+./release\moc_mainwindow.o
+);
