@@ -81,7 +81,7 @@ Expression* Factory::make_expression(std::string str)
     return 0;
 }
 
-Operateur* Factory::make_operateur(std::string str) //todo
+Operateur* Factory::make_operateur(std::string str)
 {
 /*     if(str=="+" || str=="-" || str=="*" || str=="/" || str=="MOD" || str=="POW")
         return new OperateurBinaire(str);
@@ -92,15 +92,15 @@ Operateur* Factory::make_operateur(std::string str) //todo
     //enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
     if(str=="+") return new OperateurBinaire(PLUS);
 
-    if(str=="-") return new OperateurBinaire(MINUS);
+    else if(str=="-") return new OperateurBinaire(MINUS);
 
-    if(str=="*") return new OperateurBinaire(MULT);
+    else if(str=="*") return new OperateurBinaire(MULT);
 
-    if(str=="/") return new OperateurBinaire(DIV);
+    else if(str=="/") return new OperateurBinaire(DIV);
 
-    if(str=="MOD") return new OperateurBinaire(MODULO);
+    else if(str=="MOD") return new OperateurBinaire(MODULO);
 
-    if(str=="POW") return new OperateurBinaire(POW);
+    else if(str=="POW") return new OperateurBinaire(POW);
 
 
 

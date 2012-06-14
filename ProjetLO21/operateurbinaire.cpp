@@ -5,12 +5,6 @@
 
 //enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
 
-OperateurBinaire::OperateurBinaire(std::string str)
-{
-    if(str=="+")
-        typeoperation = PLUS;
-}
-
 void OperateurBinaire::Calculer(Pile* stack){
 
     Donnee* dB= stack->depiler();
@@ -24,7 +18,7 @@ void OperateurBinaire::Calculer(Pile* stack){
     Entier* test6 = dynamic_cast< Entier*>(dB);
 
 
-    if ( test1 || test2 ) {
+    if ( test1 || test2 ) {     //Au moins un reel
 
         Reel A(0);
         Reel B(0);
@@ -90,7 +84,7 @@ void OperateurBinaire::Calculer(Pile* stack){
         }
     }
 
-    else if ( test3 || test4 ) {
+    else if ( test3 || test4 ) {        //Au moins un rationnel
 
         Rationnel A(0);
         Rationnel B(0);
@@ -240,6 +234,11 @@ void OperateurBinaire::afficher(std::ostream& f) const
     switch(typeoperation)
     {
         case(PLUS): f<<"+"; break;
+        case(MINUS): f<<"-"; break;
+        case(DIV): f<<"/"; break;
+        case(MULT): f<<"*"; break;
+        case(MODULO): f<<"MOD"; break;
+        case(POW): f<<"POW"; break;
         default : throw CalculException("Type d'operateur inconnu."); break;
     }
 }
