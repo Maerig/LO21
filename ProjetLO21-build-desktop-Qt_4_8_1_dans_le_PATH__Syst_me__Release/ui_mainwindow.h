@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Jun 14 00:39:35 2012
+** Created: Thu Jun 14 21:58:17 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -682,7 +682,7 @@ public:
         numDIV->setText(QApplication::translate("MainWindow", "/", 0, QApplication::UnicodeUTF8));
         numDIV->setShortcut(QApplication::translate("MainWindow", "/", 0, QApplication::UnicodeUTF8));
         numMINUS->setText(QApplication::translate("MainWindow", "-", 0, QApplication::UnicodeUTF8));
-        numMINUS->setShortcut(QApplication::translate("MainWindow", "-", 0, QApplication::UnicodeUTF8));
+        numMINUS->setShortcut(QApplication::translate("MainWindow", "Alt+-", 0, QApplication::UnicodeUTF8));
         numPLUS->setText(QApplication::translate("MainWindow", "+", 0, QApplication::UnicodeUTF8));
         numPLUS->setShortcut(QApplication::translate("MainWindow", "+", 0, QApplication::UnicodeUTF8));
         numMULT->setText(QApplication::translate("MainWindow", "*", 0, QApplication::UnicodeUTF8));

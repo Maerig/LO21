@@ -49,13 +49,19 @@ Donnee* Rationnel::clone() const
     return new Rationnel(num,denum);
 }
 
+Rationnel& Rationnel::operator=(const Rationnel& n){
+    if(this != &n){
+        num = n.num;
+        denum= n.denum;
+    }
+}
+
 
 Rationnel operator+( Rationnel& a,  Rationnel& b){
 
 
-    Entier valDenum( ppcm (a.getNumerateur().getVal() , b.getNumerateur().getVal()));
-    Entier valNum( (a.getNumerateur().getVal()*valDenum.getVal()/a.getDenumerateur().getVal())
-                   + (b.getNumerateur().getVal()*valDenum.getVal()/b.getDenumerateur().getVal()) );
+    Entier valDenum( a.getDenumerateur().getVal() * b.getDenumerateur().getVal());
+    Entier valNum( a.getNumerateur().getVal()*b.getDenumerateur().getVal() + b.getNumerateur().getVal()*a.getDenumerateur().getVal() );
 
     Rationnel res(valNum, valDenum);
     return res;

@@ -17,26 +17,40 @@ void OperateurBinaire::Calculer(Pile* stack){
     Donnee* dB= stack->depiler();
     Donnee* dA= stack->depiler();
 
-    const Reel* test1 = dynamic_cast<const Reel*>(dA);
-    const Reel* test2 = dynamic_cast<const Reel*>(dB);
-    const Rationnel* test3 = dynamic_cast<const Rationnel*>(dA);
-    const Rationnel* test4 = dynamic_cast<const Rationnel*>(dB);
-    const Entier* test5 = dynamic_cast<const Entier*>(dA);
-    const Entier* test6 = dynamic_cast<const Entier*>(dB);
+    Reel* test1 = dynamic_cast< Reel*>(dA);
+    Reel* test2 = dynamic_cast< Reel*>(dB);
+    Rationnel* test3 = dynamic_cast< Rationnel*>(dA);
+    Rationnel* test4 = dynamic_cast< Rationnel*>(dB);
+    Entier* test5 = dynamic_cast< Entier*>(dA);
+    Entier* test6 = dynamic_cast< Entier*>(dB);
 
 
     if ( test1 || test2 ) {
 
+        Reel A(0);
+        Reel B(0);
+
+        if (!test1){
+                        if (!test3) A=Reel(*test5);
+                         else A=Reel(*test3);
+                   }
+        else A=*test1;
+
+        if (!test2)
+            {
+                if (!test4) B=Reel(*test6);
+                 else B=Reel(*test4);
+            }
+        else B=*test2;
+
+
         switch (typeoperation) {
             case (PLUS):
-    {
-                const Reel A=*test1;
-                const Reel B=*test2;
-                Reel C(A+B);
-
-                Reel* dC=&C;
-                stack->empiler(dC);
-    }
+                        {
+                                    Reel* dC = new Reel;
+                                    *dC=(A+B);
+                                    stack->empiler(dC);
+                        }
                 break;
 
             case(MINUS):
@@ -64,18 +78,30 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     else if ( test3 || test4 ) {
 
+        Rationnel A(0);
+        Rationnel B(0);
+
+        if (!test3){
+                        A=Rationnel(*test5);
+                   }
+        else A=*test3;
+
+        if (!test4)
+                    {
+                        B=Rationnel(*test4);
+                    }
+        else B=*test4;
+
+
+
             switch (typeoperation) {
             case (PLUS):
-    {
-                const Reel A=*test1;
-                const Reel B=*test2;
-                Reel C(A+B);
-
-                Reel* dC=&C;
-                stack->empiler(dC);
-
+                       {
+                            Rationnel* dC = new Rationnel;
+                            *dC=(A+B);
+                            stack->empiler(dC);
+                       }
                 break;
-    }
             case(MINUS):
 
                 break;
@@ -114,31 +140,41 @@ void OperateurBinaire::Calculer(Pile* stack){
                             stack->empiler(dC);
                     }
                     break;*/
+                case (PLUS):
+                {
+                    Entier* C = new Entier;
+                    std::cerr<<"Passe 1\n";
+                    test5->afficher(std::cerr);
+                    test6->afficher(std::cerr);
+                    *C = *test5 + *test6;
+                    std::cerr<<"C = ";
+                    C->afficher(std::cerr);
+                    stack->empiler(C);
+                }
+
+                    break;
+
                 case(MINUS):
 
                 {
-                        const Entier A=*test5;
+                        /*const Entier A=*test5;
                         const Entier B=*test6;
 
                         Entier C(A-B);
                         Entier* dC=&C;
                         stack->empiler(dC);
+                Entier* C = new Entier;
+                std::cerr<<"Passe 1\n";
+                test5->afficher(std::cerr);
+                test6->afficher(std::cerr);
+                *C = *test5 - *test6;
+                std::cerr<<"C = ";
+                C->afficher(std::cerr);
+                stack->empiler(C); */
                 }
                     break;
 
-		case (PLUS):
-		    {
-		        Entier* C = new Entier;
-		        std::cerr<<"Passe 1\n";
-		        test5->afficher(std::cerr);
-		        test6->afficher(std::cerr);
-		        *C = *test5 + *test6;
-		        std::cerr<<"C = ";
-		        C->afficher(std::cerr);
-		        stack->empiler(C);
-		        break;
-		    }
-		    
+
 
 
                 case(DIV):

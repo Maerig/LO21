@@ -10,7 +10,7 @@ private :
     float val;
 
 public :
-    Reel(float v) : val(v) {}
+    Reel(float v=0) : val(v) {}
     Reel(Entier e);                                             // Constructeur de RÃ©el Ã  partir d'un Entier
     Reel(Rationnel r);                                          // Constructeur de RÃ©el Ã  partir d'un Rationnel
 
@@ -18,10 +18,12 @@ public :
     void afficher(std::ostream& f=std::cout) const { f<<val; }
     virtual Donnee* clone() const;
     operator float() const {return val;}
+
+    Reel& operator=(const Reel& n);
 };
 
 
-Reel* operator+( Reel& a,  Reel& b);
+Reel operator+( Reel& a,  Reel& b);
 Reel operator-( Reel& a,  Reel& b);
 Reel operator*( Reel& a,  Reel& b);
 Reel operator/( Reel& a,  Reel& b);
