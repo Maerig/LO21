@@ -80,7 +80,7 @@ void MainWindow::enterPressed(){
         }
         catch(CalculException exc)
         {
-            std::cerr<<exc.getInfo()<<"\n";
+            exc.afficher();
         }
         stack->afficher(affichage);
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
@@ -98,7 +98,7 @@ void MainWindow::evalPressed()
     }
     catch(CalculException exc)
     {
-        std::cerr<<exc.getInfo()<<"\n";
+        exc.afficher();
     }
     Expression* exp = dynamic_cast<Expression*>(data);
     if(exp)     //Il s'agit d'une expression
@@ -110,7 +110,7 @@ void MainWindow::evalPressed()
         }
         catch(CalculException exc)
         {
-            std::cerr<<exc.getInfo()<<"\n";
+            exc.afficher();
         }
         stack->afficher(affichage);
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
@@ -119,7 +119,14 @@ void MainWindow::evalPressed()
     else
     {
         stack->empiler(data);
-        std::cerr<<("Erreur : Expression non reconnue.");
+        try
+        {
+            throw(CalculException("Expression non reconnue."));
+        }
+        catch(CalculException exc)
+        {
+            exc.afficher();
+        }
     }
 }
 
@@ -146,7 +153,7 @@ void MainWindow::dupPressed(){
     }
     catch (CalculException exc)
     {
-        std::cerr<<exc.getInfo()<<"\n";
+        exc.afficher();
     }
 
     stack->afficher(affichage);
@@ -176,7 +183,7 @@ void MainWindow::swapPressed(){
     }
     catch(CalculException exc)
     {
-        std::cerr<<exc.getInfo()<<"\n";
+        exc.afficher();
     }
 
     stack->afficher(affichage);
@@ -212,7 +219,7 @@ void MainWindow::annuler()
     }
     catch(CalculException exc)
     {
-        std::cerr<<exc.getInfo()<<"\n";
+        exc.afficher();
     }
 }
 
@@ -234,7 +241,7 @@ void MainWindow::retablir()
     }
     catch(CalculException exc)
     {
-        std::cerr<<exc.getInfo()<<"\n";
+        exc.afficher();
     }
 }
 
