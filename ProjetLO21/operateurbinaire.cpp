@@ -1,9 +1,19 @@
 #include "operateurbinaire.h"
+#include "calculexception.h"
+
+#include <iostream>
 
 //enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
 
+OperateurBinaire::OperateurBinaire(std::string str)
+{
+    if(str=="+")
+        typeoperation = PLUS;
+}
+
 void OperateurBinaire::Calculer(Pile* stack){
 
+    stack->afficher(std::cerr);
     Donnee* dB= stack->depiler();
     Donnee* dA= stack->depiler();
 
@@ -89,10 +99,11 @@ void OperateurBinaire::Calculer(Pile* stack){
         }
     }
 
-    else if ( *test5 || *test6){
+    else if ( *test5 || *test6){    //On a forcément deux entiers
 
             switch (typeoperation) {
-                case (PLUS):
+
+                /*case (PLUS):
 
                     {
                             const Entier A=*test5;
@@ -102,7 +113,7 @@ void OperateurBinaire::Calculer(Pile* stack){
                             Entier* dC=&C;
                             stack->empiler(dC);
                     }
-                    break;
+                    break;*/
                 case(MINUS):
 
                 {
@@ -114,6 +125,21 @@ void OperateurBinaire::Calculer(Pile* stack){
                         stack->empiler(dC);
                 }
                     break;
+
+		case (PLUS):
+		    {
+		        Entier* C = new Entier;
+		        std::cerr<<"Passe 1\n";
+		        test5->afficher(std::cerr);
+		        test6->afficher(std::cerr);
+		        *C = *test5 + *test6;
+		        std::cerr<<"C = ";
+		        C->afficher(std::cerr);
+		        stack->empiler(C);
+		        break;
+		    }
+		    
+
 
                 case(DIV):
 
@@ -154,4 +180,19 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     }
 
+}
+
+
+void OperateurBinaire::afficher(std::ostream& f) const
+{
+    switch(typeoperation)
+    {
+        case(PLUS): f<<"+"; break;
+        default : throw CalculException("Type d'operateur inconnu."); break;
+    }
+}
+
+Donnee* OperateurBinaire::clone() const
+{
+    return new OperateurBinaire(typeoperation);
 }

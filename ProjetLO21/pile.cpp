@@ -3,6 +3,8 @@
 #include <iostream>
 #include "entier.h"
 #include "reel.h"
+#include "operateur.h"
+#include "factory.h"
 
 
 void Pile::empiler(Donnee* elt)
@@ -10,6 +12,15 @@ void Pile::empiler(Donnee* elt)
     Cellule* cell = new Cellule(elt,tete);
     tete = cell;
     ++taille;
+    Operateur* op = dynamic_cast<Operateur*>(elt);
+    if(op)                          //Si on empile un operateur
+    {
+        op = dynamic_cast<Operateur*>(depiler());   //On le depile
+        if(taille>=2)
+           op->Calculer(this);   //Puis on effectue le calcul
+        else
+            throw CalculException("La pile ne contient pas suffisamment d'elements.");
+    }
 }
 
 Donnee* Pile::depiler()
@@ -86,14 +97,9 @@ void Pile::dup()
 
 void Pile::sum()
 {
-    Reel somme(0);
-    Cellule* cell = tete;
-    while(cell)
-    {
-        somme = 0;  //todo
-        cell = cell->getSucc();
-    }
-    empiler(new Entier((double)somme.getVal()));
+    Factory fact;
+    while(taille > 1)
+        empiler(fact.make_operateur("+"));
 }
 
 void Pile::swap()

@@ -5,11 +5,17 @@ Donnee* Entier::clone() const
     return new Entier(val);
 }
 
-Entier* operator+(Entier& a,  Entier& b){
+Entier& Entier::operator=(const Entier& n)
+{
+    if(this != &n)
+        val = n.val;
+}
+
+Entier operator+(Entier& a,  Entier& b){
 
     double valeur=a.getVal()+b.getVal();
     Entier res(valeur);
-    return &res;
+    return res;
 }
 
 Entier* operator-( Entier& a,  Entier& b){

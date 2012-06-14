@@ -4,8 +4,9 @@
 - Oui, il faut passer la pile en paramètre.
 - Ce sera beaucoup plus simple et pratique avec un switch.
 
-+ Dans tous les cas, quand on appelle Calculer(), on dépile un ou deux opérateurs et on les définit comme successeurs de l'opérateur.
-  Seulement après, on effectue le calcul et on empile le résultat. Ça  sert à rien pour l'instant, mais ce sera beaucoup plus simple
-  quand on fera les expressions.
+- Pourquoi ne pas faire comme OperateurBinaire pour OperateurUnaire ?
+
+- J'ai implémenté l'opérateur + pour les entiers. On pourra probablement pas faire pareil avec les réels et les rationnels,
+  vu qu'il y aura au moins un des deux testX égal à 0.
 
 http://sourcemaking.com/design_patterns/template_method

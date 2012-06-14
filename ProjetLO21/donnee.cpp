@@ -37,7 +37,7 @@ bool number(std::string str)
     int i=0;
     while(str[i])
     {
-        //if(number(str[i]) || (str[i]=='/' && i>0 && number(str[i-1]) && number(str[i+1])))
+
         if(number(str[i]) || ((str[i]=='/' || str[i]=='.') && i>0 && number(str[i-1]) && number(str[i+1])))
             ++i;
         else

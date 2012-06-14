@@ -82,7 +82,10 @@ Expression* Factory::make_expression(std::string str)
 
 Operateur* Factory::make_operateur(std::string str) //todo
 {
-        return 0;
+    if(str=="+" || str=="-" || str=="*" || str=="/" || str=="MOD" || str=="POW")
+        return new OperateurBinaire(str);
+/*    else
+        return new OperateurUnaire(str);        TODO    */
 }
 
 Donnee* Factory::make(std::string str)

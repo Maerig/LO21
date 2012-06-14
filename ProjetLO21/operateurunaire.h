@@ -2,17 +2,21 @@
 #define OPERATEURUNAIRE_H
 
 #include "operateur.h"
+#include <string>
 
-class OperateurUnaire : public Operateur {
+class OperateurUnaire /*: public Operateur */{              //TODO
 
 public:
 
+    OperateurUnaire(std::string str);
+
     void Calculer(Pile* stack){
-        CalculUnaire(stack);
+/*        CalculUnaire(stack);                              */
     }
 
-    virtual void CalculUnaire(Pile* stack)=0;
-
+/*    virtual void CalculUnaire(Pile* stack)=0;                 TODO    */
+    void afficher(std::ostream& f=std::cout) const;
+    Donnee* clone() const;
 };
 
 
