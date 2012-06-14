@@ -23,6 +23,7 @@ Reel& Reel::operator=(const Reel& n)
 {
     if(this != &n)
         val = n.val;
+    return *this;
 }
 
 

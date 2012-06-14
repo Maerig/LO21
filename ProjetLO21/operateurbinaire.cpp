@@ -53,14 +53,29 @@ void OperateurBinaire::Calculer(Pile* stack){
                 break;
 
             case(MINUS):
+        {
+                    Reel* dC = new Reel;
+                    *dC=(A-B);
+                    stack->empiler(dC);
+        }
 
                 break;
 
             case(DIV):
+        {
+                    Reel* dC = new Reel;
+                    *dC=(A/B);
+                    stack->empiler(dC);
+        }
 
                 break;
 
             case (MULT):
+        {
+                    Reel* dC = new Reel;
+                    *dC=(A*B);
+                    stack->empiler(dC);
+        }
 
                 break;
 
@@ -102,14 +117,29 @@ void OperateurBinaire::Calculer(Pile* stack){
                        }
                 break;
             case(MINUS):
+            {
+                 Rationnel* dC = new Rationnel;
+                 *dC=(A-B);
+                 stack->empiler(dC);
+            }
 
                 break;
 
             case(DIV):
+            {
+                 Rationnel* dC = new Rationnel;
+                 *dC=(A/B);
+                 stack->empiler(dC);
+            }
 
                 break;
 
             case (MULT):
+            {
+                 Rationnel* dC = new Rationnel;
+                 *dC=(A*B);
+                 stack->empiler(dC);
+            }
 
                 break;
 
@@ -142,29 +172,53 @@ void OperateurBinaire::Calculer(Pile* stack){
 
                     break;
 
-                case(MINUS):{
+                case(MINUS):
+                {
+                    Entier* C = new Entier;
+                    std::cerr<<"Passe 1\n";
+                    test5->afficher(std::cerr);
+                    test6->afficher(std::cerr);
+                    *C = *test5 - *test6;
+                    std::cerr<<"C = ";
+                    C->afficher(std::cerr);
+                    stack->empiler(C);
 
-
-		}
-		    break;
+                }
+                    break;
 
 
                 case(DIV):
 
                 {
-                        
+                    Entier* C = new Entier;
+                    std::cerr<<"Passe 1\n";
+                    test5->afficher(std::cerr);
+                    test6->afficher(std::cerr);
+                    *C = *test5 / *test6;
+                    std::cerr<<"C = ";
+                    C->afficher(std::cerr);
+                    stack->empiler(C);
+
                 }
                     break;
 
                 case (MULT):
 
                 {
-                    const Entier A=*test5;
+                    /*const Entier A=*test5;
                     const Entier B=*test6;
 
                     Entier C(A*B);
                     Entier* dC=&C;
-                    stack->empiler(dC);
+                    stack->empiler(dC);*/
+                    Entier* C = new Entier;
+                    std::cerr<<"Passe 1\n";
+                    test5->afficher(std::cerr);
+                    test6->afficher(std::cerr);
+                    *C = *test5 * *test6;
+                    std::cerr<<"C = ";
+                    C->afficher(std::cerr);
+                    stack->empiler(C);
                 }
                     break;
 
