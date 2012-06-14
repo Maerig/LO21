@@ -12,7 +12,9 @@ class OperateurBinaire: public Operateur
 public:
 
     OperateurBinaire(TypeOperationBinaire t): typeoperation(t) {}
+
     //OperateurBinaire(std::string str);
+
 
     void Calculer(Pile* stack);
     void afficher(std::ostream& f=std::cout) const;
