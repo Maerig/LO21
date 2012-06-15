@@ -45,6 +45,28 @@ Reel* Factory::make_reel(std::string str)
     }
 }
 
+Complexe* Factory::make_complexe(std::string str)
+{
+    int i=0;
+    std::string re,im;
+    if(!Donnee::getTypeComplexe())
+    {
+        throw CalculException("On ne peut creer des complexes qu'en mode complexe.");
+        return 0;
+    }
+    if(!complexe_like(str))
+    {
+        throw CalculException("Erreur de syntaxe.");
+        return 0;
+    }
+    while(str[i]&&str[i]!='$')
+        re+=str[i++];
+    ++i;
+    while(str[i])
+        im+=str[i++];
+    return new Complexe(make(re),make(im));
+}
+
 Expression* Factory::make_expression(std::string str)
 {
     int i=1,n=0;
@@ -134,7 +156,13 @@ Donnee* Factory::make(std::string str)
         {
             if(operateur_like(str))
                 return make_operateur(str);
-            throw CalculException("Syntaxe incorrecte.");
+            if(complexe_like(str))
+                if(Donnee::getTypeComplexe())
+                    return make_complexe(str);
+                else
+                    throw CalculException("On ne peut creer des complexes qu'en mode complexe.");
+            else
+                throw CalculException("Syntaxe incorrecte.");
         }
     return 0;
 }

@@ -25,8 +25,8 @@ public :
     static TypeAngle getTypeAngles() { return typeangles; }
 
     static void setTypeDonnees(std::string type);
-    static void setTypeAngle();
-    static void setTypeComplexe();
+    static void setTypeAngle(TypeAngle type) { typeangles = type; }
+    static void setTypeComplexe(bool b) { typecomplexe = b; }
 
     virtual void afficher(std::ostream& f=std::cout) const = 0;
     virtual Donnee* clone() const = 0;

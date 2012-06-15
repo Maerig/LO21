@@ -43,10 +43,14 @@ private slots:
     void num8Pressed();
     void num9Pressed();
     void numPOINTPressed();
+    void numIMAPressed();
     void numQUOTEPressed();
     void numSPACEPressed();
 
     void typeChanged();
+    void complexeChanged();
+    void degreClicked();
+    void radianClicked();
 
     void numPLUSPressed();
     void numMINUSPressed();

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Fri 15. Jun 14:42:40 2012
+** Created: Fri 15. Jun 22:34:52 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      27,   14, // methods
+      31,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -43,21 +43,25 @@ static const uint qt_meta_data_MainWindow[] = {
      138,   11,   11,   11, 0x08,
      152,   11,   11,   11, 0x08,
      170,   11,   11,   11, 0x08,
-     188,   11,   11,   11, 0x08,
-     206,   11,   11,   11, 0x08,
-     220,   11,   11,   11, 0x08,
-     237,   11,   11,   11, 0x08,
-     255,   11,   11,   11, 0x08,
-     272,   11,   11,   11, 0x08,
-     288,   11,   11,   11, 0x08,
-     303,   11,   11,   11, 0x08,
-     317,   11,   11,   11, 0x08,
-     331,   11,   11,   11, 0x08,
-     344,   11,   11,   11, 0x08,
-     357,   11,   11,   11, 0x08,
-     371,   11,   11,   11, 0x08,
-     386,   11,   11,   11, 0x08,
+     186,   11,   11,   11, 0x08,
+     204,   11,   11,   11, 0x08,
+     222,   11,   11,   11, 0x08,
+     236,   11,   11,   11, 0x08,
+     254,   11,   11,   11, 0x08,
+     269,   11,   11,   11, 0x08,
+     285,   11,   11,   11, 0x08,
+     302,   11,   11,   11, 0x08,
+     320,   11,   11,   11, 0x08,
+     337,   11,   11,   11, 0x08,
+     353,   11,   11,   11, 0x08,
+     368,   11,   11,   11, 0x08,
+     382,   11,   11,   11, 0x08,
      396,   11,   11,   11, 0x08,
+     409,   11,   11,   11, 0x08,
+     422,   11,   11,   11, 0x08,
+     436,   11,   11,   11, 0x08,
+     451,   11,   11,   11, 0x08,
+     461,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -67,8 +71,10 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "num2Pressed()\0num3Pressed()\0num4Pressed()\0"
     "num5Pressed()\0num6Pressed()\0num7Pressed()\0"
     "num8Pressed()\0num9Pressed()\0"
-    "numPOINTPressed()\0numQUOTEPressed()\0"
-    "numSPACEPressed()\0typeChanged()\0"
+    "numPOINTPressed()\0numIMAPressed()\0"
+    "numQUOTEPressed()\0numSPACEPressed()\0"
+    "typeChanged()\0complexeChanged()\0"
+    "degreClicked()\0radianClicked()\0"
     "numPLUSPressed()\0numMINUSPressed()\0"
     "numMULTPressed()\0numDIVPressed()\0"
     "enterPressed()\0evalPressed()\0dropPressed()\0"
@@ -93,22 +99,26 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->num8Pressed(); break;
         case 9: _t->num9Pressed(); break;
         case 10: _t->numPOINTPressed(); break;
-        case 11: _t->numQUOTEPressed(); break;
-        case 12: _t->numSPACEPressed(); break;
-        case 13: _t->typeChanged(); break;
-        case 14: _t->numPLUSPressed(); break;
-        case 15: _t->numMINUSPressed(); break;
-        case 16: _t->numMULTPressed(); break;
-        case 17: _t->numDIVPressed(); break;
-        case 18: _t->enterPressed(); break;
-        case 19: _t->evalPressed(); break;
-        case 20: _t->dropPressed(); break;
-        case 21: _t->dupPressed(); break;
-        case 22: _t->sumPressed(); break;
-        case 23: _t->swapPressed(); break;
-        case 24: _t->clearPressed(); break;
-        case 25: _t->annuler(); break;
-        case 26: _t->retablir(); break;
+        case 11: _t->numIMAPressed(); break;
+        case 12: _t->numQUOTEPressed(); break;
+        case 13: _t->numSPACEPressed(); break;
+        case 14: _t->typeChanged(); break;
+        case 15: _t->complexeChanged(); break;
+        case 16: _t->degreClicked(); break;
+        case 17: _t->radianClicked(); break;
+        case 18: _t->numPLUSPressed(); break;
+        case 19: _t->numMINUSPressed(); break;
+        case 20: _t->numMULTPressed(); break;
+        case 21: _t->numDIVPressed(); break;
+        case 22: _t->enterPressed(); break;
+        case 23: _t->evalPressed(); break;
+        case 24: _t->dropPressed(); break;
+        case 25: _t->dupPressed(); break;
+        case 26: _t->sumPressed(); break;
+        case 27: _t->swapPressed(); break;
+        case 28: _t->clearPressed(); break;
+        case 29: _t->annuler(); break;
+        case 30: _t->retablir(); break;
         default: ;
         }
     }
@@ -147,9 +157,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 27)
+        if (_id < 31)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 27;
+        _id -= 31;
     }
     return _id;
 }
