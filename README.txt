@@ -1,12 +1,7 @@
-﻿
-- En fait, le patron de méthode c'est la classe Opérateur, qui appelle la fonction virtuelle calculer. Pas besoin de rajouter autre chose.
+﻿- Pourquoi ne pas faire comme OperateurBinaire pour OperateurUnaire ?
 
-- Oui, il faut passer la pile en paramètre.
-- Ce sera beaucoup plus simple et pratique avec un switch.
-
-- Pourquoi ne pas faire comme OperateurBinaire pour OperateurUnaire ?
-
-- J'ai implémenté l'opérateur + pour les entiers. On pourra probablement pas faire pareil avec les réels et les rationnels,
-  vu qu'il y aura au moins un des deux testX égal à 0.
+- Opérations sur les expressions :
+  	1) Expression X + => Expression.enfiler_fin(X); Expression.enfiler_fin(+);
+	2) X Expression + => Expression.enfiler_debut(X); Expression.enfiler_fin(+);
 
 http://sourcemaking.com/design_patterns/template_method
