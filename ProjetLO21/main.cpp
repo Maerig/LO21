@@ -6,6 +6,7 @@
 #include "reel.h"
 #include "complexe.h"
 #include <iostream>
+#include <math.h>
 
 int main(int argc, char *argv[])
 {
@@ -17,26 +18,12 @@ int main(int argc, char *argv[])
         QApplication a(argc, argv);
         MainWindow w;
         w.show();
-/*
-        Reel dA(3.4);
-        Reel dB(11.3);
 
-        Reel* A1=&dA;
-        Reel* B1=&dB;
+        Reel A(90);
 
-        const Reel* test1 = dynamic_cast<const Reel*>(A1);
-        const Reel* test2 = dynamic_cast<const Reel*>(B1);
+        A=Reel(sin(A.getVal()));
 
-
-        if ( test1 || test2 ) {
-
-                const Reel A=*test1;
-                const Reel B=*test2;
-                Reel C(A+B);
-                std::cout<<C.getVal();
-       }
-*/
-
+        std::cout<<"HOUHOU \n"<<A.getVal();
 
 
         return a.exec();

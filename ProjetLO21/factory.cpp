@@ -100,7 +100,9 @@ Operateur* Factory::make_operateur(std::string str)
 
     else if(str=="MOD") return new OperateurBinaire(MODULO);
 
-    else if(str=="POW") return new OperateurBinaire(POW);
+    else if(str=="^") return new OperateurBinaire(POW);
+
+    else if(str=="SIN") return new Sinus();
 
 
 

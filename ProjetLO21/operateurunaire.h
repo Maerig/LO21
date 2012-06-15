@@ -3,20 +3,17 @@
 
 #include "operateur.h"
 #include <string>
+#include "reel.h"
 
-class OperateurUnaire /*: public Operateur */{              //TODO
+class OperateurUnaire : public Operateur {              //TODO
 
 public:
 
-    OperateurUnaire(std::string str);
+    //OperateurUnaire(std::string str);
 
-    void Calculer(Pile* stack){
-/*        CalculUnaire(stack);                              */
-    }
-
-/*    virtual void CalculUnaire(Pile* stack)=0;                 TODO    */
-    void afficher(std::ostream& f=std::cout) const;
-    Donnee* clone() const;
+    virtual void Calculer(Pile* stack)=0;
+    void afficher(std::ostream& f=std::cout) const=0;
+    Donnee* clone() const=0;
 };
 
 
@@ -24,91 +21,133 @@ public:
 class Sinus : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Sinus(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Sinus();}
+
 };
 
 
 class Cosinus : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Cosinus(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Cosinus();}
+
 };
 
 
 class Tang : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Tang(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Tang();}
+
 };
 
 
 class Sinush : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Sinush(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Sinush();}
 };
 
 
 class Cosinush : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Cosinush(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Cosinush();}
 };
 
 
 class Tangh : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Tangh(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Tangh();}
 };
 
 
 class Ln : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Ln(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Ln();}
 };
 
 
 class Log : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Log(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Log();}
 };
 
 
 class Inv : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Inv(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Inv();}
 };
 
 
 class Sqrt : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Sqrt(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Sqrt();}
 };
 
 
 class Sqr : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Sqr(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Sqr();}
 };
 
 
 class Cube : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Cube(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Cube();}
 };
 
 
 class Fact : public OperateurUnaire {
 
 public:
-    void CalculUnaire(Pile* stack);
+    Fact(){}
+    void Calculer(Pile* stack);
+    void afficher(std::ostream& f=std::cout) const{f<<"SIN";}
+    Donnee* clone() const{return new Fact();}
 };
 
 

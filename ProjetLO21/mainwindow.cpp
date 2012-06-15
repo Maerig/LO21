@@ -26,11 +26,37 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QObject::connect(ui->numTYPE,SIGNAL(activated(QString)),this,SLOT(typeChanged()));
 
+    // Operateur Binaires
     QObject::connect(ui->numPLUS,SIGNAL(clicked()),this,SLOT(numPLUSPressed()));
     QObject::connect(ui->numMINUS,SIGNAL(clicked()),this,SLOT(numMINUSPressed()));
     QObject::connect(ui->numMULT,SIGNAL(clicked()),this,SLOT(numMULTPressed()));
     QObject::connect(ui->numDIV,SIGNAL(clicked()),this,SLOT(numDIVPressed()));
+    QObject::connect(ui->numMOD,SIGNAL(clicked()),this,SLOT(numMODPressed()));
+    QObject::connect(ui->numPOW,SIGNAL(clicked()),this,SLOT(numPOWPressed()));
 
+    //Operateur Unaires
+    QObject::connect(ui->numSIN,SIGNAL(clicked()),this,SLOT(numSinusPressed()));
+    QObject::connect(ui->numCOS,SIGNAL(clicked()),this,SLOT(numCosinusPressed()));
+    QObject::connect(ui->numTAN,SIGNAL(clicked()),this,SLOT(numTangPressed()));
+    QObject::connect(ui->numCOSH,SIGNAL(clicked()),this,SLOT(numCosinusHPressed()));
+    QObject::connect(ui->numSINH,SIGNAL(clicked()),this,SLOT(numSinusHPressed()));
+    QObject::connect(ui->numTANH,SIGNAL(clicked()),this,SLOT(numTangHPressed()));
+
+    QObject::connect(ui->numSQR,SIGNAL(clicked()),this,SLOT(numSQRPressed()));
+    QObject::connect(ui->numSQRT,SIGNAL(clicked()),this,SLOT(numSQRTPressed()));
+    QObject::connect(ui->numCUBE,SIGNAL(clicked()),this,SLOT(numCUBEPressed()));
+
+    QObject::connect(ui->numLN,SIGNAL(clicked()),this,SLOT(numLNPressed()));
+    QObject::connect(ui->numLOG,SIGNAL(clicked()),this,SLOT(numLOGPressed()));
+    QObject::connect(ui->numFACT,SIGNAL(clicked()),this,SLOT(numFACTPressed()));
+    QObject::connect(ui->numINV,SIGNAL(clicked()),this,SLOT(numINVPressed()));
+    QObject::connect(ui->numSIGN,SIGNAL(clicked()),this,SLOT(numSIGNPressed()));
+
+
+
+
+
+    // Operations sur la pile
     QObject::connect(ui->numPUSH,SIGNAL(clicked()),this,SLOT(enterPressed()));
     QObject::connect(ui->numEVAL,SIGNAL(clicked()),this,SLOT(evalPressed()));
     QObject::connect(ui->pileDROP,SIGNAL(clicked()),this,SLOT(dropPressed()));
@@ -64,6 +90,24 @@ void MainWindow::numPLUSPressed() { ui->lineEdit->setText(ui->lineEdit->text() +
 void MainWindow::numMINUSPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "-");}
 void MainWindow::numMULTPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "*");}
 void MainWindow::numDIVPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "/");}
+void MainWindow::numMODPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "MOD");}
+void MainWindow::numPOWPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "^");}
+
+void MainWindow::numSinusPressed()  { ui->lineEdit->setText(ui->lineEdit->text() + "SIN");}
+void MainWindow::numCosinusPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "COS");}
+void MainWindow::numTangPressed()   { ui->lineEdit->setText(ui->lineEdit->text() + "TAN");}
+void MainWindow::numSinusHPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "SINH");}
+void MainWindow::numCosinusHPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "COSH");}
+void MainWindow::numTangHPressed()  { ui->lineEdit->setText(ui->lineEdit->text() + "TANGH");}
+void MainWindow::numSQRPressed()    { ui->lineEdit->setText(ui->lineEdit->text() + "SQR");}
+void MainWindow::numSQRTPressed()   { ui->lineEdit->setText(ui->lineEdit->text() + "SQRT");}
+void MainWindow::numCUBEPressed()   { ui->lineEdit->setText(ui->lineEdit->text() + "CUBE");}
+void MainWindow::numLNPressed()     { ui->lineEdit->setText(ui->lineEdit->text() + "LN");}
+void MainWindow::numLOGPressed()    { ui->lineEdit->setText(ui->lineEdit->text() + "LOG");}
+void MainWindow::numFACTPressed()   { ui->lineEdit->setText(ui->lineEdit->text() + "!");}
+void MainWindow::numINVPressed()    { ui->lineEdit->setText(ui->lineEdit->text() + "INV");}
+void MainWindow::numSIGNPressed()   { ui->lineEdit->setText(ui->lineEdit->text() + "SIGN");}
+
 
 void MainWindow::typeChanged(){ Donnee::setTypeDonnees(ui->numTYPE->currentText().toStdString());}
 

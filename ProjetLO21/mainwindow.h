@@ -52,6 +52,26 @@ private slots:
     void numMINUSPressed();
     void numMULTPressed();
     void numDIVPressed();
+    void numMODPressed();
+    void numPOWPressed();
+
+    void numSinusPressed();
+    void numCosinusPressed();
+    void numTangPressed();
+    void numSinusHPressed();
+    void numCosinusHPressed();
+    void numTangHPressed();
+
+    void numSQRTPressed();
+    void numSQRPressed();
+    void numCUBEPressed();
+    void numLNPressed();
+    void numLOGPressed();
+    void numFACTPressed();
+    void numINVPressed();
+    void numSIGNPressed();
+
+
 
     void enterPressed();
     void evalPressed();

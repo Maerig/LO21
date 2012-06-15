@@ -32,7 +32,7 @@ void Rationnel::simplifier(){
                 double p = pgcd(num.getVal(),denum.getVal());                 // Attention concordance type double et unsigned long int
                 num.setVal(num.getVal()/p);
                 denum.setVal(denum.getVal()/p);
-                if (num.getVal() < 0)
+                if (denum.getVal() < 0)
                 {
                     num.setVal(-1*num.getVal());
                     denum.setVal(-1*denum.getVal());
