@@ -5,15 +5,6 @@
 
 //enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
 
-<<<<<<< HEAD
-/*OperateurBinaire::OperateurBinaire(std::string str)
-{
-    if(str=="+")
-        typeoperation = PLUS;
-}*/
-
-=======
->>>>>>> 501a9914dbef562eff4005741e4ee67e20891409
 void OperateurBinaire::Calculer(Pile* stack){
 
     Donnee* dB= stack->depiler();
