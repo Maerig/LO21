@@ -49,6 +49,8 @@ private slots:
 
     void typeChanged();
     void complexeChanged();
+    void degreClicked();
+    void radianClicked();
 
     void numPLUSPressed();
     void numMINUSPressed();

@@ -27,6 +27,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QObject::connect(ui->numTYPE,SIGNAL(activated(QString)),this,SLOT(typeChanged()));
     QObject::connect(ui->numComplexe,SIGNAL(clicked()),this,SLOT(complexeChanged()));
+    QObject::connect(ui->numDegre,SIGNAL(clicked()),this,SLOT(degreClicked()));
+    QObject::connect(ui->numRadian,SIGNAL(clicked()),this,SLOT(radianClicked()));
 
     QObject::connect(ui->numPLUS,SIGNAL(clicked()),this,SLOT(numPLUSPressed()));
     QObject::connect(ui->numMINUS,SIGNAL(clicked()),this,SLOT(numMINUSPressed()));
@@ -70,6 +72,8 @@ void MainWindow::numDIVPressed() { ui->lineEdit->setText(ui->lineEdit->text() + 
 
 void MainWindow::typeChanged(){ Donnee::setTypeDonnees(ui->numTYPE->currentText().toStdString());}
 void MainWindow::complexeChanged(){ ui->numComplexe->isChecked() ? Donnee::setTypeComplexe(true) : Donnee::setTypeComplexe(false);}
+void MainWindow::degreClicked(){ Donnee::setTypeAngle(degre);}
+void MainWindow::radianClicked(){ Donnee::setTypeAngle(radian);}
 
 void MainWindow::enterPressed(){
     std::stringstream affichage;

@@ -1257,6 +1257,9 @@
          <property name="text">
           <string>CLEAR</string>
          </property>
+         <property name="shortcut">
+          <string>Ctrl+C</string>
+         </property>
         </widget>
        </item>
       </layout>
