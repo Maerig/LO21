@@ -2,6 +2,7 @@
 #include "calculexception.h"
 
 #include <iostream>
+#include <math.h>
 
 //enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
 
@@ -74,10 +75,19 @@ void OperateurBinaire::Calculer(Pile* stack){
                 break;
 
             case(MODULO):
+        {
+
+        }
 
                 break;
 
             case (POW):
+        {
+                    Reel* dC = new Reel;
+                    *dC=(A*B);
+                    *dC=Reel(pow(A.getVal(),B.getVal()));
+                    stack->empiler(dC);
+        }
 
                 break;
 
@@ -142,6 +152,11 @@ void OperateurBinaire::Calculer(Pile* stack){
                 break;
 
             case (POW):
+            {
+                 Rationnel* dC = new Rationnel;
+                 *dC=Rationnel(pow(A.getNumerateur(),float(B)),pow(A.getDenumerateur(),float(B)));
+                 stack->empiler(dC);
+            }
 
                 break;
 
@@ -199,11 +214,18 @@ void OperateurBinaire::Calculer(Pile* stack){
                 case(MODULO):
 
                 {
-
+                    Entier* C = new Entier;
+                    *C = *test5 % *test6;
+                    stack->empiler(C);
                 }
                     break;
 
                 case (POW):
+                {
+                    Entier* C = new Entier;
+                    *C = Entier(pow(test5->getVal(),test6->getVal()));
+                    stack->empiler(C);
+                }
 
                     break;
 

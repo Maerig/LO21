@@ -3,6 +3,8 @@
 
 #include "entier.h"
 
+class Reel;
+
 class Rationnel : public Nombre {
 private :
     Entier num;
@@ -15,6 +17,7 @@ public :
     Rationnel(double n=0 , double d=1) : num(n),denum(d) {simplifier();}
     Rationnel(Entier n,Entier d) : num(n),denum(d) {simplifier();}
     Rationnel(Entier e): num(e),denum(1){simplifier();}
+    Rationnel(Reel r);
 
     Entier getNumerateur() {return num;}
     Entier getDenumerateur() {return denum;}

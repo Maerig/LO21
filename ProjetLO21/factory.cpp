@@ -126,6 +126,29 @@ Operateur* Factory::make_operateur(std::string str)
 
     else if(str=="SIN") return new Sinus();
 
+    else if(str=="COS") return new Cosinus();
+
+    else if(str=="TAN") return new Tang();
+
+    else if(str=="SINH") return new Sinush();
+
+    else if(str=="COSH") return new Cosinush();
+
+    else if(str=="TANH") return new Tangh();
+
+    else if(str=="SQR") return new Sqr();
+
+    else if(str=="SQRT") return new Sqrt();
+
+    else if(str=="CUBE") return new Cube();
+
+    else if(str=="LN") return new Ln();
+
+    else if(str=="LOG") return new Log();
+
+    else if(str=="!") return new Fact();
+
+    else if(str=="INV") return new Inv();
 
 
 }

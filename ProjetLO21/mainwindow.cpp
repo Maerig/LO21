@@ -103,7 +103,7 @@ void MainWindow::numCosinusPressed() { ui->lineEdit->setText(ui->lineEdit->text(
 void MainWindow::numTangPressed()   { ui->lineEdit->setText(ui->lineEdit->text() + "TAN");}
 void MainWindow::numSinusHPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "SINH");}
 void MainWindow::numCosinusHPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "COSH");}
-void MainWindow::numTangHPressed()  { ui->lineEdit->setText(ui->lineEdit->text() + "TANGH");}
+void MainWindow::numTangHPressed()  { ui->lineEdit->setText(ui->lineEdit->text() + "TANH");}
 void MainWindow::numSQRPressed()    { ui->lineEdit->setText(ui->lineEdit->text() + "SQR");}
 void MainWindow::numSQRTPressed()   { ui->lineEdit->setText(ui->lineEdit->text() + "SQRT");}
 void MainWindow::numCUBEPressed()   { ui->lineEdit->setText(ui->lineEdit->text() + "CUBE");}

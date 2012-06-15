@@ -1,5 +1,9 @@
 #include "rationnel.h"
 
+// Attention, constructeur de Rationnel à partir de Réel dans reel.cpp
+
+
+
 double pgcd(unsigned long int a,unsigned long int b)
 {
     int r =a%b;

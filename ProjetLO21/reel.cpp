@@ -1,5 +1,15 @@
 #include "reel.h"
 
+// Attention, constructeur de Rationnel à partir de Réel.
+Rationnel::Rationnel(Reel r){
+
+    num=r.getVal();
+    denum=1;
+
+    simplifier();
+}
+
+
 Reel::Reel(Entier e){
 
     val=(float)e.getVal();
