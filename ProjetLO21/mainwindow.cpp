@@ -21,10 +21,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->num8,SIGNAL(clicked()),this,SLOT(num8Pressed()));
     QObject::connect(ui->num9,SIGNAL(clicked()),this,SLOT(num9Pressed()));
     QObject::connect(ui->numPOINT,SIGNAL(clicked()),this,SLOT(numPOINTPressed()));
+    QObject::connect(ui->numIMA,SIGNAL(clicked()),this,SLOT(numIMAPressed()));
     QObject::connect(ui->numQUOTE,SIGNAL(clicked()),this,SLOT(numQUOTEPressed()));
     QObject::connect(ui->numSPACE,SIGNAL(clicked()),this,SLOT(numSPACEPressed()));
 
     QObject::connect(ui->numTYPE,SIGNAL(activated(QString)),this,SLOT(typeChanged()));
+    QObject::connect(ui->numComplexe,SIGNAL(clicked()),this,SLOT(complexeChanged()));
 
     QObject::connect(ui->numPLUS,SIGNAL(clicked()),this,SLOT(numPLUSPressed()));
     QObject::connect(ui->numMINUS,SIGNAL(clicked()),this,SLOT(numMINUSPressed()));
@@ -57,6 +59,7 @@ void MainWindow::num7Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "7
 void MainWindow::num8Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "8");}
 void MainWindow::num9Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "9");}
 void MainWindow::numPOINTPressed() { ui->lineEdit->setText(ui->lineEdit->text() + ".");}
+void MainWindow::numIMAPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "$");}
 void MainWindow::numQUOTEPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "'");}
 void MainWindow::numSPACEPressed() { ui->lineEdit->setText(ui->lineEdit->text() + " ");}
 
@@ -66,6 +69,7 @@ void MainWindow::numMULTPressed() { ui->lineEdit->setText(ui->lineEdit->text() +
 void MainWindow::numDIVPressed() { ui->lineEdit->setText(ui->lineEdit->text() + "/");}
 
 void MainWindow::typeChanged(){ Donnee::setTypeDonnees(ui->numTYPE->currentText().toStdString());}
+void MainWindow::complexeChanged(){ ui->numComplexe->isChecked() ? Donnee::setTypeComplexe(true) : Donnee::setTypeComplexe(false);}
 
 void MainWindow::enterPressed(){
     std::stringstream affichage;
