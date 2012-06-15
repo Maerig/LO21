@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri 15. Jun 22:33:35 2012
+** Created: Sat 16. Jun 01:04:47 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -62,13 +62,13 @@ public:
     QPushButton *numFACT;
     QPushButton *numCOSH;
     QPushButton *numCOS;
-    QPushButton *numPOW2;
+    QPushButton *numSQR;
     QPushButton *numSINH;
     QPushButton *numSIN;
-    QPushButton *numPOW3;
+    QPushButton *numCUBE;
     QPushButton *numTANH;
     QPushButton *numTAN;
-    QPushButton *numRACINE;
+    QPushButton *numSQRT;
     QPushButton *numLN;
     QPushButton *numLOG;
     QPushButton *numINV;
@@ -218,6 +218,7 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         numIMA = new QPushButton(layoutWidget);
         numIMA->setObjectName(QString::fromUtf8("numIMA"));
+        numIMA->setEnabled(true);
         sizePolicy.setHeightForWidth(numIMA->sizePolicy().hasHeightForWidth());
         numIMA->setSizePolicy(sizePolicy);
         numIMA->setMaximumSize(QSize(51, 27));
@@ -261,14 +262,14 @@ public:
 
         gridLayout->addWidget(numCOS, 1, 1, 1, 1);
 
-        numPOW2 = new QPushButton(layoutWidget);
-        numPOW2->setObjectName(QString::fromUtf8("numPOW2"));
-        sizePolicy.setHeightForWidth(numPOW2->sizePolicy().hasHeightForWidth());
-        numPOW2->setSizePolicy(sizePolicy);
-        numPOW2->setMaximumSize(QSize(51, 27));
-        numPOW2->setBaseSize(QSize(51, 27));
+        numSQR = new QPushButton(layoutWidget);
+        numSQR->setObjectName(QString::fromUtf8("numSQR"));
+        sizePolicy.setHeightForWidth(numSQR->sizePolicy().hasHeightForWidth());
+        numSQR->setSizePolicy(sizePolicy);
+        numSQR->setMaximumSize(QSize(51, 27));
+        numSQR->setBaseSize(QSize(51, 27));
 
-        gridLayout->addWidget(numPOW2, 1, 2, 1, 1);
+        gridLayout->addWidget(numSQR, 1, 2, 1, 1);
 
         numSINH = new QPushButton(layoutWidget);
         numSINH->setObjectName(QString::fromUtf8("numSINH"));
@@ -288,14 +289,14 @@ public:
 
         gridLayout->addWidget(numSIN, 2, 1, 1, 1);
 
-        numPOW3 = new QPushButton(layoutWidget);
-        numPOW3->setObjectName(QString::fromUtf8("numPOW3"));
-        sizePolicy.setHeightForWidth(numPOW3->sizePolicy().hasHeightForWidth());
-        numPOW3->setSizePolicy(sizePolicy);
-        numPOW3->setMaximumSize(QSize(51, 27));
-        numPOW3->setBaseSize(QSize(51, 27));
+        numCUBE = new QPushButton(layoutWidget);
+        numCUBE->setObjectName(QString::fromUtf8("numCUBE"));
+        sizePolicy.setHeightForWidth(numCUBE->sizePolicy().hasHeightForWidth());
+        numCUBE->setSizePolicy(sizePolicy);
+        numCUBE->setMaximumSize(QSize(51, 27));
+        numCUBE->setBaseSize(QSize(51, 27));
 
-        gridLayout->addWidget(numPOW3, 2, 2, 1, 1);
+        gridLayout->addWidget(numCUBE, 2, 2, 1, 1);
 
         numTANH = new QPushButton(layoutWidget);
         numTANH->setObjectName(QString::fromUtf8("numTANH"));
@@ -315,14 +316,14 @@ public:
 
         gridLayout->addWidget(numTAN, 3, 1, 1, 1);
 
-        numRACINE = new QPushButton(layoutWidget);
-        numRACINE->setObjectName(QString::fromUtf8("numRACINE"));
-        sizePolicy.setHeightForWidth(numRACINE->sizePolicy().hasHeightForWidth());
-        numRACINE->setSizePolicy(sizePolicy);
-        numRACINE->setMaximumSize(QSize(51, 27));
-        numRACINE->setBaseSize(QSize(51, 27));
+        numSQRT = new QPushButton(layoutWidget);
+        numSQRT->setObjectName(QString::fromUtf8("numSQRT"));
+        sizePolicy.setHeightForWidth(numSQRT->sizePolicy().hasHeightForWidth());
+        numSQRT->setSizePolicy(sizePolicy);
+        numSQRT->setMaximumSize(QSize(51, 27));
+        numSQRT->setBaseSize(QSize(51, 27));
 
-        gridLayout->addWidget(numRACINE, 3, 2, 1, 1);
+        gridLayout->addWidget(numSQRT, 3, 2, 1, 1);
 
         numLN = new QPushButton(layoutWidget);
         numLN->setObjectName(QString::fromUtf8("numLN"));
@@ -666,14 +667,14 @@ public:
         numFACT->setShortcut(QApplication::translate("MainWindow", "!", 0, QApplication::UnicodeUTF8));
         numCOSH->setText(QApplication::translate("MainWindow", "COSH", 0, QApplication::UnicodeUTF8));
         numCOS->setText(QApplication::translate("MainWindow", "COS", 0, QApplication::UnicodeUTF8));
-        numPOW2->setText(QApplication::translate("MainWindow", "x\302\262", 0, QApplication::UnicodeUTF8));
-        numPOW2->setShortcut(QApplication::translate("MainWindow", "\302\262", 0, QApplication::UnicodeUTF8));
+        numSQR->setText(QApplication::translate("MainWindow", "x\302\262", 0, QApplication::UnicodeUTF8));
+        numSQR->setShortcut(QApplication::translate("MainWindow", "\302\262", 0, QApplication::UnicodeUTF8));
         numSINH->setText(QApplication::translate("MainWindow", "SINH", 0, QApplication::UnicodeUTF8));
         numSIN->setText(QApplication::translate("MainWindow", "SIN", 0, QApplication::UnicodeUTF8));
-        numPOW3->setText(QApplication::translate("MainWindow", "x\302\263", 0, QApplication::UnicodeUTF8));
+        numCUBE->setText(QApplication::translate("MainWindow", "x\302\263", 0, QApplication::UnicodeUTF8));
         numTANH->setText(QApplication::translate("MainWindow", "TANH", 0, QApplication::UnicodeUTF8));
         numTAN->setText(QApplication::translate("MainWindow", "TAN", 0, QApplication::UnicodeUTF8));
-        numRACINE->setText(QApplication::translate("MainWindow", "\342\210\232x", 0, QApplication::UnicodeUTF8));
+        numSQRT->setText(QApplication::translate("MainWindow", "\342\210\232x", 0, QApplication::UnicodeUTF8));
         numLN->setText(QApplication::translate("MainWindow", "LN", 0, QApplication::UnicodeUTF8));
         numLOG->setText(QApplication::translate("MainWindow", "LOG", 0, QApplication::UnicodeUTF8));
         numINV->setText(QApplication::translate("MainWindow", "INV", 0, QApplication::UnicodeUTF8));

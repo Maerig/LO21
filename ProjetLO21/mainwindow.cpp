@@ -73,7 +73,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->actionRetablir,SIGNAL(triggered()),this,SLOT(retablir()));
 
     setWindowTitle("Rotaluklak");
-
 }
 
 void MainWindow::num0Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "0");}
@@ -114,8 +113,39 @@ void MainWindow::numINVPressed()    { ui->lineEdit->setText(ui->lineEdit->text()
 void MainWindow::numSIGNPressed()   { ui->lineEdit->setText(ui->lineEdit->text() + "SIGN");}
 
 
-void MainWindow::typeChanged(){ Donnee::setTypeDonnees(ui->numTYPE->currentText().toStdString());}
-void MainWindow::complexeChanged(){ ui->numComplexe->isChecked() ? Donnee::setTypeComplexe(true) : Donnee::setTypeComplexe(false);}
+void MainWindow::typeChanged(){
+    std::string type = ui->numTYPE->currentText().toStdString();
+    if(type=="Entier")
+    {
+        ui->numMOD->setEnabled(true);
+        ui->numFACT->setEnabled(true);
+    }else //Rationnel ou Reel
+          {
+              ui->numMOD->setEnabled(false);
+              ui->numFACT->setEnabled(false);
+          }
+    Donnee::setTypeDonnees(type);
+}
+
+void MainWindow::complexeChanged(){
+    bool active = (ui->numComplexe->isChecked());
+    Donnee::setTypeComplexe(active);
+    ui->numIMA->setEnabled(active);
+    ui->numPOW->setEnabled(!active);
+    ui->numMOD->setEnabled(!active);
+    ui->numSIN->setEnabled(!active);
+    ui->numCOS->setEnabled(!active);
+    ui->numTAN->setEnabled(!active);
+    ui->numSINH->setEnabled(!active);
+    ui->numCOSH->setEnabled(!active);
+    ui->numTANH->setEnabled(!active);
+    ui->numLN->setEnabled(!active);
+    ui->numLOG->setEnabled(!active);
+    ui->numINV->setEnabled(!active);
+    ui->numSQRT->setEnabled(!active);
+    ui->numFACT->setEnabled(!active);
+}
+
 void MainWindow::degreClicked(){ Donnee::setTypeAngle(degre);}
 void MainWindow::radianClicked(){ Donnee::setTypeAngle(radian);}
 
