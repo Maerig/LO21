@@ -137,11 +137,14 @@ void MainWindow::dropPressed(){
 
     std::stringstream affichage;
 
+    if(stack->longueur()>0)
+    {
     memundo->save(stack);
     memredo->reset();
     stack->drop();
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+    }
 }
 
 void MainWindow::dupPressed(){
@@ -197,11 +200,14 @@ void MainWindow::clearPressed(){
 
     std::stringstream affichage;
 
-    memundo->save(stack);
-    memredo->reset();
-    stack->clear();
-    stack->afficher(affichage);
-    ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+    if(stack->longueur()>0)
+    {
+        memundo->save(stack);
+        memredo->reset();
+        stack->clear();
+        stack->afficher(affichage);
+        ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+    }
 }
 
 void MainWindow::annuler()

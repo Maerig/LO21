@@ -51,7 +51,8 @@ Donnee* Expression::clone() const {
 bool Expression::valide() const //Verifie que la syntaxe de l'expression est conforme a la notation polonaise inversee
 {
     Pile stack;
-    Cellule* cell = tete;
+    Expression* copy =  dynamic_cast<Expression*>(clone());
+    Cellule* cell = copy->tete;
     Donnee* data1;
     Donnee* data2;
     while(cell)
