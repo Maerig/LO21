@@ -13,5 +13,6 @@ INPUT(
 ./release\operateurunaire.o
 ./release\expression.o
 ./release\memento.o
+./release\sauvegarde.o
 ./release\moc_mainwindow.o
 );

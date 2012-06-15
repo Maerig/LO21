@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     operateurbinaire.cpp \
     operateurunaire.cpp \
     expression.cpp \
-    memento.cpp
+    memento.cpp \
+    sauvegarde.cpp
 
 HEADERS  += mainwindow.h \
     donnee.h \
@@ -38,6 +39,7 @@ HEADERS  += mainwindow.h \
     operateurbinaire.h \
     operateurunaire.h \
     expression.h \
-    memento.h
+    memento.h \
+    sauvegarde.h
 
 FORMS    += mainwindow.ui

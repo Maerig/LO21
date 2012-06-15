@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri 15. Jun 23:13:49 2012
+** Created: Sat 16. Jun 01:04:47 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -218,6 +218,7 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         numIMA = new QPushButton(layoutWidget);
         numIMA->setObjectName(QString::fromUtf8("numIMA"));
+        numIMA->setEnabled(true);
         sizePolicy.setHeightForWidth(numIMA->sizePolicy().hasHeightForWidth());
         numIMA->setSizePolicy(sizePolicy);
         numIMA->setMaximumSize(QSize(51, 27));
@@ -620,7 +621,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 734, 25));
+        menuBar->setGeometry(QRect(0, 0, 734, 21));
         menuEdition = new QMenu(menuBar);
         menuEdition->setObjectName(QString::fromUtf8("menuEdition"));
         MainWindow->setMenuBar(menuBar);
