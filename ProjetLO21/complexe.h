@@ -9,8 +9,10 @@ private :
     Nombre* b;
 
 public :
-    Complexe(Nombre* Re, Nombre* Im) : a(Re),b(Im) {}
+    Complexe(Nombre* Re=0, Nombre* Im=0) : a(Re),b(Im) {}
 
+    void afficher(std::ostream& f=std::cout) const;
+    Donnee* clone() const;
 };
 
 

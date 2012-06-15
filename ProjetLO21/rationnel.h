@@ -13,8 +13,8 @@ private :
 public :
     void simplifier();
     Rationnel(double n=0 , double d=1) : num(n),denum(d) {simplifier();}
-    Rationnel(Entier n,Entier d) : num(n),denum(d) {simplifier();}          // Réfléchir au cas où d=0.
-    Rationnel(Entier e): num(e),denum(1){simplifier();}                     //
+    Rationnel(Entier n,Entier d) : num(n),denum(d) {simplifier();}
+    Rationnel(Entier e): num(e),denum(1){simplifier();}
 
     Entier getNumerateur() {return num;}
     Entier getDenumerateur() {return denum;}
