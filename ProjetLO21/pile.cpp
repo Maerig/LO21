@@ -4,6 +4,8 @@
 #include "entier.h"
 #include "reel.h"
 #include "operateur.h"
+#include "operateurbinaire.h"
+#include "operateurunaire.h"
 #include "factory.h"
 
 
@@ -16,7 +18,9 @@ void Pile::empiler(Donnee* elt)
     if(op)                          //Si on empile un operateur
     {
         op = dynamic_cast<Operateur*>(depiler());   //On le depile
-        if(taille>=2)
+        OperateurBinaire* op_binaire = dynamic_cast<OperateurBinaire*>(op);
+        OperateurUnaire* op_unaire = dynamic_cast<OperateurUnaire*>(op);
+        if((op_binaire && taille>=2) || (op_unaire && taille>=1))
            op->Calculer(this);   //Puis on effectue le calcul
         else
             throw CalculException("La pile ne contient pas suffisamment d'elements.");
