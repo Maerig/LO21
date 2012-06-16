@@ -323,7 +323,11 @@ void Fact::Calculer(Pile *stack){
                 *C=Entier(factoriel(A.getVal()));
                 stack->empiler(C);
               }
-    else stack->empiler(dA);
+    else {
+            stack->empiler(dA);
+            if (test2) throw CalculException("Impossible de calculer factoriel d'un rationnel.\nFonction utilisable avec Entier uniquement.");
+            else throw CalculException("Impossible de calculer factoriel d'un reel.\nFonction utilisable avec Entier uniquement.");
+        }
 
 
 }

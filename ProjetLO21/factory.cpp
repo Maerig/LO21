@@ -24,7 +24,9 @@ Rationnel* Factory::make_rationnel(std::string str)
         std::istringstream denum_iss(denum_str);
         denum_iss >> denum;
     }
-            return new Rationnel(num,denum);
+
+    if (denum==0)throw CalculException("Fraction avec denominateur nul impossible.");
+    return new Rationnel(num,denum);
 }
 
 Reel* Factory::make_reel(std::string str)

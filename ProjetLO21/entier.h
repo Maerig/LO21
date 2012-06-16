@@ -2,6 +2,7 @@
 #define ENTIER_H
 
 #include "donnee.h"
+#include "calculexception.h"
 
 class Entier : public Nombre {
 private :

@@ -58,9 +58,18 @@ void OperateurBinaire::Calculer(Pile* stack){
 
             case(DIV):
         {
-                    Reel* dC = new Reel;
-                    *dC=(A/B);
-                    stack->empiler(dC);
+
+                    if (B.getVal()==0){
+                                        stack->empiler(dA);
+                                        stack->empiler(dB);
+                                        throw CalculException("Division par zero impossible.");
+                                    }
+
+                    else {
+                        Reel* dC = new Reel;
+                        *dC=(A/B);
+                        stack->empiler(dC);
+                        }
         }
 
                 break;
@@ -77,7 +86,8 @@ void OperateurBinaire::Calculer(Pile* stack){
             case(MODULO):
         {
             stack->empiler(dA);
-            stack->empiler(dB);                             // Ajouter Erreur
+            stack->empiler(dB);
+            throw CalculException("Modulo inappliquable pour Reel.\nFonction utilisable avec Entier uniquement.");
         }
 
                 break;
@@ -132,9 +142,18 @@ void OperateurBinaire::Calculer(Pile* stack){
 
             case(DIV):
             {
-                 Rationnel* dC = new Rationnel;
-                 *dC=(A/B);
-                 stack->empiler(dC);
+
+                 if (B.getNumerateur().getVal()==0){
+                                     stack->empiler(dA);
+                                     stack->empiler(dB);
+                                     throw CalculException("Division par zero impossible.");
+                                 }
+
+                 else {
+                     Rationnel* dC = new Rationnel;
+                     *dC=(A/B);
+                     stack->empiler(dC);
+                     }
             }
 
                 break;
@@ -151,7 +170,8 @@ void OperateurBinaire::Calculer(Pile* stack){
             case(MODULO):
             {
                 stack->empiler(dA);
-                stack->empiler(dB);                             // Ajouter Erreur
+                stack->empiler(dB);
+                throw CalculException("Modulo inappliquable pour Rationnel.\nFonction utilisable avec Entier uniquement.");
             }
                 break;
 
@@ -193,9 +213,19 @@ void OperateurBinaire::Calculer(Pile* stack){
                 case(DIV):
 
                 {
-                    Entier* C = new Entier;
-                    *C = *test5 / *test6;
-                    stack->empiler(C);
+                if (test6->getVal()==0){
+                                    stack->empiler(test5);
+                                    stack->empiler(test6);
+                                    throw CalculException("Division par zero impossible.");
+                                }
+
+                else {
+                        Entier* C = new Entier;
+                        *C = *test5 / *test6;
+                        stack->empiler(C);
+                    }
+
+
 
                 }
                     break;
@@ -203,12 +233,6 @@ void OperateurBinaire::Calculer(Pile* stack){
                 case (MULT):
 
                 {
-                    /*const Entier A=*test5;
-                    const Entier B=*test6;
-
-                    Entier C(A*B);
-                    Entier* dC=&C;
-                    stack->empiler(dC);*/
                     Entier* C = new Entier;
                     *C = *test5 * *test6;
                     stack->empiler(C);
@@ -218,9 +242,18 @@ void OperateurBinaire::Calculer(Pile* stack){
                 case(MODULO):
 
                 {
-                    Entier* C = new Entier;
-                    *C = *test5 % *test6;
-                    stack->empiler(C);
+                    if (test6->getVal()==0){
+                                                stack->empiler(test5);
+                                                stack->empiler(test6);
+                                                throw CalculException("Modulo: Division par zero impossible.");
+                                            }
+
+                    else {
+                            Entier* C = new Entier;
+                            *C = *test5 % *test6;
+                            stack->empiler(C);
+                         }
+
                 }
                     break;
 
@@ -237,6 +270,7 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     }
 
+    else throw CalculException("Echec de la reconnaissance du type des 2 dernieres variables entrees.\nSource: Operateurbinaire.cpp. ");
 }
 
 
@@ -249,7 +283,7 @@ void OperateurBinaire::afficher(std::ostream& f) const
         case(DIV): f<<"/"; break;
         case(MULT): f<<"*"; break;
         case(MODULO): f<<"MOD"; break;
-        case(POW): f<<"POW"; break;
+        case(POW): f<<"^"; break;
         default : throw CalculException("Type d'operateur inconnu."); break;
     }
 }
