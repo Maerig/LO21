@@ -25,6 +25,27 @@ void Donnee::setTypeDonnees(std::string type){
 
 }
 
+void Donnee::setTypeDonnees(int i)
+{
+    switch(i)
+    {
+        case 0 : typedonnees = entier; break;
+        case 1 : typedonnees = rationnel; break;
+        case 2 : typedonnees = reel; break;
+        default : throw CalculException("Type de donnee non reconnu."); break;
+    }
+}
+
+void Donnee::setTypeAngle(int i)
+{
+    switch(i)
+    {
+        case 0 : typeangles = degre; break;
+        case 1 : typeangles = radian; break;
+    default : throw CalculException("Type d'angle non reconnu."); break;
+    }
+}
+
 bool number(char c)
 {
     if(c >='0' && c <= '9')
@@ -56,6 +77,3 @@ bool fraction(std::string str)
     else
         return false;
 }
-
-
-

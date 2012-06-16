@@ -171,14 +171,20 @@ Donnee* Factory::make(std::string str)
             {
                 int nb;
                 iss >> nb;
+                if(Donnee::getTypeComplexe())
+                    return new Complexe(new Entier(nb),new Entier(0));
                 return new Entier(nb);
             }
             else if(Donnee::getTypeDonnees()==reel)
             {
+                if(Donnee::getTypeComplexe())
+                    return new Complexe(make_reel(str),new Reel(0));
                 return make_reel(str);
             }
             else if(Donnee::getTypeDonnees()==rationnel)
             {
+                if(Donnee::getTypeComplexe())
+                    return new Complexe(make_rationnel(str),new Rationnel(0,1));
                 return make_rationnel(str);
             }
            }

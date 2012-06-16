@@ -10,7 +10,7 @@ enum TypeDonnee {entier, reel, rationnel};
 enum TypeAngle {degre, radian};
 
 enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
-enum TypeOperationUnaire {SINUS,COSINUS,SINUSH,COSINUSH,TANG,TANGH,LN,LOG,INV,SQRT,SQR,CUBE,FACT};      // EVAL ?
+enum TypeOperationUnaire {SINUS,COSINUS,SINUSH,COSINUSH,TANG,TANGH,LN,LOG,INV,SQRT,SQR,CUBE,FACT};
 
 class Donnee {
 
@@ -26,7 +26,9 @@ public :
     static TypeAngle getTypeAngles() { return typeangles; }
 
     static void setTypeDonnees(std::string type);
+    static void setTypeDonnees(int i);
     static void setTypeAngle(TypeAngle type) { typeangles = type; }
+    static void setTypeAngle(int i);
     static void setTypeComplexe(bool b) { typecomplexe = b; }
 
     virtual void afficher(std::ostream& f=std::cout) const = 0;
@@ -52,7 +54,5 @@ public :
 bool number(char c);
 bool number(std::string str);   //renvoie "vrai" si la chaine de caracteres s'apparente a un nombre
 bool fraction(std::string str);    //renvoie "vrai" si la chaîne de caractères s'apparente à une fraction
-
-
 
 #endif // DONNEE_H

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include "calculexception.h"
+#include "sauvegarde.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -73,6 +74,21 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->actionRetablir,SIGNAL(triggered()),this,SLOT(retablir()));
 
     setWindowTitle("Rotaluklak");
+
+    try
+    {
+        charger_contexte("contexte.cfg",stack);
+    }
+    catch(CalculException exc)
+    {
+        exc.afficher();
+    }
+
+    maj_parametres();
+
+    std::stringstream affichage;
+    stack->afficher(affichage);
+    ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
 }
 
 void MainWindow::num0Pressed() { ui->lineEdit->setText(ui->lineEdit->text() + "0");}
@@ -125,6 +141,7 @@ void MainWindow::typeChanged(){
               ui->numFACT->setEnabled(false);
           }
     Donnee::setTypeDonnees(type);
+    sauver_contexte("contexte.cfg",stack);
 }
 
 void MainWindow::complexeChanged(){
@@ -144,10 +161,19 @@ void MainWindow::complexeChanged(){
     ui->numINV->setEnabled(!active);
     ui->numSQRT->setEnabled(!active);
     ui->numFACT->setEnabled(!active);
+    sauver_contexte("contexte.cfg",stack);
 }
 
-void MainWindow::degreClicked(){ Donnee::setTypeAngle(degre);}
-void MainWindow::radianClicked(){ Donnee::setTypeAngle(radian);}
+void MainWindow::degreClicked()
+{
+    Donnee::setTypeAngle(degre);
+    sauver_contexte("contexte.cfg",stack);
+}
+void MainWindow::radianClicked()
+{
+    Donnee::setTypeAngle(radian);
+    sauver_contexte("contexte.cfg",stack);
+}
 
 void MainWindow::enterPressed(){
     std::stringstream affichage;
@@ -167,6 +193,7 @@ void MainWindow::enterPressed(){
         stack->afficher(affichage);
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
         ui->lineEdit->clear();
+        sauver_contexte("contexte.cfg",stack);
     }
 }
 
@@ -197,6 +224,7 @@ void MainWindow::evalPressed()
         stack->afficher(affichage);
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
         ui->lineEdit->clear();
+        sauver_contexte("contexte.cfg",stack);
     }
     else if(data)
     {
@@ -221,11 +249,12 @@ void MainWindow::dropPressed(){
 
     if(stack->longueur()>0)
     {
-    memundo->save(stack);
-    memredo->reset();
-    stack->drop();
-    stack->afficher(affichage);
-    ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+        memundo->save(stack);
+        memredo->reset();
+        stack->drop();
+        stack->afficher(affichage);
+        ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+        sauver_contexte("contexte.cfg",stack);
     }
 }
 
@@ -246,6 +275,7 @@ void MainWindow::dupPressed(){
 
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+    sauver_contexte("contexte.cfg",stack);
 }
 
 void MainWindow::sumPressed(){
@@ -257,6 +287,7 @@ void MainWindow::sumPressed(){
     stack->sum();
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+    sauver_contexte("contexte.cfg",stack);
 }
 
 void MainWindow::swapPressed(){
@@ -276,6 +307,7 @@ void MainWindow::swapPressed(){
 
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+    sauver_contexte("contexte.cfg",stack);
 }
 
 void MainWindow::clearPressed(){
@@ -289,6 +321,7 @@ void MainWindow::clearPressed(){
         stack->clear();
         stack->afficher(affichage);
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+        sauver_contexte("contexte.cfg",stack);
     }
 }
 
@@ -305,6 +338,7 @@ void MainWindow::annuler()
             stack = memundo->restore();
             stack->afficher(affichage);
             ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+            sauver_contexte("contexte.cfg",stack);
         }
         else throw(CalculException("Impossible d'annuler."));
     }
@@ -327,6 +361,7 @@ void MainWindow::retablir()
             stack = memredo->restore();
             stack->afficher(affichage);
             ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+            sauver_contexte("contexte.cfg",stack);
         }
         else throw(CalculException("Impossible de retablir."));
     }
@@ -334,6 +369,14 @@ void MainWindow::retablir()
     {
         exc.afficher();
     }
+}
+
+void MainWindow::maj_parametres()
+{
+    ui->numTYPE->setCurrentIndex(Donnee::getTypeDonnees());
+    ui->numComplexe->setChecked(Donnee::getTypeComplexe());
+    ui->numDegre->setChecked(Donnee::getTypeAngles());
+    ui->numRadian->setChecked(Donnee::getTypeAngles());
 }
 
 MainWindow::~MainWindow()

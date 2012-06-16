@@ -20,6 +20,8 @@ public:
 
     Pile* getPile(){return stack;}
 
+    void maj_parametres();
+
     
 private:
     Ui::MainWindow *ui;

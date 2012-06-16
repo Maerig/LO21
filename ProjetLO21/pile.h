@@ -33,6 +33,7 @@ public :
     void empiler(Donnee* elt);
     Donnee* depiler();
     void afficher(std::ostream& f=std::cout) const;
+    void affichage_inverse(std::ostream& f=std::cout);    //A appeler sur un clone
     std::ostream& operator<<(std::ostream& f) { afficher(f); return f; }
     Pile* clone() const;
 

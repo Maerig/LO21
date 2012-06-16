@@ -56,6 +56,17 @@ void Pile::afficher(std::ostream& f) const
     }
 }
 
+void Pile::affichage_inverse(std::ostream& f)
+{
+    if(tete)
+    {
+        Donnee* data = depiler();
+        affichage_inverse(f);
+        data->afficher(f);
+        f<<"\n";
+    }
+}
+
 Pile* Pile::clone() const {
     if(taille == 0)
         return new Pile;

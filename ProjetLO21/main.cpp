@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
     {
     Pile stack;
 
-        sauver_contexte("test.txt");
         QApplication a(argc, argv);
         MainWindow w;
         w.show();
