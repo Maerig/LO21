@@ -1,6 +1,7 @@
 #include "complexe.h"
 #include "calculexception.h"
 
+
 Complexe::Complexe(Donnee* Re, Donnee* Im)
 {
     Nombre* num1 = dynamic_cast <Nombre*>(Re);
@@ -13,6 +14,30 @@ Complexe::Complexe(Donnee* Re, Donnee* Im)
     else
         throw CalculException("Un complexe ne peut etre forme que de nombres.");
 }
+
+Complexe::Complexe(Donnee* Re)
+{
+        Reel* test1 = dynamic_cast< Reel*>(Re);
+        Rationnel* test2 = dynamic_cast< Rationnel*>(Re);
+        Entier* test3 = dynamic_cast< Entier*>(Re);
+
+        if (test1){
+                   a=test1;
+                   b=new Reel;
+                  }
+        else if (test2){
+                   a=test2;
+                   b= new Rationnel;
+                  }
+        else if (test3){
+                   a=test3;
+                   b=new Entier;
+                  }
+
+        else throw CalculException("Erreur inattendue au niveau de la formation d'un complexe par une donne. Cf complexe.cpp");
+
+}
+
 
 void Complexe::afficher(std::ostream& f) const
 {
@@ -40,4 +65,18 @@ bool complexe_like(std::string str)
     while(str[i])
         im+=str[i++];
     return (number(re)&&number(im));
+}
+
+
+Complexe& Complexe::operator=(const Complexe& n){
+    if(this != &n){
+            a=n.a;
+            b=n.b;
+    }
+    return *this;
+}
+
+Complexe::Complexe(){
+    a= new Reel;
+    b= new Reel;
 }

@@ -20,13 +20,6 @@ int main(int argc, char *argv[])
         MainWindow w;
         w.show();
 
-        Reel A(90);
-
-        A=Reel(sin(A.getVal()));
-
-        std::cout<<"HOUHOU \n"<<A.getVal();
-
-
         return a.exec();
 
     }

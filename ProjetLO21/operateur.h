@@ -4,6 +4,7 @@
 #include "pile.h"
 #include "reel.h"
 #include "calculexception.h"
+#include "complexe.h"
 
 class Operateur : public Donnee {
 

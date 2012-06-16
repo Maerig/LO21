@@ -11,37 +11,105 @@ void OperateurBinaire::Calculer(Pile* stack){
     Donnee* dB= stack->depiler();
     Donnee* dA= stack->depiler();
 
+    Complexe* testC1 = dynamic_cast< Complexe*>(dA);
+    Complexe* testC2 = dynamic_cast< Complexe*>(dB);
+
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Reel* test2 = dynamic_cast< Reel*>(dB);
     Rationnel* test3 = dynamic_cast< Rationnel*>(dA);
     Rationnel* test4 = dynamic_cast< Rationnel*>(dB);
-    Entier* test5 = dynamic_cast< Entier*>(dA);
-    Entier* test6 = dynamic_cast< Entier*>(dB);
+    Entier* testE1 = dynamic_cast< Entier*>(dA);
+    Entier* testE2 = dynamic_cast< Entier*>(dB);
 
 
-    if ( test1 || test2 ) {     //Au moins un reel
+    if ( testC1 || testC2){    //On a au moins un complexe
+
+        /*Complexe A(0);
+        Complexe B(0);
+
+        if (!testC1){
+                        if (!test1) A=Complexe(*test1);
+                        else if (!test3) A=Complexe(*test3);
+                        else A=Complexe(*testE1);
+                   }
+        else A=*testC1;
+
+        if (!testC2){
+                        if (!test2) A=Complexe(*test2);
+                        else if (!test4) A=Complexe(*test4);
+                        else A=Complexe(*testE2);
+                   }
+        else B=*testC2;
+
+        Complexe* dC = new Complexe;
+
+            switch (typeoperation) {
+
+                case (PLUS):
+                {
+
+                }
+
+                    break;
+
+                case(MINUS):
+                {
+
+                }
+                    break;
+
+
+                case(DIV):
+                {
+
+                }
+                    break;
+
+                case (MULT):
+                {
+
+                }
+                    break;
+
+                case(MODULO):
+                {
+
+                }
+                    break;
+
+                case (POW):
+                {
+
+                }
+
+                    break;
+
+            }*/
+    }
+
+    else if ( test1 || test2 ) {     //Au moins un reel
 
         Reel A(0);
         Reel B(0);
 
         if (!test1){
-                        if (!test3) A=Reel(*test5);
+                        if (!test3) A=Reel(*testE1);
                          else A=Reel(*test3);
                    }
         else A=*test1;
 
         if (!test2)
             {
-                if (!test4) B=Reel(*test6);
+                if (!test4) B=Reel(*testE2);
                  else B=Reel(*test4);
             }
         else B=*test2;
 
+        Reel* dC = new Reel;
 
         switch (typeoperation) {
             case (PLUS):
                         {
-                                    Reel* dC = new Reel;
                                     *dC=(A+B);
                                     stack->empiler(dC);
                         }
@@ -49,7 +117,6 @@ void OperateurBinaire::Calculer(Pile* stack){
 
             case(MINUS):
         {
-                    Reel* dC = new Reel;
                     *dC=(A-B);
                     stack->empiler(dC);
         }
@@ -66,7 +133,6 @@ void OperateurBinaire::Calculer(Pile* stack){
                                     }
 
                     else {
-                        Reel* dC = new Reel;
                         *dC=(A/B);
                         stack->empiler(dC);
                         }
@@ -76,7 +142,6 @@ void OperateurBinaire::Calculer(Pile* stack){
 
             case (MULT):
         {
-                    Reel* dC = new Reel;
                     *dC=(A*B);
                     stack->empiler(dC);
         }
@@ -94,7 +159,6 @@ void OperateurBinaire::Calculer(Pile* stack){
 
             case (POW):
         {
-                    Reel* dC = new Reel;
                     *dC=(A*B);
                     *dC=Reel(pow(A.getVal(),B.getVal()));
                     stack->empiler(dC);
@@ -111,7 +175,7 @@ void OperateurBinaire::Calculer(Pile* stack){
         Rationnel B(0);
 
         if (!test3){
-                        A=Rationnel(*test5);
+                        A=Rationnel(*testE1);
                    }
         else A=*test3;
 
@@ -121,19 +185,18 @@ void OperateurBinaire::Calculer(Pile* stack){
                     }
         else B=*test4;
 
-
+        Rationnel* dC = new Rationnel;
 
             switch (typeoperation) {
             case (PLUS):
                        {
-                            Rationnel* dC = new Rationnel;
+
                             *dC=(A+B);
                             stack->empiler(dC);
                        }
                 break;
             case(MINUS):
             {
-                 Rationnel* dC = new Rationnel;
                  *dC=(A-B);
                  stack->empiler(dC);
             }
@@ -150,7 +213,6 @@ void OperateurBinaire::Calculer(Pile* stack){
                                  }
 
                  else {
-                     Rationnel* dC = new Rationnel;
                      *dC=(A/B);
                      stack->empiler(dC);
                      }
@@ -160,7 +222,6 @@ void OperateurBinaire::Calculer(Pile* stack){
 
             case (MULT):
             {
-                 Rationnel* dC = new Rationnel;
                  *dC=(A*B);
                  stack->empiler(dC);
             }
@@ -177,7 +238,6 @@ void OperateurBinaire::Calculer(Pile* stack){
 
             case (POW):
             {
-                 Rationnel* dC = new Rationnel;
                  *dC=Rationnel(pow(A.getNumerateur(),float(B)),pow(A.getDenumerateur(),float(B)));
                  stack->empiler(dC);
             }
@@ -187,14 +247,15 @@ void OperateurBinaire::Calculer(Pile* stack){
         }
     }
 
-    else if ( *test5 || *test6){    //On a forcément deux entiers
+    else if ( testE1 || testE2){    //On a forcément deux entiers
+
+                Entier* C = new Entier;
 
             switch (typeoperation) {
 
                 case (PLUS):
-                {
-                    Entier* C = new Entier;
-                    *C = *test5 + *test6;
+                {              
+                    *C = *testE1 + *testE2;
                     stack->empiler(C);
                 }
 
@@ -202,8 +263,7 @@ void OperateurBinaire::Calculer(Pile* stack){
 
                 case(MINUS):
                 {
-                    Entier* C = new Entier;
-                    *C = *test5 - *test6;
+                    *C = *testE1 - *testE2;
                     stack->empiler(C);
 
                 }
@@ -213,15 +273,14 @@ void OperateurBinaire::Calculer(Pile* stack){
                 case(DIV):
 
                 {
-                if (test6->getVal()==0){
-                                    stack->empiler(test5);
-                                    stack->empiler(test6);
+                if (testE2->getVal()==0){
+                                    stack->empiler(testE1);
+                                    stack->empiler(testE2);
                                     throw CalculException("Division par zero impossible.");
                                 }
 
                 else {
-                        Entier* C = new Entier;
-                        *C = *test5 / *test6;
+                        *C = *testE1 / *testE2;
                         stack->empiler(C);
                     }
 
@@ -233,8 +292,7 @@ void OperateurBinaire::Calculer(Pile* stack){
                 case (MULT):
 
                 {
-                    Entier* C = new Entier;
-                    *C = *test5 * *test6;
+                    *C = *testE1 * *testE2;
                     stack->empiler(C);
                 }
                     break;
@@ -242,15 +300,14 @@ void OperateurBinaire::Calculer(Pile* stack){
                 case(MODULO):
 
                 {
-                    if (test6->getVal()==0){
-                                                stack->empiler(test5);
-                                                stack->empiler(test6);
+                    if (testE2->getVal()==0){
+                                                stack->empiler(testE1);
+                                                stack->empiler(testE2);
                                                 throw CalculException("Modulo: Division par zero impossible.");
                                             }
 
                     else {
-                            Entier* C = new Entier;
-                            *C = *test5 % *test6;
+                            *C = *testE1 % *testE2;
                             stack->empiler(C);
                          }
 
@@ -259,8 +316,7 @@ void OperateurBinaire::Calculer(Pile* stack){
 
                 case (POW):
                 {
-                    Entier* C = new Entier;
-                    *C = Entier(pow(test5->getVal(),test6->getVal()));
+                    *C = Entier(pow(testE1->getVal(),testE2->getVal()));
                     stack->empiler(C);
                 }
 

@@ -12,6 +12,13 @@ void Sinus::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+    if (test4) {
+                stack->empiler(dA);
+                throw CalculException("Fonction Sinus non disponible pour complexe.");
+               }
+
     Reel A(0);
 
     if (test1){
@@ -37,6 +44,13 @@ void Cosinus::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+    if (test4) {
+                stack->empiler(dA);
+                throw CalculException("Fonction Cosinus non disponible pour complexe.");
+               }
+
     Reel A(0);
 
     if (test1){
@@ -61,6 +75,12 @@ void Tang::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+    if (test4) {
+                stack->empiler(dA);
+                throw CalculException("Fonction Tan non disponible pour complexe.");
+               }
     Reel A(0);
 
     if (test1){
@@ -86,6 +106,12 @@ void Sinush::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+    if (test4) {
+                stack->empiler(dA);
+                throw CalculException("Fonction SinusH non disponible pour complexe.");
+               }
     Reel A(0);
 
     if (test1){
@@ -110,6 +136,12 @@ void Cosinush::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+    if (test4) {
+                stack->empiler(dA);
+                throw CalculException("Fonction CosinusH non disponible pour complexe.");
+               }
     Reel A(0);
 
     if (test1){
@@ -135,6 +167,12 @@ void Tangh::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+    if (test4) {
+                stack->empiler(dA);
+                throw CalculException("Fonction TanH non disponible pour complexe.");
+               }
     Reel A(0);
 
     if (test1){
@@ -158,6 +196,12 @@ void Sqrt::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+    if (test4) {
+                stack->empiler(dA);
+                throw CalculException("Fonction Sqrt non disponible pour complexe.");
+               }
     Reel A(0);
 
     if (test1){
@@ -181,7 +225,7 @@ void Sqr::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
-
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
 
     if (test1){
                 Reel A(0);
@@ -204,7 +248,13 @@ void Sqr::Calculer(Pile *stack){
                     *C=Entier(pow(A.getVal(),2));
                     stack->empiler(C);
                   }
+    else if (test4) {
+                    Complexe A(0);
+                    A=Complexe(*test4);
+                    Complexe* C = new Complexe;
 
+                    stack->empiler(C);
+                    }
 
 }
 
@@ -214,6 +264,12 @@ void Ln::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+    if (test4) {
+                stack->empiler(dA);
+                throw CalculException("Fonction Ln non disponible pour complexe.");
+               }
 
 
     if (test1){
@@ -247,6 +303,12 @@ void Log::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+    if (test4) {
+                stack->empiler(dA);
+                throw CalculException("Fonction Log non disponible pour complexe.");
+               }
 
 
     if (test1){
@@ -280,6 +342,9 @@ void Cube::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+
 
 
     if (test1){
@@ -303,7 +368,13 @@ void Cube::Calculer(Pile *stack){
                     *C=Entier(pow(A.getVal(),3));
                     stack->empiler(C);
                   }
+    else if (test4) {
+                    Complexe A(0);
+                    A=Complexe(*test4);
+                    Complexe* C = new Complexe;
 
+                    stack->empiler(C);
+               }
 }
 
 
@@ -313,6 +384,7 @@ void Fact::Calculer(Pile *stack){
 
     Reel* test1 = dynamic_cast< Reel*>(dA);                     // Mettre en place erreur pour ces 2
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
 
 
     if (test3) {
@@ -326,6 +398,7 @@ void Fact::Calculer(Pile *stack){
     else {
             stack->empiler(dA);
             if (test2) throw CalculException("Impossible de calculer factoriel d'un rationnel.\nFonction utilisable avec Entier uniquement.");
+            else if (test4) throw CalculException("Impossible de calculer factoriel d'un Complexe.\nFonction utilisable avec Entier uniquement.");
             else throw CalculException("Impossible de calculer factoriel d'un reel.\nFonction utilisable avec Entier uniquement.");
         }
 
@@ -338,6 +411,7 @@ void Sign::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
 
 
     if (test1){
@@ -361,7 +435,13 @@ void Sign::Calculer(Pile *stack){
                     *C=Entier(0-A.getVal());
                     stack->empiler(C);
                   }
+    else if(test4){
+                    Complexe A(0);
+                    A=Complexe(*test4);
+                    Complexe* C = new Complexe;
 
+                    stack->empiler(C);
+                  }
 }
 
 
@@ -370,7 +450,12 @@ void Inv::Calculer(Pile *stack){
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
+    Complexe* test4 = dynamic_cast< Complexe*>(dA);
 
+    if (test4) {
+                stack->empiler(dA);
+                throw CalculException("Fonction Log non disponible pour complexe.");
+               }
 
     if (test1){
                 Reel A(0);
