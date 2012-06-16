@@ -5,6 +5,7 @@
 #include <string>
 #include "reel.h"
 
+
 class OperateurUnaire : public Operateur {
 
 public:
