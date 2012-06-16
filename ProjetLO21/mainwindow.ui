@@ -98,7 +98,7 @@
            <item>
             <widget class="QRadioButton" name="numDegre">
              <property name="text">
-              <string>Degré</string>
+              <string>Degrés</string>
              </property>
              <property name="checked">
               <bool>true</bool>
@@ -180,7 +180,7 @@
                <item row="0" column="0">
                 <widget class="QPushButton" name="numIMA">
                  <property name="enabled">
-                  <bool>true</bool>
+                  <bool>false</bool>
                  </property>
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">

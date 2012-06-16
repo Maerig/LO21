@@ -198,7 +198,7 @@ void MainWindow::evalPressed()
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
         ui->lineEdit->clear();
     }
-    else
+    else if(data)
     {
         stack->empiler(data);
         try
