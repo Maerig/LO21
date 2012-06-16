@@ -5,6 +5,7 @@
 #include <iostream>
 #include <typeinfo>
 
+
 enum TypeDonnee {entier, reel, rationnel};
 enum TypeAngle {degre, radian};
 
@@ -17,7 +18,7 @@ protected :
 
     static TypeDonnee typedonnees;      //contient le type de données à utiliser (paramètres)
     static bool typecomplexe;       //indique si les données à traiter sont de type complexe (paramètres)
-    static TypeAngle typeangles;   //typeangle = degres/radians (paramètres)
+    static TypeAngle typeangles;   //typeangle = degre/radian (paramètres)
 
 public :
     static TypeDonnee getTypeDonnees() { return typedonnees; }

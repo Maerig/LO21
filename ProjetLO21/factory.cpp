@@ -150,6 +150,9 @@ Operateur* Factory::make_operateur(std::string str)
 
     else if(str=="INV") return new Inv();
 
+    else if(str=="SIGN") return new Sign();
+
+
 
 }
 

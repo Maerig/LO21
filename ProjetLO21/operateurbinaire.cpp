@@ -76,7 +76,8 @@ void OperateurBinaire::Calculer(Pile* stack){
 
             case(MODULO):
         {
-
+            stack->empiler(dA);
+            stack->empiler(dB);                             // Ajouter Erreur
         }
 
                 break;
@@ -148,7 +149,10 @@ void OperateurBinaire::Calculer(Pile* stack){
                 break;
 
             case(MODULO):
-
+            {
+                stack->empiler(dA);
+                stack->empiler(dB);                             // Ajouter Erreur
+            }
                 break;
 
             case (POW):
