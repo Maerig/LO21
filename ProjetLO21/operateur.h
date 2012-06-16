@@ -3,7 +3,7 @@
 
 #include "pile.h"
 #include "reel.h"
-
+#include "calculexception.h"
 
 class Operateur : public Donnee {
 

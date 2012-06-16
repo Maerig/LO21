@@ -5,12 +5,9 @@
 #include <string>
 #include "reel.h"
 
-class OperateurUnaire : public Operateur {              //TODO
+class OperateurUnaire : public Operateur {
 
 public:
-
-    //OperateurUnaire(std::string str);
-
     virtual void Calculer(Pile* stack)=0;
     void afficher(std::ostream& f=std::cout) const=0;
     Donnee* clone() const=0;
