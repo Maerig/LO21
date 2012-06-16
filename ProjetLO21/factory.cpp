@@ -154,7 +154,9 @@ Operateur* Factory::make_operateur(std::string str)
 
     else if(str=="SIGN") return new Sign();
 
-    else  throw CalculException("Echec de la reconnaissance du dernier operateur entre.\n Erreur non suppose.\nSource: factory.cpp. ");
+    throw CalculException("Operateur inconnu.");
+
+
 
 }
 

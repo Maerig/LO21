@@ -7,6 +7,7 @@
 #include "complexe.h"
 #include <iostream>
 #include <math.h>
+#include "sauvegarde.h"
 
 int main(int argc, char *argv[])
 {
@@ -15,6 +16,7 @@ int main(int argc, char *argv[])
     {
     Pile stack;
 
+        sauver_contexte("test.txt");
         QApplication a(argc, argv);
         MainWindow w;
         w.show();
