@@ -31,6 +31,8 @@ void OperateurBinaire::Calculer(Pile* stack){
     Complexe* testC1 = dynamic_cast< Complexe*>(dA);
     Complexe* testC2 = dynamic_cast< Complexe*>(dB);
 
+
+
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Reel* test2 = dynamic_cast< Reel*>(dB);
     Rationnel* test3 = dynamic_cast< Rationnel*>(dA);
@@ -41,8 +43,8 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     if ( testC1 || testC2){    //On a au moins un complexe
 
-        //Complexe A(0);
-        //Complexe B(0);
+        Complexe A;
+        Complexe B;
 
         /*METHODE 1
         Complexe A= Complexe(dA);
@@ -64,37 +66,39 @@ void OperateurBinaire::Calculer(Pile* stack){
                    }
         else B=*testC2;
 
-
+        Complexe* dC = new Complexe;
 
             switch (typeoperation) {
 
                 case (PLUS):
                 {
-                    Complexe dC=(A+B);
-                    stack->empiler(&dC);
+                    *dC=(A+B);
+                std::cout<<typeid(dC).name();
+                throw CalculException("HOUHOU");
+                    stack->empiler(dC);
                 }
 
                     break;
 
                 case(MINUS):
                 {
-                    Complexe dC=(A-B);
-                    stack->empiler(&dC);
+                    *dC=(A-B);
+                    stack->empiler(dC);
                 }
                     break;
 
 
                 case(DIV):
                 {
-                    Complexe dC=(A/B);
-                    stack->empiler(&dC);
+                    *dC=(A/B);
+                    stack->empiler(dC);
                 }
                     break;
 
                 case (MULT):
                 {
-                    Complexe dC=(A*B);
-                    stack->empiler(&dC);
+                    *dC=(A*B);
+                    stack->empiler(dC);
                 }
                     break;
 

@@ -249,7 +249,7 @@ void Sqr::Calculer(Pile *stack){
                     stack->empiler(C);
                   }
     else if (test4) {
-                    Complexe A(0);
+                    Complexe A;
                     A=Complexe(*test4);
                     Complexe* C = new Complexe;
 
@@ -369,7 +369,7 @@ void Cube::Calculer(Pile *stack){
                     stack->empiler(C);
                   }
     else if (test4) {
-                    Complexe A(0);
+                    Complexe A;
                     A=Complexe(*test4);
                     Complexe* C = new Complexe;
 
@@ -436,7 +436,7 @@ void Sign::Calculer(Pile *stack){
                     stack->empiler(C);
                   }
     else if(test4){
-                    Complexe A(0);
+                    Complexe A;
                     A=Complexe(*test4);
                     Complexe* C = new Complexe;
 

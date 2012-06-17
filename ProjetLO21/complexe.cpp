@@ -643,7 +643,8 @@ Complexe::Complexe(Donnee* d)                   // Pour methode 1
 
 Complexe::Complexe(Reel r){
 
-    a(r);
+    a=new Reel;
+    *a=r;
 
     b=new Reel;
 
@@ -651,14 +652,16 @@ Complexe::Complexe(Reel r){
 
 Complexe::Complexe(Rationnel r){
 
-    a(r);
+    a=new Rationnel;
+    *a=r;
 
     b=new Rationnel;
 }
 
 Complexe::Complexe(Entier e){
 
-    a=(e);
+    a=new Entier;
+    *a=e;
 
     b=new Entier;
 }
