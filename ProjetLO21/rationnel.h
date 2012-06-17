@@ -19,6 +19,8 @@ public :
     Rationnel(Entier e): num(e),denum(1){simplifier();}
     Rationnel(Reel r);
 
+    //Rationnel(Donnee* d);
+
     Entier getNumerateur() {return num;}
     Entier getDenumerateur() {return denum;}
 

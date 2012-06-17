@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sat Jun 16 01:36:33 2012
+** Created: Sun Jun 17 21:07:00 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -218,7 +218,7 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         numIMA = new QPushButton(layoutWidget);
         numIMA->setObjectName(QString::fromUtf8("numIMA"));
-        numIMA->setEnabled(true);
+        numIMA->setEnabled(false);
         sizePolicy.setHeightForWidth(numIMA->sizePolicy().hasHeightForWidth());
         numIMA->setSizePolicy(sizePolicy);
         numIMA->setMaximumSize(QSize(51, 27));
@@ -654,7 +654,7 @@ public:
          << QApplication::translate("MainWindow", "Reel", 0, QApplication::UnicodeUTF8)
         );
         numComplexe->setText(QApplication::translate("MainWindow", "Complexe", 0, QApplication::UnicodeUTF8));
-        numDegre->setText(QApplication::translate("MainWindow", "Degr\303\251", 0, QApplication::UnicodeUTF8));
+        numDegre->setText(QApplication::translate("MainWindow", "Degr\303\251s", 0, QApplication::UnicodeUTF8));
         numRadian->setText(QApplication::translate("MainWindow", "Radians", 0, QApplication::UnicodeUTF8));
         numQUOTE->setText(QApplication::translate("MainWindow", "'", 0, QApplication::UnicodeUTF8));
         numQUOTE->setShortcut(QApplication::translate("MainWindow", "Alt+'", 0, QApplication::UnicodeUTF8));

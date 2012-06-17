@@ -11,6 +11,23 @@ void OperateurBinaire::Calculer(Pile* stack){
     Donnee* dB= stack->depiler();
     Donnee* dA= stack->depiler();
 
+    Expression* testExA =dynamic_cast<Expression*>(dA);
+    Expression* testExB =dynamic_cast<Expression*>(dB);
+
+    if (testExA) {
+        testExA->enfiler_fin(dB);
+        testExA->enfiler_fin(this);
+        stack->empiler(testExA);
+    }
+
+    else if (testExB) {
+        testExA->enfiler_debut(dA);
+        testExA->enfiler_fin(this);
+        stack->empiler(testExA);
+    }
+
+    else {
+
     Complexe* testC1 = dynamic_cast< Complexe*>(dA);
     Complexe* testC2 = dynamic_cast< Complexe*>(dB);
 
@@ -24,67 +41,81 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     if ( testC1 || testC2){    //On a au moins un complexe
 
-        /*Complexe A(0);
-        Complexe B(0);
+        //Complexe A(0);
+        //Complexe B(0);
 
-        if (!testC1){
+        //METHODE 1
+        Complexe A= Complexe(dA);
+        Complexe B= Complexe(dB);
+
+
+        /* METHODE 2
+        if (!testC1){                                               // On entre dans A le complexe testC1=dA, apres conversion si necessaire.
                         if (!test1) A=Complexe(*test1);
-                        else if (!test3) A=Complexe(*test3);
+                        else if (!test3) A=Complexe(*test3);        // On cherche le test(i) non nul, c'est  dire le vritable type de dA. On construit  partir de a le complexe.
                         else A=Complexe(*testE1);
                    }
         else A=*testC1;
 
-        if (!testC2){
+        if (!testC2){                                               // On entre dans B le complexe testC2=dB, apres conversion si necessaire.
                         if (!test2) A=Complexe(*test2);
                         else if (!test4) A=Complexe(*test4);
                         else A=Complexe(*testE2);
                    }
         else B=*testC2;
+        */
 
-        Complexe* dC = new Complexe;
 
             switch (typeoperation) {
 
                 case (PLUS):
                 {
-
+                    Complexe dC=(A+B);
+                    stack->empiler(&dC);
                 }
 
                     break;
 
                 case(MINUS):
                 {
-
+                    Complexe dC=(A-B);
+                    stack->empiler(&dC);
                 }
                     break;
 
 
                 case(DIV):
                 {
-
+                    Complexe dC=(A/B);
+                    stack->empiler(&dC);
                 }
                     break;
 
                 case (MULT):
                 {
-
+                    Complexe dC=(A*B);
+                    stack->empiler(&dC);
                 }
                     break;
 
                 case(MODULO):
                 {
-
+                    stack->empiler(dA);
+                    stack->empiler(dB);
+                    throw CalculException("Modulo inappliquable pour Complexe.\nFonction utilisable avec Entier uniquement.");
                 }
                     break;
 
                 case (POW):
                 {
-
+                    stack->empiler(dA);
+                    stack->empiler(dB);
+                    throw CalculException("POW inappliquable pour Complexe.");
                 }
 
                     break;
 
-            }*/
+            }
     }
 
     else if ( test1 || test2 ) {     //Au moins un reel
@@ -326,9 +357,10 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     }
 
-    else throw CalculException("Echec de la reconnaissance du type des 2 dernieres variables entrees.\nSource: Operateurbinaire.cpp. ");
-}
+    else throw CalculException("Echec de la reconnaissance du type de 2 variables entrees.\nSource: Operateurbinaire.cpp. ");
 
+    }
+}
 
 void OperateurBinaire::afficher(std::ostream& f) const
 {

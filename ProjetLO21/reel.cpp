@@ -73,4 +73,23 @@ Reel operator^( Reel& a,  Entier& b){              // POW a^b
 }
 
 
+/*
+Reel::Reel(Donnee *d){
+    Reel* test1 = dynamic_cast< Reel*>(d);
+    Rationnel* test2 = dynamic_cast< Rationnel*>(d);
+    Entier* test3 = dynamic_cast< Entier*>(d);
 
+    if (test1){
+               val=test1->getVal();
+              }
+    else if (test2){
+                val=float(*test2);
+              }
+    else if (test3){
+               val=test3->getVal();
+              }
+
+    else throw CalculException("Erreur inattendue au niveau de la formation d'un reel par une donne. Cf reel.cpp");
+}
+
+*/
