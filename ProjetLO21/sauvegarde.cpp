@@ -40,9 +40,9 @@ void charger_contexte(std::string name, Pile *stack)
             }
             else if(str=="[Pile]")
                 while(getline(f,str))
-                    stack->empiler(fact.make(str));
-                 else
-                throw CalculException("Fichier corrompu.");
+                    stack->empiler(fact.remake(str));
+                else
+                    throw CalculException("Fichier corrompu.");
         }
         f.close();
     }

@@ -17,9 +17,11 @@ public :
 
     Complexe& operator=(const Complexe& n);
     void afficher(std::ostream& f=std::cout) const;
+    void afficher_contexte(std::ostream& f) const;
     Donnee* clone() const;
 };
 
 bool complexe_like(std::string str);
+bool saved_complexe(std::string str);
 
 #endif // COMPLEXE_H

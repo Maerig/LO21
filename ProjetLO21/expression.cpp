@@ -30,6 +30,20 @@ void Expression::afficher(std::ostream& f) const {
         throw CalculException("Expression vide.");
 }
 
+void Expression::afficher_contexte(std::ostream& f) const
+{
+    Cellule* cell = tete;
+    f<<"Expression:";
+    f<<"'";
+    while(cell)
+    {
+        cell->getContent()->afficher_contexte(f);
+        cell = cell->getSucc();
+        if(cell) f<<" ";
+    }
+    f<<"'";
+}
+
 Donnee* Expression::clone() const {
     if(!tete)
     {

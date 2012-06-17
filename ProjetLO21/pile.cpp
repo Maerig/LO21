@@ -56,13 +56,13 @@ void Pile::afficher(std::ostream& f) const
     }
 }
 
-void Pile::affichage_inverse(std::ostream& f)
+void Pile::affichage_inverse(std::ostream& f)   //Permet d'afficher une version pour le fichier de sauvegarde de contexte
 {
     if(tete)
     {
         Donnee* data = depiler();
         affichage_inverse(f);
-        data->afficher(f);
+        data->afficher_contexte(f);
         f<<"\n";
     }
 }

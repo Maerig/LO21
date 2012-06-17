@@ -23,6 +23,7 @@ public :
     Entier getDenumerateur() {return denum;}
 
     void afficher(std::ostream& f=std::cout) const { num.afficher(f); f<<"/"; denum.afficher(f); }
+    void afficher_contexte(std::ostream& f) const { f<<"Rationnel:"; num.afficher(f); f<<"/"; denum.afficher(f); }
     virtual Donnee* clone() const;
 
     operator float() const {return float(num)/float(denum);}

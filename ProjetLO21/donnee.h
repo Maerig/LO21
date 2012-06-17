@@ -32,6 +32,7 @@ public :
     static void setTypeComplexe(bool b) { typecomplexe = b; }
 
     virtual void afficher(std::ostream& f=std::cout) const = 0;
+    virtual void afficher_contexte(std::ostream& f) const = 0;
     virtual Donnee* clone() const = 0;
 };
 
@@ -39,6 +40,7 @@ class Numerique : public Donnee {
 
 public :
     virtual void afficher(std::ostream& f=std::cout) const = 0;
+    virtual void afficher_contexte(std::ostream& f) const = 0;
     std::ostream& operator<<(std::ostream& f) { afficher(f); return f; }
     virtual Donnee* clone() const = 0;
 };
@@ -47,6 +49,7 @@ class Nombre : public Numerique {   //Numerique non complexe
 
 public :
     virtual void afficher(std::ostream& f=std::cout) const = 0;
+    virtual void afficher_contexte(std::ostream& f) const = 0;
     virtual Donnee* clone() const = 0;
 
 };

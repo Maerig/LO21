@@ -15,6 +15,7 @@ public :
 
     float getVal() {return val;}
     void afficher(std::ostream& f=std::cout) const { f<<val; }
+    void afficher_contexte(std::ostream& f) const { f<<"Reel:"<<val; }
     virtual Donnee* clone() const;
     operator float() const {return val;}
 

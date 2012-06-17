@@ -23,6 +23,7 @@ public :
     Donnee* defiler();
 
     void afficher(std::ostream& f=std::cout) const;
+    void afficher_contexte(std::ostream& f) const;
     Donnee* clone() const;
 };
 

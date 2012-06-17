@@ -14,6 +14,7 @@ public :
     void setVal(double v){val=v;}
 
     void afficher(std::ostream& f=std::cout) const { f<<val; }
+    void afficher_contexte(std::ostream& f) const { f<<"Entier:"<<val; }
     Donnee* clone() const;
 
     operator float() const {return float(val);}

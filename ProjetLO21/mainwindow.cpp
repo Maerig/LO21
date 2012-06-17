@@ -26,8 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->numQUOTE,SIGNAL(clicked()),this,SLOT(numQUOTEPressed()));
     QObject::connect(ui->numSPACE,SIGNAL(clicked()),this,SLOT(numSPACEPressed()));
 
-    QObject::connect(ui->numTYPE,SIGNAL(activated(QString)),this,SLOT(typeChanged()));
-    QObject::connect(ui->numComplexe,SIGNAL(clicked()),this,SLOT(complexeChanged()));
+    QObject::connect(ui->numTYPE,SIGNAL(currentIndexChanged(int)),this,SLOT(typeChanged()));
+    QObject::connect(ui->numComplexe,SIGNAL(stateChanged(int)),this,SLOT(complexeChanged()));
     QObject::connect(ui->numDegre,SIGNAL(clicked()),this,SLOT(degreClicked()));
     QObject::connect(ui->numRadian,SIGNAL(clicked()),this,SLOT(radianClicked()));
 
@@ -85,6 +85,7 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     maj_parametres();
+    memundo->save(stack);
 
     std::stringstream affichage;
     stack->afficher(affichage);
@@ -129,18 +130,20 @@ void MainWindow::numINVPressed()    { ui->lineEdit->setText(ui->lineEdit->text()
 void MainWindow::numSIGNPressed()   { ui->lineEdit->setText(ui->lineEdit->text() + "SIGN");}
 
 
-void MainWindow::typeChanged(){
-    std::string type = ui->numTYPE->currentText().toStdString();
-    if(type=="Entier")
+void MainWindow::typeChanged()
+{
+    switch(ui->numTYPE->currentIndex())
     {
-        ui->numMOD->setEnabled(true);
-        ui->numFACT->setEnabled(true);
-    }else //Rationnel ou Reel
-          {
-              ui->numMOD->setEnabled(false);
-              ui->numFACT->setEnabled(false);
-          }
-    Donnee::setTypeDonnees(type);
+        case 0 : ui->numMOD->setEnabled(true);
+                 ui->numFACT->setEnabled(true);
+                 break;
+        case 1 :
+        case 2 : ui->numMOD->setEnabled(false);
+                 ui->numFACT->setEnabled(false);
+                 break;
+        default : break;
+    }
+    Donnee::setTypeDonnees(ui->numTYPE->currentIndex());
     sauver_contexte("contexte.cfg",stack);
 }
 

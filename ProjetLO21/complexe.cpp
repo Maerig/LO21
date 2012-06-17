@@ -47,6 +47,15 @@ void Complexe::afficher(std::ostream& f) const
     f<<"i";
 }
 
+void Complexe::afficher_contexte(std::ostream& f) const
+{
+    f<<"Complexe:";
+    a->afficher_contexte(f);
+    f<<"+";
+    b->afficher_contexte(f);
+    f<<"i";
+}
+
 Donnee* Complexe::clone() const
 {
 
@@ -67,6 +76,19 @@ bool complexe_like(std::string str)
     return (number(re)&&number(im));
 }
 
+bool saved_complexe(std::string str)    //Verifie qu'il s'agit d'un complexe sous sa forme affichee
+{
+    int i=0;
+    std::string re,im;
+    if(!number(str[i]))
+        return false;
+    while(str[i]&&str[i]!='+')
+        re+=str[i++];
+    ++i;
+    while(str[i]&&str[i]!='i')
+        im+=str[i++];
+    return (number(re)&&number(im)&&str[i]=='i'&&str[i+1]=='\0');
+}
 
 Complexe& Complexe::operator=(const Complexe& n){
     if(this != &n){
