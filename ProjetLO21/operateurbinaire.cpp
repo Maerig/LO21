@@ -21,10 +21,10 @@ void OperateurBinaire::Calculer(Pile* stack){
     }
 
     else if (testExB) {
-        testExA->enfiler_debut(dA);
-        testExA->enfiler_fin(this);
-        stack->empiler(testExA);
-    }
+           testExB->enfiler_debut(dA);
+           testExB->enfiler_fin(this);
+           stack->empiler(testExB);
+         }
 
     else {
 
