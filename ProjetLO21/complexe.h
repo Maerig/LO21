@@ -14,12 +14,12 @@ public :
     Complexe(Donnee* Re, Donnee* Im);
     Complexe();
 
-    Complexe(Donnee* d);                                // Methode 1
+    //Complexe(Donnee* d);                                // Methode 1
 
-    /*Complexe(Reel r);                     //Pour Methode 2
+    Complexe(Reel r);                     //Pour Methode 2
     Complexe(Rationnel r);
     Complexe(Entier e);
-    */
+
 
     Nombre* getCa(){return a;}
     Nombre* getCb(){return b;}

@@ -21,9 +21,9 @@ void OperateurBinaire::Calculer(Pile* stack){
     }
 
     else if (testExB) {
-        testExA->enfiler_debut(dA);
-        testExA->enfiler_fin(this);
-        stack->empiler(testExA);
+        testExB->enfiler_debut(dA);
+        testExB->enfiler_fin(this);
+        stack->empiler(testExB);
     }
 
     else {
@@ -44,12 +44,12 @@ void OperateurBinaire::Calculer(Pile* stack){
         //Complexe A(0);
         //Complexe B(0);
 
-        //METHODE 1
+        /*METHODE 1
         Complexe A= Complexe(dA);
         Complexe B= Complexe(dB);
+        */
 
-
-        /* METHODE 2
+         //METHODE 2
         if (!testC1){                                               // On entre dans A le complexe testC1=dA, apres conversion si necessaire.
                         if (!test1) A=Complexe(*test1);
                         else if (!test3) A=Complexe(*test3);        // On cherche le test(i) non nul, c'est  dire le vritable type de dA. On construit  partir de a le complexe.
@@ -63,7 +63,7 @@ void OperateurBinaire::Calculer(Pile* stack){
                         else A=Complexe(*testE2);
                    }
         else B=*testC2;
-        */
+
 
 
             switch (typeoperation) {
