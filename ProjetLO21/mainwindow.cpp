@@ -206,11 +206,14 @@ void MainWindow::evalPressed()
     Donnee* data = 0;
     try
     {
+        memundo->save(stack);
+        memredo->reset();
         data = stack->depiler();
     }
     catch(CalculException exc)
     {
         exc.afficher();
+        memundo->restore();
     }
     Expression* exp = dynamic_cast<Expression*>(data);
     if(exp && exp->valide())     //Il s'agit d'une expression valide
@@ -223,6 +226,7 @@ void MainWindow::evalPressed()
         catch(CalculException exc)
         {
             exc.afficher();
+            memundo->restore();
         }
         stack->afficher(affichage);
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
@@ -242,6 +246,7 @@ void MainWindow::evalPressed()
         catch(CalculException exc)
         {
             exc.afficher();
+            memundo->restore();
         }
     }
 }

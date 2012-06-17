@@ -82,13 +82,12 @@ Complexe& Complexe::operator=(const Complexe& n){
 Complexe& Complexe::operator+(const Complexe& B){
 
     // A Et B sont complexes, mais leur attribut a et b peuvent etre de types different. Il faut donc unifier.
-    Complexe* A=this;
 
-    Reel* A_a1 = dynamic_cast< Reel*>(A->a);
+    Reel* A_a1 = dynamic_cast< Reel*>(this->a);
     Reel* B_a1 = dynamic_cast< Reel*>(B.a);
-    Rationnel* A_a2 = dynamic_cast< Rationnel*>(A->a);
+    Rationnel* A_a2 = dynamic_cast< Rationnel*>(this->a);
     Rationnel* B_a2 = dynamic_cast< Rationnel*>(B.a);
-    Entier* A_a3 = dynamic_cast< Entier*>(A->a);
+    Entier* A_a3 = dynamic_cast< Entier*>(this->a);
     Entier* B_a3 = dynamic_cast< Entier*>(B.a);
 
     // Il suffit de prendre en considération le type d'un attribut par complexe. Le second étant obligatoirement du meme type.
@@ -104,17 +103,17 @@ Complexe& Complexe::operator+(const Complexe& B){
         if (!A_a1){                        // Si A_a1 null, donc les attributs de A n'est pas reel. Il faut les convertir en reels.
                         if (!A_a2) {
                                         A_a=Reel(*A_a2);
-                                        A_b=Reel(*dynamic_cast<Rationnel*>(A->b));
+                                        A_b=Reel(*dynamic_cast<Rationnel*>(this->b));
                                     }
 
                         else {
                                 A_a=Reel(*A_a3);
-                                A_b=Reel(*dynamic_cast<Entier*>(A->b));
+                                A_b=Reel(*dynamic_cast<Entier*>(this->b));
                              }
                    }
         else {
                 A_a=*A_a1;
-                A_b=(*dynamic_cast<Reel*>(A->b));
+                A_b=(*dynamic_cast<Reel*>(this->b));
              }
 
         if (!B_a1){
@@ -133,14 +132,12 @@ Complexe& Complexe::operator+(const Complexe& B){
                 B_b=(*dynamic_cast<Reel*>(B.b));
              }
 
-        Reel* p_r= new Reel;
-        Reel* p_im= new Reel;
+        Reel* p_r= new Reel(A_a+B_a);                   // A arranger chez les autres operateurs.
+        Reel* p_im= new Reel(A_b+B_b);
 
-        *p_r=(A_a+B_a);
-        *p_im=(A_b+B_b);
+        Complexe* tmp = new Complexe(p_r,p_im);
+        return *tmp;
 
-        Complexe tmp(p_r,p_im);
-        return tmp;
     }
 
     else if (A_a2 || B_a2)                       // L'attribut a de A ou de B est rationnel, tout les attributs doivent donc devenir rationnels.
@@ -152,11 +149,11 @@ Complexe& Complexe::operator+(const Complexe& B){
 
         if (!A_a2){                        // Si A_a1 null, donc les attributs de A n'est pas rationnel. Il faut les convertir en rationnels.
                                 A_a=Rationnel(*A_a3);
-                                A_b=Rationnel(*dynamic_cast<Entier*>(A->b));
+                                A_b=Rationnel(*dynamic_cast<Entier*>(this->b));
                    }
         else {
                 A_a=*A_a2;
-                A_b=(*dynamic_cast<Rationnel*>(A->b));
+                A_b=(*dynamic_cast<Rationnel*>(this->b));
              }
 
         if (!B_a2){
@@ -169,14 +166,13 @@ Complexe& Complexe::operator+(const Complexe& B){
                 B_b=(*dynamic_cast<Rationnel*>(B.b));
              }
 
-        Rationnel* p_r= new Rationnel;
-        Rationnel* p_im= new Rationnel;
 
-        *p_r=(A_a+B_a);
-        *p_im=(A_b+B_b);
+        Rationnel* p_r= new Rationnel(A_a+B_a);
+        Rationnel* p_im= new Rationnel(A_b+B_b);
 
-        Complexe tmp(p_r,p_im);
-        return tmp;
+        Complexe* tmp = new Complexe(p_r,p_im);
+        return *tmp;
+
     }
 
     else if (A_a3 || B_a3)                       // L'attribut a de A ou de B est rationnel, tout les attributs doivent donc devenir rationnels.
@@ -187,20 +183,17 @@ Complexe& Complexe::operator+(const Complexe& B){
         Entier B_b(0);
 
          A_a=*A_a3;
-         A_b=(*dynamic_cast<Entier*>(A->b));
+         A_b=(*dynamic_cast<Entier*>(this->b));
 
          B_a=*B_a3;
          B_b=(*dynamic_cast<Entier*>(B.b));
 
 
-         Entier* p_r= new Entier;
-         Entier* p_im= new Entier;
+         Entier* p_r= new Entier(A_a+B_a);
+         Entier* p_im= new Entier(A_b+B_b);
 
-         *p_r=(A_a+B_a);
-         *p_im=(A_b+B_b);
-
-         Complexe tmp(p_r,p_im);
-         return tmp;
+         Complexe* tmp = new Complexe(p_r,p_im);
+         return *tmp;
     }
 
     else throw CalculException("Imprevu: donnee complexes non reconnus.\nCf complexe.cpp");
@@ -210,13 +203,12 @@ Complexe& Complexe::operator+(const Complexe& B){
 Complexe& Complexe::operator-(const Complexe& B){
 
     // A Et B sont complexes, mais leur attribut a et b peuvent etre de types different. Il faut donc unifier.
-    Complexe* A=this;
 
-    Reel* A_a1 = dynamic_cast< Reel*>(A->a);
+    Reel* A_a1 = dynamic_cast< Reel*>(this->a);
     Reel* B_a1 = dynamic_cast< Reel*>(B.a);
-    Rationnel* A_a2 = dynamic_cast< Rationnel*>(A->a);
+    Rationnel* A_a2 = dynamic_cast< Rationnel*>(this->a);
     Rationnel* B_a2 = dynamic_cast< Rationnel*>(B.a);
-    Entier* A_a3 = dynamic_cast< Entier*>(A->a);
+    Entier* A_a3 = dynamic_cast< Entier*>(this->a);
     Entier* B_a3 = dynamic_cast< Entier*>(B.a);
 
 
@@ -234,17 +226,17 @@ Complexe& Complexe::operator-(const Complexe& B){
         if (!A_a1){                        // Si A_a1 null, donc les attributs de A n'est pas reel. Il faut les convertir en reels.
                         if (!A_a2) {
                                         A_a=Reel(*A_a2);
-                                        A_b=Reel(*dynamic_cast<Rationnel*>(A->b));
+                                        A_b=Reel(*dynamic_cast<Rationnel*>(this->b));
                                     }
 
                         else {
                                 A_a=Reel(*A_a3);
-                                A_b=Reel(*dynamic_cast<Entier*>(A->b));
+                                A_b=Reel(*dynamic_cast<Entier*>(this->b));
                              }
                    }
         else {
                 A_a=*A_a1;
-                A_b=(*dynamic_cast<Reel*>(A->b));
+                A_b=(*dynamic_cast<Reel*>(this->b));
              }
 
         if (!B_a1){
@@ -285,11 +277,11 @@ Complexe& Complexe::operator-(const Complexe& B){
 
         if (!A_a2){                        // Si A_a1 null, donc les attributs de A n'est pas rationnel. Il faut les convertir en rationnels.
                                 A_a=Rationnel(*A_a3);
-                                A_b=Rationnel(*dynamic_cast<Entier*>(A->b));
+                                A_b=Rationnel(*dynamic_cast<Entier*>(this->b));
                    }
         else {
                 A_a=*A_a2;
-                A_b=(*dynamic_cast<Rationnel*>(A->b));
+                A_b=(*dynamic_cast<Rationnel*>(this->b));
              }
 
         if (!B_a2){
@@ -322,7 +314,7 @@ Complexe& Complexe::operator-(const Complexe& B){
         Entier B_b(0);
 
          A_a=*A_a3;
-         A_b=(*dynamic_cast<Entier*>(A->b));
+         A_b=(*dynamic_cast<Entier*>(this->b));
 
          B_a=*B_a3;
          B_b=(*dynamic_cast<Entier*>(B.b));
@@ -344,13 +336,12 @@ Complexe& Complexe::operator-(const Complexe& B){
 Complexe& Complexe::operator/(const Complexe& B){
 
     // A Et B sont complexes, mais leur attribut a et b peuvent etre de types different. Il faut donc unifier.
-    Complexe* A=this;
 
-    Reel* A_a1 = dynamic_cast< Reel*>(A->a);
+    Reel* A_a1 = dynamic_cast< Reel*>(this->a);
     Reel* B_a1 = dynamic_cast< Reel*>(B.a);
-    Rationnel* A_a2 = dynamic_cast< Rationnel*>(A->a);
+    Rationnel* A_a2 = dynamic_cast< Rationnel*>(this->a);
     Rationnel* B_a2 = dynamic_cast< Rationnel*>(B.a);
-    Entier* A_a3 = dynamic_cast< Entier*>(A->a);
+    Entier* A_a3 = dynamic_cast< Entier*>(this->a);
     Entier* B_a3 = dynamic_cast< Entier*>(B.a);
 
 
@@ -368,17 +359,17 @@ Complexe& Complexe::operator/(const Complexe& B){
         if (!A_a1){                        // Si A_a1 null, donc les attributs de A n'est pas reel. Il faut les convertir en reels.
                         if (!A_a2) {
                                         A_a=Reel(*A_a2);
-                                        A_b=Reel(*dynamic_cast<Rationnel*>(A->b));
+                                        A_b=Reel(*dynamic_cast<Rationnel*>(this->b));
                                     }
 
                         else {
                                 A_a=Reel(*A_a3);
-                                A_b=Reel(*dynamic_cast<Entier*>(A->b));
+                                A_b=Reel(*dynamic_cast<Entier*>(this->b));
                              }
                    }
         else {
                 A_a=*A_a1;
-                A_b=(*dynamic_cast<Reel*>(A->b));
+                A_b=(*dynamic_cast<Reel*>(this->b));
              }
 
         if (!B_a1){
@@ -418,11 +409,11 @@ Complexe& Complexe::operator/(const Complexe& B){
 
         if (!A_a2){                        // Si A_a1 null, donc les attributs de A n'est pas rationnel. Il faut les convertir en rationnels.
                                 A_a=Rationnel(*A_a3);
-                                A_b=Rationnel(*dynamic_cast<Entier*>(A->b));
+                                A_b=Rationnel(*dynamic_cast<Entier*>(this->b));
                    }
         else {
                 A_a=*A_a2;
-                A_b=(*dynamic_cast<Rationnel*>(A->b));
+                A_b=(*dynamic_cast<Rationnel*>(this->b));
              }
 
         if (!B_a2){
@@ -454,7 +445,7 @@ Complexe& Complexe::operator/(const Complexe& B){
         Entier B_b(0);
 
          A_a=*A_a3;
-         A_b=(*dynamic_cast<Entier*>(A->b));
+         A_b=(*dynamic_cast<Entier*>(this->b));
 
          B_a=*B_a3;
          B_b=(*dynamic_cast<Entier*>(B.b));
@@ -478,13 +469,12 @@ Complexe& Complexe::operator/(const Complexe& B){
 Complexe& Complexe::operator*(const Complexe& B){
 
     // A Et B sont complexes, mais leur attribut a et b peuvent etre de types different. Il faut donc unifier.
-    Complexe* A=this;
 
-    Reel* A_a1 = dynamic_cast< Reel*>(A->a);
+    Reel* A_a1 = dynamic_cast< Reel*>(this->a);
     Reel* B_a1 = dynamic_cast< Reel*>(B.a);
-    Rationnel* A_a2 = dynamic_cast< Rationnel*>(A->a);
+    Rationnel* A_a2 = dynamic_cast< Rationnel*>(this->a);
     Rationnel* B_a2 = dynamic_cast< Rationnel*>(B.a);
-    Entier* A_a3 = dynamic_cast< Entier*>(A->a);
+    Entier* A_a3 = dynamic_cast< Entier*>(this->a);
     Entier* B_a3 = dynamic_cast< Entier*>(B.a);
 
 
@@ -502,17 +492,17 @@ Complexe& Complexe::operator*(const Complexe& B){
         if (!A_a1){                        // Si A_a1 null, donc les attributs de A n'est pas reel. Il faut les convertir en reels.
                         if (!A_a2) {
                                         A_a=Reel(*A_a2);
-                                        A_b=Reel(*dynamic_cast<Rationnel*>(A->b));
+                                        A_b=Reel(*dynamic_cast<Rationnel*>(this->b));
                                     }
 
                         else {
                                 A_a=Reel(*A_a3);
-                                A_b=Reel(*dynamic_cast<Entier*>(A->b));
+                                A_b=Reel(*dynamic_cast<Entier*>(this->b));
                              }
                    }
         else {
                 A_a=*A_a1;
-                A_b=(*dynamic_cast<Reel*>(A->b));
+                A_b=(*dynamic_cast<Reel*>(this->b));
              }
 
         if (!B_a1){
@@ -555,11 +545,11 @@ Complexe& Complexe::operator*(const Complexe& B){
 
         if (!A_a2){                        // Si A_a1 null, donc les attributs de A n'est pas rationnel. Il faut les convertir en rationnels.
                                 A_a=Rationnel(*A_a3);
-                                A_b=Rationnel(*dynamic_cast<Entier*>(A->b));
+                                A_b=Rationnel(*dynamic_cast<Entier*>(this->b));
                    }
         else {
                 A_a=*A_a2;
-                A_b=(*dynamic_cast<Rationnel*>(A->b));
+                A_b=(*dynamic_cast<Rationnel*>(this->b));
              }
 
         if (!B_a2){
@@ -592,7 +582,7 @@ Complexe& Complexe::operator*(const Complexe& B){
         Entier B_b(0);
 
          A_a=*A_a3;
-         A_b=(*dynamic_cast<Entier*>(A->b));
+         A_b=(*dynamic_cast<Entier*>(this->b));
 
          B_a=*B_a3;
          B_b=(*dynamic_cast<Entier*>(B.b));
@@ -613,14 +603,20 @@ Complexe& Complexe::operator*(const Complexe& B){
 
 }
 
-/*
-Complexe::Complexe(Donnee* d)                   // Pour methode 1
+
+Complexe::Complexe(Donnee *d)                   // Pour methode 1
 {
+        Complexe* test = dynamic_cast< Complexe*>(d);
         Reel* test1 = dynamic_cast< Reel*>(d);
         Rationnel* test2 = dynamic_cast< Rationnel*>(d);
         Entier* test3 = dynamic_cast< Entier*>(d);
 
-        if (test1){
+        if (test) {
+                    a=test->a;
+                    b=test->b;
+        }
+
+        else if (test1){
                    a=test1;
                    b=new Reel;
                   }
@@ -636,35 +632,39 @@ Complexe::Complexe(Donnee* d)                   // Pour methode 1
         else throw CalculException("Erreur inattendue au niveau de la formation d'un complexe par une donne. Cf complexe.cpp");
 
 }
-*/
+
 
 
 // MEthode 2
 
 Complexe::Complexe(Reel r){
 
+    /*
     a=new Reel;
-    *a=r;
+    *a=r;*/
 
+    a=&r;
     b=new Reel;
 
 }
 
 Complexe::Complexe(Rationnel r){
-
+	
+    /*
     a=new Rationnel;
-    *a=r;
+    *a=r;*/
 
+    a=&r;
     b=new Rationnel;
 }
 
 Complexe::Complexe(Entier e){
 
+/*
     a=new Entier;
-    *a=e;
+    *a=e;*/
 
+    a=&e;
     b=new Entier;
 }
-
-
 

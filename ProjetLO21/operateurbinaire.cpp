@@ -21,11 +21,10 @@ void OperateurBinaire::Calculer(Pile* stack){
     }
 
     else if (testExB) {
-        testExB->enfiler_debut(dA);
-        testExB->enfiler_fin(this);
-        stack->empiler(testExB);
-    }
-
+           testExB->enfiler_debut(dA);
+           testExB->enfiler_fin(this);
+           stack->empiler(testExB);
+         }
     else {
 
     Complexe* testC1 = dynamic_cast< Complexe*>(dA);
@@ -43,16 +42,16 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     if ( testC1 || testC2){    //On a au moins un complexe
 
-        Complexe A;
-        Complexe B;
+        //Complexe A;
+        //Complexe B;
 
-        /*METHODE 1
+        //METHODE 1
         Complexe A= Complexe(dA);
         Complexe B= Complexe(dB);
-        */
+
 
          //METHODE 2
-        if (!testC1){                                               // On entre dans A le complexe testC1=dA, apres conversion si necessaire.
+        /*if (!testC1){                                               // On entre dans A le complexe testC1=dA, apres conversion si necessaire.
                         if (!test1) A=Complexe(*test1);
                         else if (!test3) A=Complexe(*test3);        // On cherche le test(i) non nul, c'est  dire le vritable type de dA. On construit  partir de a le complexe.
                         else A=Complexe(*testE1);
@@ -65,17 +64,16 @@ void OperateurBinaire::Calculer(Pile* stack){
                         else A=Complexe(*testE2);
                    }
         else B=*testC2;
-
+        */
         Complexe* dC = new Complexe;
 
             switch (typeoperation) {
 
                 case (PLUS):
                 {
-                    *dC=(A+B);
-                std::cout<<typeid(dC).name();
-                throw CalculException("HOUHOU");
-                    stack->empiler(dC);
+                    Complexe *X= new Complexe(A+B);
+                    std::cout<<typeid(X).name();
+                    stack->empiler(X);
                 }
 
                     break;

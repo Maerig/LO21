@@ -14,7 +14,7 @@ public :
     Complexe(Donnee* Re, Donnee* Im);
     Complexe();
 
-    //Complexe(Donnee* d);                                // Methode 1
+    Complexe(Donnee* d);                                // Methode 1
 
     Complexe(Reel r);                     //Pour Methode 2
     Complexe(Rationnel r);
