@@ -19,7 +19,7 @@ void Sinus::Calculer(Pile *stack){
                 throw CalculException("Fonction Sinus non disponible pour complexe.");
                }
 
-    Reel A(0);
+    Reel A;
 
     if (test1){
                 A=Reel(*test1);
@@ -51,7 +51,7 @@ void Cosinus::Calculer(Pile *stack){
                 throw CalculException("Fonction Cosinus non disponible pour complexe.");
                }
 
-    Reel A(0);
+    Reel A;
 
     if (test1){
                 A=Reel(*test1);
@@ -81,7 +81,7 @@ void Tang::Calculer(Pile *stack){
                 stack->empiler(dA);
                 throw CalculException("Fonction Tan non disponible pour complexe.");
                }
-    Reel A(0);
+    Reel A;
 
     if (test1){
                 A=Reel(*test1);
@@ -112,7 +112,7 @@ void Sinush::Calculer(Pile *stack){
                 stack->empiler(dA);
                 throw CalculException("Fonction SinusH non disponible pour complexe.");
                }
-    Reel A(0);
+    Reel A;
 
     if (test1){
                 A=Reel(*test1);
@@ -142,7 +142,7 @@ void Cosinush::Calculer(Pile *stack){
                 stack->empiler(dA);
                 throw CalculException("Fonction CosinusH non disponible pour complexe.");
                }
-    Reel A(0);
+    Reel A;
 
     if (test1){
                 A=Reel(*test1);
@@ -173,7 +173,7 @@ void Tangh::Calculer(Pile *stack){
                 stack->empiler(dA);
                 throw CalculException("Fonction TanH non disponible pour complexe.");
                }
-    Reel A(0);
+    Reel A;
 
     if (test1){
                 A=Reel(*test1);
@@ -202,7 +202,7 @@ void Sqrt::Calculer(Pile *stack){
                 stack->empiler(dA);
                 throw CalculException("Fonction Sqrt non disponible pour complexe.");
                }
-    Reel A(0);
+    Reel A;
 
     if (test1){
                 A=Reel(*test1);
@@ -228,7 +228,7 @@ void Sqr::Calculer(Pile *stack){
     Complexe* test4 = dynamic_cast< Complexe*>(dA);
 
     if (test1){
-                Reel A(0);
+                Reel A;
                 A=Reel(*test1);
                 Reel* C = new Reel;
                 *C=Reel(pow(A.getVal(),2));
@@ -242,17 +242,15 @@ void Sqr::Calculer(Pile *stack){
                     stack->empiler(C);
                   }
     else if(test3){
-                    Entier A(0);
+                    Entier A;
                     A=Entier(*test3);
                     Entier* C = new Entier;
                     *C=Entier(pow(A.getVal(),2));
                     stack->empiler(C);
                   }
     else if (test4) {
-                    Complexe A;
-                    A=Complexe(*test4);
-                    Complexe* C = new Complexe;
-
+                    Complexe A=Complexe(*test4);
+                    Complexe* C = new Complexe(A*A);
                     stack->empiler(C);
                     }
 
@@ -273,21 +271,21 @@ void Ln::Calculer(Pile *stack){
 
 
     if (test1){
-                Reel A(0);
+                Reel A;
                 A=Reel(*test1);
                 Reel* C = new Reel;
                 *C=Reel(log(A.getVal()));
                 stack->empiler(C);
               }
     else if(test2){
-                    Rationnel A(0);
+                    Rationnel A;
                     A=Rationnel(*test2);
                     Rationnel* C = new Rationnel;
                     *C=Rationnel((unsigned long int)log(A.getNumerateur()/A.getDenumerateur())*100000000,100000000);
                     stack->empiler(C);
                   }
     else if(test3){
-                    Entier A(0);
+                    Entier A;
                     A=Entier(*test3);
                     Entier* C = new Entier;
                     *C=Entier((unsigned long int)log(A.getVal()));
@@ -312,21 +310,21 @@ void Log::Calculer(Pile *stack){
 
 
     if (test1){
-                Reel A(0);
+                Reel A;
                 A=Reel(*test1);
                 Reel* C = new Reel;
                 *C=Reel(log10(A.getVal()));
                 stack->empiler(C);
               }
     else if(test2){
-                    Rationnel A(0);
+                    Rationnel A;
                     A=Rationnel(*test2);
                     Rationnel* C = new Rationnel;
                     *C=Rationnel((unsigned long int)log10(A.getNumerateur()/A.getDenumerateur()),1);
                     stack->empiler(C);
                   }
     else if(test3){
-                    Entier A(0);
+                    Entier A;
                     A=Entier(*test3);
                     Entier* C = new Entier;
                     *C=Entier((unsigned long int)log10(A.getVal()));
@@ -348,7 +346,7 @@ void Cube::Calculer(Pile *stack){
 
 
     if (test1){
-                Reel A(0);
+                Reel A;
                 A=Reel(*test1);
                 Reel* C = new Reel;
                 *C=Reel(pow(A.getVal(),3));
@@ -362,17 +360,15 @@ void Cube::Calculer(Pile *stack){
                     stack->empiler(C);
                   }
     else if(test3){
-                    Entier A(0);
+                    Entier A;
                     A=Entier(*test3);
                     Entier* C = new Entier;
                     *C=Entier(pow(A.getVal(),3));
                     stack->empiler(C);
                   }
     else if (test4) {
-                    Complexe A;
-                    A=Complexe(*test4);
-                    Complexe* C = new Complexe;
-
+                    Complexe A=Complexe(*test4);
+                    Complexe* C = new Complexe(A*A*A);
                     stack->empiler(C);
                }
 }
@@ -388,7 +384,7 @@ void Fact::Calculer(Pile *stack){
 
 
     if (test3) {
-                Entier A(0);
+                Entier A;
                 A=Entier(*test3);
                 Entier* C = new Entier;
                 //*C=Entier(5);
@@ -415,7 +411,7 @@ void Sign::Calculer(Pile *stack){
 
 
     if (test1){
-                Reel A(0);
+                Reel A;
                 A=Reel(*test1);
                 Reel* C = new Reel;
                 *C=Reel(0-A.getVal());
@@ -429,17 +425,15 @@ void Sign::Calculer(Pile *stack){
                     stack->empiler(C);
                   }
     else if(test3){
-                    Entier A(0);
+                    Entier A;
                     A=Entier(*test3);
                     Entier* C = new Entier;
                     *C=Entier(0-A.getVal());
                     stack->empiler(C);
                   }
     else if(test4){
-                    Complexe A;
-                    A=Complexe(*test4);
-                    Complexe* C = new Complexe;
-
+                    Complexe A=Complexe(*test4);
+                    Complexe* C = new Complexe(A);
                     stack->empiler(C);
                   }
 }
@@ -458,7 +452,7 @@ void Inv::Calculer(Pile *stack){
                }
 
     if (test1){
-                Reel A(0);
+                Reel A;
                 A=Reel(*test1);
                 Reel* C = new Reel;
                 *C=Reel(1/A.getVal());
@@ -472,7 +466,7 @@ void Inv::Calculer(Pile *stack){
                     stack->empiler(C);
                   }
     else if(test3){
-                    Entier A(0);
+                    Entier A;
                     A=Entier(*test3);
                     Rationnel* C = new Rationnel;
                     *C=Rationnel(1,A.getVal());

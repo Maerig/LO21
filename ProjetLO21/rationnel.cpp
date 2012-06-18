@@ -1,4 +1,5 @@
 #include "rationnel.h"
+#include "reel.h"
 
 // Attention, constructeur de Rationnel à partir de Réel dans reel.cpp
 
@@ -113,27 +114,28 @@ Rationnel operator^( Rationnel& a,  Entier& b){                     // POW a^b
 
 
 
-/*
+
 Rationnel::Rationnel(Donnee *d){
-        Reel* test1 = dynamic_cast< Reel*>(d);
-        Rationnel* test2 = dynamic_cast< Rationnel*>(d);
-        Entier* test3 = dynamic_cast< Entier*>(d);
+    Reel* test1 = dynamic_cast< Reel*>(d);
+    Rationnel* test2 = dynamic_cast< Rationnel*>(d);
+    Entier* test3 = dynamic_cast< Entier*>(d);
 
         if (test1){
-            throw CalculException("Erreur inattendue au niveau de la formation d'un Complexe par une donnee: Reel donne pour former un complexe.\nCf reel.cpp");)
+            throw CalculException("Erreur inattendue au niveau de la formation d'un Complexe par une donnee: Reel donne pour former un complexe.\nCf reel.cpp");
                   }
-        else if (test2){
+       if (test2){
                     num=test2->getNumerateur();
                     denum=test2->getDenumerateur();
                   }
         else if (test3){
                    num=test3->getVal();
-                   denum = new Entier;
+                   Entier* A=new Entier(1);
+                   denum=*A;
                   }
 
-        else throw CalculException("Erreur inattendue au niveau de la formation d'un reel par une donnee. Cf reel.cpp");
+        else throw CalculException("Erreur inattendue au niveau de la formation d'un Complexe par une donnee. Cf reel.cpp");
 
         this->simplifier();
 }
 
-*/
+

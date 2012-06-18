@@ -46,9 +46,6 @@ void OperateurBinaire::Calculer(Pile* stack){
         Complexe A= Complexe(dA);           // constructeur de complexe a partir de donnee.
         Complexe B= Complexe(dB);
 
-
-        Complexe* dC = new Complexe;
-
             switch (typeoperation) {
 
                 case (PLUS):
@@ -103,21 +100,8 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     else if ( test1 || test2 ) {     //Au moins un reel
 
-        Reel A(0);
-        Reel B(0);
-
-        if (!test1){
-                        if (!test3) A=Reel(*testE1);
-                         else A=Reel(*test3);
-                   }
-        else A=*test1;
-
-        if (!test2)
-            {
-                if (!test4) B=Reel(*testE2);
-                 else B=Reel(*test4);
-            }
-        else B=*test2;
+        Reel A=Reel(dA);
+        Reel B=Reel(dB);
 
         Reel* dC = new Reel;
 
@@ -185,19 +169,8 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     else if ( test3 || test4 ) {        //Au moins un rationnel
 
-        Rationnel A(0);
-        Rationnel B(0);
-
-        if (!test3){
-                        A=Rationnel(*testE1);
-                   }
-        else A=*test3;
-
-        if (!test4)
-                    {
-                        B=Rationnel(*test4);
-                    }
-        else B=*test4;
+        Rationnel A=Rationnel(dA);
+        Rationnel B=Rationnel(dB);
 
         Rationnel* dC = new Rationnel;
 
@@ -264,6 +237,8 @@ void OperateurBinaire::Calculer(Pile* stack){
     else if ( testE1 || testE2){    //On a forcément deux entiers
 
                 Entier* C = new Entier;
+
+                // Il est inutile de creer des variables locales entieres et de proceder a une conversion a partir de donnee, puisque testE1 et testE2 sont tout les 2 forcéments des entiers. Nous pouvons donc les utiliser dans le calcul.
 
             switch (typeoperation) {
 

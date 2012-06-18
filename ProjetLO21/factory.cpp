@@ -230,19 +230,19 @@ Donnee* Factory::make(std::string str)
             if(Donnee::getTypeDonnees()==entier)
             {
                 if(Donnee::getTypeComplexe())
-                    return new Complexe(make_entier(str),new Entier(0));
+                    return new Complexe(make_entier(str),new Entier);
                 return make_entier(str);
             }
             else if(Donnee::getTypeDonnees()==reel)
             {
                 if(Donnee::getTypeComplexe())
-                    return new Complexe(make_reel(str),new Reel(0));
+                    return new Complexe(make_reel(str),new Reel);
                 return make_reel(str);
             }
             else if(Donnee::getTypeDonnees()==rationnel)
             {
                 if(Donnee::getTypeComplexe())
-                    return new Complexe(make_rationnel(str),new Rationnel(0,1));
+                    return new Complexe(make_rationnel(str),new Rationnel);
                 return make_rationnel(str);
             }
            }

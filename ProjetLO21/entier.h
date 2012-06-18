@@ -6,7 +6,7 @@
 
 class Entier : public Nombre {
 private :
-    double val;
+    long int val;
 
 public :
     Entier(double v=0) : val(v) {}

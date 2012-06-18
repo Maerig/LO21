@@ -13,7 +13,7 @@ public :
     Reel(Entier e);                                             // Constructeur de RÃ©el Ã  partir d'un Entier
     Reel(Rationnel r);                                          // Constructeur de RÃ©el Ã  partir d'un Rationnel
 
-   //Reel(Donnee* d);
+   Reel(Donnee* d);
 
     float getVal() {return val;}
     void afficher(std::ostream& f=std::cout) const { f<<val; }
