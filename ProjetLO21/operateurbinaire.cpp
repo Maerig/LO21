@@ -42,29 +42,11 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     if ( testC1 || testC2){    //On a au moins un complexe
 
-        //Complexe A;
-        //Complexe B;
 
-        //METHODE 1
-        Complexe A= Complexe(dA);
+        Complexe A= Complexe(dA);           // constructeur de complexe a partir de donnee.
         Complexe B= Complexe(dB);
 
 
-         //METHODE 2
-        /*if (!testC1){                                               // On entre dans A le complexe testC1=dA, apres conversion si necessaire.
-                        if (!test1) A=Complexe(*test1);
-                        else if (!test3) A=Complexe(*test3);        // On cherche le test(i) non nul, c'est  dire le vritable type de dA. On construit  partir de a le complexe.
-                        else A=Complexe(*testE1);
-                   }
-        else A=*testC1;
-
-        if (!testC2){                                               // On entre dans B le complexe testC2=dB, apres conversion si necessaire.
-                        if (!test2) A=Complexe(*test2);
-                        else if (!test4) A=Complexe(*test4);
-                        else A=Complexe(*testE2);
-                   }
-        else B=*testC2;
-        */
         Complexe* dC = new Complexe;
 
             switch (typeoperation) {
@@ -72,7 +54,6 @@ void OperateurBinaire::Calculer(Pile* stack){
                 case (PLUS):
                 {
                     Complexe *X= new Complexe(A+B);
-                    std::cout<<typeid(X).name();
                     stack->empiler(X);
                 }
 
@@ -80,23 +61,23 @@ void OperateurBinaire::Calculer(Pile* stack){
 
                 case(MINUS):
                 {
-                    *dC=(A-B);
-                    stack->empiler(dC);
+                    Complexe *X= new Complexe(A-B);
+                    stack->empiler(X);
                 }
                     break;
 
 
                 case(DIV):
                 {
-                    *dC=(A/B);
-                    stack->empiler(dC);
+                    Complexe *X= new Complexe(A/B);
+                    stack->empiler(X);
                 }
                     break;
 
                 case (MULT):
                 {
-                    *dC=(A*B);
-                    stack->empiler(dC);
+                    Complexe *X= new Complexe(A*B);
+                    stack->empiler(X);
                 }
                     break;
 
