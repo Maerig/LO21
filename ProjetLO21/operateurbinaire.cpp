@@ -8,30 +8,27 @@
 
 void OperateurBinaire::Calculer(Pile* stack){
 
-    Donnee* dB= stack->depiler();
+    Donnee* dB= stack->depiler();                           // On commence par depiler les 2 dernieres donnees entrees. B est la derniere donne empile, donc le second membre de l'operation. La seconde donne empile est le premier membre, A.
     Donnee* dA= stack->depiler();
 
-    Expression* testExA =dynamic_cast<Expression*>(dA);
+    Expression* testExA =dynamic_cast<Expression*>(dA);     // On verifie d'abord si l'une des 2 donnees n'est pas une expression. Il faudra alors cancatener l'expression avec l'autre donnee et l'operateur.
     Expression* testExB =dynamic_cast<Expression*>(dB);
 
     if (testExA) {
         testExA->enfiler_fin(dB);
-        testExA->enfiler_fin(this);
+        testExA->enfiler_fin(this);                           // Si le premier membre est une expression, il faut enfiler le second membre et l'operation à la fin successivement.
         stack->empiler(testExA);
     }
 
     else if (testExB) {
            testExB->enfiler_debut(dA);
-           testExB->enfiler_fin(this);
+           testExB->enfiler_fin(this);                          // Si le second membre est une expression et que le premier ne l'est pas, il faut enfiler le premier membre au début de B, et l'operateur à la fin.
            stack->empiler(testExB);
          }
     else {
 
     Complexe* testC1 = dynamic_cast< Complexe*>(dA);
     Complexe* testC2 = dynamic_cast< Complexe*>(dB);
-
-
-
     Reel* test1 = dynamic_cast< Reel*>(dA);
     Reel* test2 = dynamic_cast< Reel*>(dB);
     Rationnel* test3 = dynamic_cast< Rationnel*>(dA);

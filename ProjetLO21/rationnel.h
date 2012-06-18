@@ -11,18 +11,18 @@ private :
     Entier denum;
 
 
-
 public :
     void simplifier();
     Rationnel(double n=0 , double d=1) : num(n),denum(d) {simplifier();}
     Rationnel(Entier n,Entier d) : num(n),denum(d) {simplifier();}
     Rationnel(Entier e): num(e),denum(1){simplifier();}
     Rationnel(Reel r);
-
     Rationnel(Donnee* d);
 
-    Entier getNumerateur() {return num;}
-    Entier getDenumerateur() {return denum;}
+    Entier getNumerateur() const {return num;}
+    Entier getDenumerateur() const {return denum;}
+
+    virtual void setSign() {num.setSign();}
 
     void afficher(std::ostream& f=std::cout) const { num.afficher(f); f<<"/"; denum.afficher(f); }
     void afficher_contexte(std::ostream& f) const { f<<"Rationnel:"; num.afficher(f); f<<"/"; denum.afficher(f); }

@@ -12,10 +12,12 @@ public :
     Reel(float v=0) : val(v) {}
     Reel(Entier e);                                             // Constructeur de RÃ©el Ã  partir d'un Entier
     Reel(Rationnel r);                                          // Constructeur de RÃ©el Ã  partir d'un Rationnel
+    Reel(Donnee* d);
 
-   Reel(Donnee* d);
+    float getVal() const {return val;}
 
-    float getVal() {return val;}
+    virtual void setSign() {val=(-val);}
+
     void afficher(std::ostream& f=std::cout) const { f<<val; }
     void afficher_contexte(std::ostream& f) const { f<<"Reel:"<<val; }
     virtual Donnee* clone() const;

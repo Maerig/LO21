@@ -176,7 +176,7 @@ Complexe& Complexe::operator+(const Complexe& B){
          return *tmp;
     }
 
-    else throw CalculException("Imprevu: donnee complexes non reconnus.\nCf complexe.cpp");
+    else throw CalculException("Imprevu: donnee complexes non reconnus.\nCf + complexe.cpp");
 
 }
 
@@ -248,7 +248,7 @@ Complexe& Complexe::operator-(const Complexe& B){
          return *tmp;
     }
 
-    else throw CalculException("Imprevu: donne complexes non reconnus.\nCf complexe.cpp");
+    else throw CalculException("Imprevu: donne complexes non reconnus.\nCf - complexe.cpp");
 }
 
 Complexe& Complexe::operator/(const Complexe& B){
@@ -316,7 +316,7 @@ Complexe& Complexe::operator/(const Complexe& B){
          return *tmp;
     }
 
-    else throw CalculException("Imprevu: donnee complexes non reconnus.\nCf complexe.cpp");
+    else throw CalculException("Imprevu: donnee complexes non reconnus.\nCf / complexe.cpp");
 
 }
 
@@ -384,7 +384,7 @@ Complexe& Complexe::operator*(const Complexe& B){
          return *tmp;
     }
 
-    else throw CalculException("Imprevu: donne complexes non reconnus.\nCf complexe.cpp");
+    else throw CalculException("Imprevu: donne complexes non reconnus.\nCf * complexe.cpp");
 
 }
 

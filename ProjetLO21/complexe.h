@@ -16,8 +16,10 @@ public :
 
     Complexe(Donnee* d);                                // Methode 1
 
-    Nombre* getCa(){return a;}
-    Nombre* getCb(){return b;}
+    //Nombre* getCa(){return a;}
+    //Nombre* getCb(){return b;}
+
+    void setSign(){a->setSign();b->setSign();}
 
     Complexe& operator=(const Complexe& n);
 

@@ -10,8 +10,10 @@ private :
 
 public :
     Entier(double v=0) : val(v) {}
-    double getVal() {return val;}
+    double getVal() const {return val;}
     void setVal(double v){val=v;}
+
+    virtual void setSign() {val=(-val);}
 
     void afficher(std::ostream& f=std::cout) const { f<<val; }
     void afficher_contexte(std::ostream& f) const { f<<"Entier:"<<val; }

@@ -43,6 +43,7 @@ public :
     virtual void afficher_contexte(std::ostream& f) const = 0;
     std::ostream& operator<<(std::ostream& f) { afficher(f); return f; }
     virtual Donnee* clone() const = 0;
+    virtual void setSign() =0;
 };
 
 class Nombre : public Numerique {   //Numerique non complexe
@@ -52,6 +53,7 @@ public :
     virtual void afficher_contexte(std::ostream& f) const = 0;
     virtual Donnee* clone() const = 0;
 
+    virtual void setSign() =0;
 };
 
 bool number(char c);
