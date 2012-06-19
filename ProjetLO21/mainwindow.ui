@@ -1135,6 +1135,9 @@
          <property name="text">
           <string>DROP</string>
          </property>
+         <property name="shortcut">
+          <string>Del</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -1276,7 +1279,7 @@
      <x>0</x>
      <y>0</y>
      <width>734</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEdition">
@@ -1285,6 +1288,7 @@
     </property>
     <addaction name="actionAnnuler"/>
     <addaction name="actionRetablir"/>
+    <addaction name="actionEffacer"/>
    </widget>
    <addaction name="menuEdition"/>
   </widget>
@@ -1305,8 +1309,33 @@
     <string>Ctrl+Y</string>
    </property>
   </action>
+  <action name="actionEffacer">
+   <property name="text">
+    <string>Effacer </string>
+   </property>
+   <property name="shortcut">
+    <string>Backspace</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionEffacer</sender>
+   <signal>triggered()</signal>
+   <receiver>lineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>52</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -2,8 +2,11 @@
 
 #include <math.h>
 
+/* Fonction factoriel recursive, utilisée dans le calcul du factoriel d'une donnee.*/
 
 double factoriel (double d);
+
+/////////
 
 
 void Sinus::Calculer(Pile *stack){
@@ -20,7 +23,7 @@ void Sinus::Calculer(Pile *stack){
                }
 
     Reel A;
-
+    // Pour les operateurs de calcul trigonometrique, on ramene toute les donnees au type reel.
     if (test1){
                 A=Reel(dA);
               }
@@ -53,7 +56,7 @@ void Cosinus::Calculer(Pile *stack){
                }
 
     Reel A;
-
+    // Pour les operateurs de calcul trigonometrique, on ramene toute les donnees au type reel.
     if (test1){
                 A=Reel(dA);
               }
@@ -87,7 +90,7 @@ void Tang::Calculer(Pile *stack){
                 throw CalculException("Fonction Tan non disponible pour complexe.");
                }
     Reel A;
-
+    // Pour les operateurs de calcul trigonometrique, on ramene toute les donnees au type reel.
     if (test1){
                 A=Reel(dA);
               }
@@ -117,7 +120,7 @@ void Sinush::Calculer(Pile *stack){
                 throw CalculException("Fonction SinusH non disponible pour complexe.");
                }
     Reel A;
-
+    // Pour les operateurs de calcul trigonometrique, on ramene toute les donnees au type reel.
     if (test1){
                 A=Reel(dA);
               }
@@ -148,7 +151,7 @@ void Cosinush::Calculer(Pile *stack){
                 throw CalculException("Fonction CosinusH non disponible pour complexe.");
                }
     Reel A;
-
+    // Pour les operateurs de calcul trigonometrique, on ramene toute les donnees au type reel.
     if (test1){
                 A=Reel(dA);
               }
@@ -180,7 +183,7 @@ void Tangh::Calculer(Pile *stack){
                 throw CalculException("Fonction TanH non disponible pour complexe.");
                }
     Reel A;
-
+    // Pour les operateurs de calcul trigonometrique, on ramene toute les donnees au type reel.
     if (test1){
                 A=Reel(dA);
               }
@@ -210,7 +213,7 @@ void Sqrt::Calculer(Pile *stack){
                 throw CalculException("Fonction Sqrt non disponible pour complexe.");
                }
     Reel A;
-
+    // Pour l'operateur racine carre, on ramene toute les donnees au type reel.(Puisque dans la majorité des cas la racine carre n'est pas un entier)
     if (test1){
                 A=Reel(dA);
               }
@@ -236,6 +239,8 @@ void Sqr::Calculer(Pile *stack){
     Rationnel* test2 = dynamic_cast< Rationnel*>(dA);
     Entier* test3 = dynamic_cast< Entier*>(dA);
     Complexe* test4 = dynamic_cast< Complexe*>(dA);
+
+    // Tous les types de donnees numeriques acceptent l'operation "au carre"
 
     if (test1){
                 Reel A=Reel(dA);
@@ -273,7 +278,7 @@ void Ln::Calculer(Pile *stack){
                 throw CalculException("Fonction Ln non disponible pour complexe.");
                }
 
-
+    // Le resultat est maintenu dans le type de la donnee calcule, au prix d'une perte des informations.
     else if (test1){
                 Reel A=Reel(dA);
                 Reel* C = new Reel(log(A.getVal()));
@@ -306,7 +311,7 @@ void Log::Calculer(Pile *stack){
                 throw CalculException("Fonction Log non disponible pour complexe.");
                }
 
-
+    // Le resultat est maintenu dans le type de la donnee calcule, au prix d'une perte des informations.
     else if (test1){
                 Reel A=Reel(dA);
                 Reel* C = new Reel;
@@ -335,9 +340,7 @@ void Cube::Calculer(Pile *stack){
     Entier* test3 = dynamic_cast< Entier*>(dA);
     Complexe* test4 = dynamic_cast< Complexe*>(dA);
 
-
-
-
+     // Tous les types de donnees numeriques acceptent l'operation cube.
     if (test1){
                 Reel A=Reel(dA);
                 Reel* C = new Reel(pow(A.getVal(),3));
@@ -442,7 +445,7 @@ void Inv::Calculer(Pile *stack){
                     Rationnel* C = new Rationnel(A.getDenumerateur(),A.getNumerateur());
                     stack->empiler(C);
                   }
-    else if(test3){
+    else if(test3){                                                     // Les nombres du type entier deviennent des rationnels. (Absurde sinon)
                     Entier A=Entier(*test3);
                     Rationnel* C = new Rationnel(1,A.getVal());
                     stack->empiler(C);

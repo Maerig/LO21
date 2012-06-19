@@ -69,6 +69,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->pileSUM,SIGNAL(clicked()),this,SLOT(sumPressed()));
     QObject::connect(ui->pileSWAP,SIGNAL(clicked()),this,SLOT(swapPressed()));
     QObject::connect(ui->pileCLEAR,SIGNAL(clicked()),this,SLOT(clearPressed()));
+    QObject::connect(ui->pileMEAN,SIGNAL(clicked()),this,SLOT(meanPressed()));
 
     QObject::connect(ui->actionAnnuler,SIGNAL(triggered()),this,SLOT(annuler()));
     QObject::connect(ui->actionRetablir,SIGNAL(triggered()),this,SLOT(retablir()));
@@ -172,6 +173,7 @@ void MainWindow::degreClicked()
     Donnee::setTypeAngle(degre);
     sauver_contexte("contexte.cfg",stack);
 }
+
 void MainWindow::radianClicked()
 {
     Donnee::setTypeAngle(radian);
@@ -293,6 +295,18 @@ void MainWindow::sumPressed(){
     memundo->save(stack);
     memredo->reset();
     stack->sum();
+    stack->afficher(affichage);
+    ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
+    sauver_contexte("contexte.cfg",stack);
+}
+
+void MainWindow::meanPressed(){
+
+    std::stringstream affichage;
+
+    memundo->save(stack);
+    memredo->reset();
+    stack->mean();
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
     sauver_contexte("contexte.cfg",stack);

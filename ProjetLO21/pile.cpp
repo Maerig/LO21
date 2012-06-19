@@ -117,6 +117,16 @@ void Pile::sum()
         empiler(fact.make_operateur("+"));
 }
 
+
+void Pile::mean(){
+    Factory fact;
+    Entier* n = new Entier(this->longueur());
+    this->sum();
+    this->empiler(n);
+    this->empiler(fact.make_operateur("/"));
+}
+
+
 void Pile::swap()
 {
     if(taille<2)

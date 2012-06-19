@@ -168,13 +168,7 @@ Expression* Factory::remake_expression(std::string str)
 
 Operateur* Factory::make_operateur(std::string str)
 {
-/*     if(str=="+" || str=="-" || str=="*" || str=="/" || str=="MOD" || str=="POW")
-        return new OperateurBinaire(str);
-   else
-        return new OperateurUnaire(str);        TODO    */
-
-
-    //enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
+    // Construction du type de l'operateur a partir du string entree.
     if(str=="+") return new OperateurBinaire(PLUS);
 
     else if(str=="-") return new OperateurBinaire(MINUS);
@@ -216,8 +210,6 @@ Operateur* Factory::make_operateur(std::string str)
     else if(str=="SIGN") return new Sign();
 
     throw CalculException("Operateur inconnu.");
-
-
 
 }
 

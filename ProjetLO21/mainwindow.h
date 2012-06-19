@@ -87,6 +87,7 @@ private slots:
     void sumPressed();
     void swapPressed();
     void clearPressed();
+    void meanPressed();
 
     void annuler();
     void retablir();

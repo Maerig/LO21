@@ -42,6 +42,7 @@ public :
     void dup();
     void sum();
     void swap();
+    void mean();
 };
 
 #endif // PILE_H

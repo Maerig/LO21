@@ -37,13 +37,12 @@ void OperateurBinaire::Calculer(Pile* stack){
     Entier* testE2 = dynamic_cast< Entier*>(dB);
 
 
-    if ( testC1 || testC2){    //On a au moins un complexe
-
+    if ( testC1 || testC2){                 //On a au moins un complexe. On travaille donc avec des complexes.
 
         Complexe A= Complexe(dA);           // constructeur de complexe a partir de donnee.
         Complexe B= Complexe(dB);
 
-            switch (typeoperation) {
+            switch (typeoperation) {        // Switch selon le type de l'operation, attribut de l'operateurBinaire.
 
                 case (PLUS):
                 {
@@ -77,7 +76,7 @@ void OperateurBinaire::Calculer(Pile* stack){
 
                 case(MODULO):
                 {
-                    stack->empiler(dA);
+                    stack->empiler(dA);                         // Modulo inappliquable sur complexes. On re-empile donc les donnees dans le bon ordre.
                     stack->empiler(dB);
                     throw CalculException("Modulo inappliquable pour Complexe.\nFonction utilisable avec Entier uniquement.");
                 }
@@ -111,35 +110,35 @@ void OperateurBinaire::Calculer(Pile* stack){
                 break;
 
             case(MINUS):
-        {
-                    *dC=(A-B);
-                    stack->empiler(dC);
-        }
+                        {
+                                    *dC=(A-B);
+                                    stack->empiler(dC);
+                        }
 
                 break;
 
             case(DIV):
-        {
+                        {
 
-                    if (B.getVal()==0){
-                                        stack->empiler(dA);
-                                        stack->empiler(dB);
-                                        throw CalculException("Division par zero impossible.");
-                                    }
+                            if (B.getVal()==0){                                         //Cas ou une division par zero est tentée.
+                                                stack->empiler(dA);
+                                                stack->empiler(dB);
+                                                throw CalculException("Division par zero impossible.");
+                                            }
 
-                    else {
-                        *dC=(A/B);
-                        stack->empiler(dC);
+                            else {
+                                *dC=(A/B);
+                                stack->empiler(dC);
+                                }
                         }
-        }
 
                 break;
 
             case (MULT):
-        {
-                    *dC=(A*B);
-                    stack->empiler(dC);
-        }
+                        {
+                                    *dC=(A*B);
+                                    stack->empiler(dC);
+                        }
 
                 break;
 
@@ -180,51 +179,51 @@ void OperateurBinaire::Calculer(Pile* stack){
                        }
                 break;
             case(MINUS):
-            {
-                 *dC=(A-B);
-                 stack->empiler(dC);
-            }
+                        {
+                             *dC=(A-B);
+                             stack->empiler(dC);
+                        }
 
                 break;
 
             case(DIV):
-            {
+                        {
 
-                 if (B.getNumerateur().getVal()==0){
-                                     stack->empiler(dA);
-                                     stack->empiler(dB);
-                                     throw CalculException("Division par zero impossible.");
+                             if (B.getNumerateur().getVal()==0){
+                                                 stack->empiler(dA);
+                                                 stack->empiler(dB);
+                                                 throw CalculException("Division par zero impossible.");
+                                             }
+
+                             else {
+                                 *dC=(A/B);
+                                 stack->empiler(dC);
                                  }
-
-                 else {
-                     *dC=(A/B);
-                     stack->empiler(dC);
-                     }
-            }
+                        }
 
                 break;
 
             case (MULT):
-            {
-                 *dC=(A*B);
-                 stack->empiler(dC);
-            }
+                        {
+                             *dC=(A*B);
+                             stack->empiler(dC);
+                        }
 
                 break;
 
             case(MODULO):
-            {
-                stack->empiler(dA);
-                stack->empiler(dB);
-                throw CalculException("Modulo inappliquable pour Rationnel.\nFonction utilisable avec Entier uniquement.");
-            }
+                        {
+                            stack->empiler(dA);
+                            stack->empiler(dB);
+                            throw CalculException("Modulo inappliquable pour Rationnel.\nFonction utilisable avec Entier uniquement.");
+                        }
                 break;
 
             case (POW):
-            {
-                 *dC=Rationnel(pow(A.getNumerateur(),float(B)),pow(A.getDenumerateur(),float(B)));
-                 stack->empiler(dC);
-            }
+                        {
+                             *dC=Rationnel(pow(A.getNumerateur(),float(B)),pow(A.getDenumerateur(),float(B)));
+                             stack->empiler(dC);
+                        }
 
                 break;
 
@@ -240,71 +239,71 @@ void OperateurBinaire::Calculer(Pile* stack){
             switch (typeoperation) {
 
                 case (PLUS):
-                {              
-                    *C = *testE1 + *testE2;
-                    stack->empiler(C);
-                }
+                            {
+                                *C = *testE1 + *testE2;
+                                stack->empiler(C);
+                            }
 
                     break;
 
                 case(MINUS):
-                {
-                    *C = *testE1 - *testE2;
-                    stack->empiler(C);
+                            {
+                                *C = *testE1 - *testE2;
+                                stack->empiler(C);
 
-                }
+                            }
                     break;
 
 
                 case(DIV):
 
-                {
-                if (testE2->getVal()==0){
-                                    stack->empiler(testE1);
-                                    stack->empiler(testE2);
-                                    throw CalculException("Division par zero impossible.");
+                            {
+                            if (testE2->getVal()==0){
+                                                stack->empiler(testE1);
+                                                stack->empiler(testE2);
+                                                throw CalculException("Division par zero impossible.");
+                                            }
+
+                            else {
+                                    *C = *testE1 / *testE2;
+                                    stack->empiler(C);
                                 }
 
-                else {
-                        *C = *testE1 / *testE2;
-                        stack->empiler(C);
-                    }
 
 
-
-                }
+                            }
                     break;
 
                 case (MULT):
 
-                {
-                    *C = *testE1 * *testE2;
-                    stack->empiler(C);
-                }
+                            {
+                                *C = *testE1 * *testE2;
+                                stack->empiler(C);
+                            }
                     break;
 
                 case(MODULO):
 
-                {
-                    if (testE2->getVal()==0){
-                                                stack->empiler(testE1);
-                                                stack->empiler(testE2);
-                                                throw CalculException("Modulo: Division par zero impossible.");
-                                            }
+                            {
+                                if (testE2->getVal()==0){
+                                                            stack->empiler(testE1);
+                                                            stack->empiler(testE2);
+                                                            throw CalculException("Modulo: Division par zero impossible.");
+                                                        }
 
-                    else {
-                            *C = *testE1 % *testE2;
-                            stack->empiler(C);
-                         }
+                                else {
+                                        *C = *testE1 % *testE2;
+                                        stack->empiler(C);
+                                     }
 
-                }
+                            }
                     break;
 
                 case (POW):
-                {
-                    *C = Entier(pow(testE1->getVal(),testE2->getVal()));
-                    stack->empiler(C);
-                }
+                            {
+                                *C = Entier(pow(testE1->getVal(),testE2->getVal()));
+                                stack->empiler(C);
+                            }
 
                     break;
 

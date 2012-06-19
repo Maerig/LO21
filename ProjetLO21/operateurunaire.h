@@ -14,7 +14,7 @@ public:
     Donnee* clone() const=0;
 };
 
-
+// Selon le type de l'operateur, le calcul est different. Toute les fonction calculer des operateurs unaires ont ce fonctionnement: depilement du premier element de la pile. Repérage du type de l'element. Re-empilement de l'element et lancement d'exception si le type de la donnee n'accepte pas ce type d'operation. Sinon conversion si besoin, calcul et mise du resultat dans une nouvelle donnee, empilement de la donnee resultante.
 
 class Sinus : public OperateurUnaire {
 
