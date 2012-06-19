@@ -52,3 +52,51 @@ Annulation
 Wed Jun 20 00:11:21 2012
 Retablissement
 
+Wed Jun 20 00:53:06 2012
+Donnee empilee
+
+Wed Jun 20 00:53:10 2012
+Donnee empilee
+
+Wed Jun 20 00:53:12 2012
+Evaluation de l'expression '1 SIN'
+
+Wed Jun 20 00:53:19 2012
+Drop de la pile
+
+Wed Jun 20 01:00:40 2012
+Donnee empilee
+
+Wed Jun 20 01:00:42 2012
+Evaluation de l'expression '1 2 +'
+
+Wed Jun 20 01:00:44 2012
+Drop de la pile
+
+Wed Jun 20 01:00:51 2012
+Donnee empilee
+
+Wed Jun 20 01:01:00 2012
+Donnee empilee
+
+Wed Jun 20 01:01:03 2012
+Evaluation de l'expression '1.24 !'
+
+Wed Jun 20 01:01:07 2012
+Annulation
+
+Wed Jun 20 01:01:08 2012
+Annulation
+
+Wed Jun 20 01:01:09 2012
+Retablissement
+
+Wed Jun 20 01:01:21 2012
+Donnee empilee
+
+Wed Jun 20 01:01:22 2012
+Evaluation de l'expression '1.24 SQRT'
+
+Wed Jun 20 01:01:25 2012
+Drop de la pile
+

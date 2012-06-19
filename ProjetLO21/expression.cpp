@@ -3,8 +3,8 @@
 #include "calculexception.h"
 #include <typeinfo>
 #include "factory.h"
-
 #include <iostream>
+#include "operateurbinaire.h"
 
 
 Expression::Expression(std::string str)
@@ -77,15 +77,29 @@ bool Expression::valide() const //Verifie que la syntaxe de l'expression est con
             stack.empiler(cell->getContent());
         else    //Il d'agit d'un operateur
         {
-            if (stack.longueur()<2)
-                return false;
-            data1 = stack.depiler();
-            data2 = stack.depiler();
-            const Numerique* test1 = dynamic_cast<const Numerique*>(data1);
-            const Numerique* test2 = dynamic_cast<const Numerique*>(data2);
-            if (!(test1 && test2))
+            const OperateurBinaire* opbinaire = dynamic_cast<const OperateurBinaire*>(cell->getContent());
+            if(opbinaire)   //Il s'agit d'un operateur binaire
+            {
+                if (stack.longueur()<2)
                     return false;
-            stack.empiler(data1);
+                data1 = stack.depiler();
+                data2 = stack.depiler();
+                const Numerique* test1 = dynamic_cast<const Numerique*>(data1);
+                const Numerique* test2 = dynamic_cast<const Numerique*>(data2);
+                if (!(test1 && test2))
+                        return false;
+                stack.empiler(data1);
+            }
+            else    //C'est un operateur unaire
+            {
+                if (stack.longueur()<1)
+                    return false;
+                data1 = stack.depiler();
+                const Numerique* test = dynamic_cast<const Numerique*>(data1);
+                if (!test)
+                    return false;
+                stack.empiler(data1);
+            }
         }
         cell = cell->getSucc();
     }
