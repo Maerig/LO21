@@ -3,7 +3,8 @@
  * \brief Methodes objet OperateurBinaire. Calcul avec operateurs binaire.
  *
  * Affichage des Operateurs Binaires. Fonction clone.
- *
+ * Les operateurs + - * / surcharges avec les classes Entier, Reel, Rationnel et complexe sont utilises pour le calcul des operations unaires.
+ * La bibliotheque math.h est egalement largement utilise.
  */
 
 
@@ -14,15 +15,15 @@
 #include <iostream>
 #include <math.h>
 
-//enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
-
-
 /*! \fn OperateurBinaire::Calculer
- * \brief Operations + - * / Modulo et Puissance
+ * \brief Fonction virtuelle herite d'operateur. Operations + - * / Modulo et Puissance
  *
- * La fonction calculer est la meme pour tout les operateurs binaires, mettant ainsi en commun le processus d'identification des données.
+ * La fonction calculer est la meme pour tout les operateurs binaires, mettant ainsi en commun le processus de dépilement et d'identification des données.
  * Au sein de la fonction Calculer, un switch sur typeOperateur permet d'adapter le calcul au cas désiré.
- * La donnée resultat est ensuite re-empilée.
+ *
+ * Les operateurs + - * / surcharges avec les classes Entier, Reel, Rationnel et complexe sont utilises pour le calcul des operations unaires.
+ * La bibliotheque math.h est egalement largement utilise.
+ *
  * Si les données dépilées sont d'un type non acceptable pour l'operation, les données sont re-empilées dans le bon ordre, et une exception est envoyée.
  * La donnée résultat est sinon empilée.
  * Dans le cas d'une donnée dépilée étant du type expressions, l'autre donnée et l'operateur sont enfiler au début ou à la fin de l'expression, selon les cas.
