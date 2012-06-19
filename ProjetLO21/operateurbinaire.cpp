@@ -1,3 +1,13 @@
+/**
+ * \file operateurbinaire.cpp
+ * \brief Methodes objet OperateurBinaire. Calcul avec operateurs binaire.
+ *
+ * Affichage des Operateurs Binaires. Fonction clone.
+ *
+ */
+
+
+
 #include "operateurbinaire.h"
 #include "calculexception.h"
 
@@ -6,6 +16,17 @@
 
 //enum TypeOperationBinaire {PLUS,MINUS,DIV,MULT,MODULO,POW};
 
+
+/*! \fn OperateurBinaire::Calculer
+ * \brief Operations + - * / Modulo et Puissance
+ *
+ * La fonction calculer est la meme pour tout les operateurs binaires, mettant ainsi en commun le processus d'identification des données.
+ * Au sein de la fonction Calculer, un switch sur typeOperateur permet d'adapter le calcul au cas désiré.
+ * La donnée resultat est ensuite re-empilée.
+ * Si les données dépilées sont d'un type non acceptable pour l'operation, les données sont re-empilées dans le bon ordre, et une exception est envoyée.
+ * La donnée résultat est sinon empilée.
+ * Dans le cas d'une donnée dépilée étant du type expressions, l'autre donnée et l'operateur sont enfiler au début ou à la fin de l'expression, selon les cas.
+ */
 void OperateurBinaire::Calculer(Pile* stack){
 
     Donnee* dB= stack->depiler();                           // On commence par depiler les 2 dernieres donnees entrees. B est la derniere donne empile, donc le second membre de l'operation. La seconde donne empile est le premier membre, A.
@@ -16,7 +37,7 @@ void OperateurBinaire::Calculer(Pile* stack){
 
     if (testExA) {
         testExA->enfiler_fin(dB);
-        testExA->enfiler_fin(this);                           // Si le premier membre est une expression, il faut enfiler le second membre et l'operation à la fin successivement.
+        testExA->enfiler_fin(this);                           // Si le premier membre est une expression, il faut enfiler le second membre et l'operateur à la fin successivement.
         stack->empiler(testExA);
     }
 

@@ -18,16 +18,17 @@ Complexe::Complexe(Donnee* Re, Donnee* Im)
 
 Complexe::Complexe(Donnee *d)
 {
-        Complexe* test = dynamic_cast< Complexe*>(d);
+        // On identifie le type numerique de la donnee entree en parametre.
+        Complexe* test = dynamic_cast< Complexe*>(d);                       // dynamic_cast renvoie NULL si d n'est pas du meme type que Complexe, sinon il renvoie d.
         Reel* test1 = dynamic_cast< Reel*>(d);
         Rationnel* test2 = dynamic_cast< Rationnel*>(d);
         Entier* test3 = dynamic_cast< Entier*>(d);
 
+        //selon le type entree, la conversion s'effectue.
         if (test) {
                     a=test->a;
                     b=test->b;
         }
-
         else if (test1){
                    a=test1;
                    b=new Reel;
@@ -113,7 +114,7 @@ Complexe& Complexe::operator=(const Complexe& n){
 
 Complexe& Complexe::operator+(const Complexe& B){
 
-    // A Et B sont complexes, mais leur attribut a et b peuvent etre de types different. Il faut donc unifier.
+    // A Et B sont complexes, mais leur attribut a et b peuvent etre de types different. Il faut donc unifier leur type.
 
     Reel* A_a1 = dynamic_cast< Reel*>(this->a);
     Reel* B_a1 = dynamic_cast< Reel*>(B.a);
