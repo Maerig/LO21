@@ -14,5 +14,6 @@ INPUT(
 ./debug\expression.o
 ./debug\memento.o
 ./debug\sauvegarde.o
+./debug\log.o
 ./debug\moc_mainwindow.o
 );

@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     operateurunaire.cpp \
     expression.cpp \
     memento.cpp \
-    sauvegarde.cpp
+    sauvegarde.cpp \
+    log.cpp
 
 HEADERS  += mainwindow.h \
     donnee.h \
@@ -40,6 +41,7 @@ HEADERS  += mainwindow.h \
     operateurunaire.h \
     expression.h \
     memento.h \
-    sauvegarde.h
+    sauvegarde.h \
+    log.h
 
 FORMS    += mainwindow.ui

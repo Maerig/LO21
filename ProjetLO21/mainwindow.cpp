@@ -4,6 +4,7 @@
 #include <sstream>
 #include "calculexception.h"
 #include "sauvegarde.h"
+#include "log.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -166,24 +167,30 @@ void MainWindow::complexeChanged(){
     ui->numSQRT->setEnabled(!active);
     ui->numFACT->setEnabled(!active);
     sauver_contexte("contexte.cfg",stack);
+    if(active)
+        ecrire_log("Type complexe active");
+    else
+        ecrire_log("Type complexe desactive");
 }
 
 void MainWindow::degreClicked()
 {
     Donnee::setTypeAngle(degre);
     sauver_contexte("contexte.cfg",stack);
+    ecrire_log("Type d'angle change en degres");
 }
 
 void MainWindow::radianClicked()
 {
     Donnee::setTypeAngle(radian);
     sauver_contexte("contexte.cfg",stack);
+    ecrire_log("Type d'angle change en radians");
 }
 
 void MainWindow::enterPressed(){
     std::stringstream affichage;
     std::string saisie = ui->lineEdit->text().toStdString();
-    if(saisie[0])   //Permet de ne pas saisir un chaine vide
+    if(saisie[0])   //Permet de ne pas saisir une chaine vide
     {
         try
         {
@@ -199,6 +206,7 @@ void MainWindow::enterPressed(){
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
         ui->lineEdit->clear();
         sauver_contexte("contexte.cfg",stack);
+        ecrire_log("Donnee empilee");
     }
 }
 
@@ -211,6 +219,7 @@ void MainWindow::evalPressed()
         memundo->save(stack);
         memredo->reset();
         data = stack->depiler();
+        ecrire_log("Evaluation de l'expression ",data);
     }
     catch(CalculException exc)
     {
@@ -265,6 +274,7 @@ void MainWindow::dropPressed(){
         stack->afficher(affichage);
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
         sauver_contexte("contexte.cfg",stack);
+        ecrire_log("Drop de la pile");
     }
 }
 
@@ -286,6 +296,7 @@ void MainWindow::dupPressed(){
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
     sauver_contexte("contexte.cfg",stack);
+    ecrire_log("Donnee dupliquee");
 }
 
 void MainWindow::sumPressed(){
@@ -298,6 +309,7 @@ void MainWindow::sumPressed(){
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
     sauver_contexte("contexte.cfg",stack);
+    ecrire_log("Somme sur la pile");
 }
 
 void MainWindow::meanPressed(){
@@ -310,6 +322,7 @@ void MainWindow::meanPressed(){
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
     sauver_contexte("contexte.cfg",stack);
+    ecrire_log("Moyenne sur la pile");
 }
 
 void MainWindow::swapPressed(){
@@ -330,6 +343,7 @@ void MainWindow::swapPressed(){
     stack->afficher(affichage);
     ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
     sauver_contexte("contexte.cfg",stack);
+    ecrire_log("Donnees permutees");
 }
 
 void MainWindow::clearPressed(){
@@ -344,6 +358,7 @@ void MainWindow::clearPressed(){
         stack->afficher(affichage);
         ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
         sauver_contexte("contexte.cfg",stack);
+        ecrire_log("Clear de la pile");
     }
 }
 
@@ -361,6 +376,7 @@ void MainWindow::annuler()
             stack->afficher(affichage);
             ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
             sauver_contexte("contexte.cfg",stack);
+            ecrire_log("Annulation");
         }
         else throw(CalculException("Impossible d'annuler."));
     }
@@ -384,6 +400,7 @@ void MainWindow::retablir()
             stack->afficher(affichage);
             ui->PileAffichage->setPlainText(QString::fromStdString(affichage.str()));
             sauver_contexte("contexte.cfg",stack);
+            ecrire_log("Retablissement");
         }
         else throw(CalculException("Impossible de retablir."));
     }

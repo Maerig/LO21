@@ -1,0 +1,54 @@
+Wed Jun 20 00:10:39 2012
+Donnee empilee
+
+Wed Jun 20 00:10:40 2012
+Donnee dupliquee
+
+Wed Jun 20 00:10:41 2012
+Donnees permutees
+
+Wed Jun 20 00:10:42 2012
+Drop de la pile
+
+Wed Jun 20 00:10:43 2012
+Drop de la pile
+
+Wed Jun 20 00:10:47 2012
+Clear de la pile
+
+Wed Jun 20 00:10:48 2012
+Annulation
+
+Wed Jun 20 00:10:55 2012
+Type complexe active
+
+Wed Jun 20 00:10:55 2012
+Type complexe desactive
+
+Wed Jun 20 00:10:56 2012
+Type d'angle change en radians
+
+Wed Jun 20 00:11:00 2012
+Donnee empilee
+
+Wed Jun 20 00:11:11 2012
+Donnee empilee
+
+Wed Jun 20 00:11:14 2012
+Donnee empilee
+
+Wed Jun 20 00:11:15 2012
+Evaluation de l'expression '1 2 3 / -'
+
+Wed Jun 20 00:11:17 2012
+Type d'angle change en degres
+
+Wed Jun 20 00:11:19 2012
+Drop de la pile
+
+Wed Jun 20 00:11:20 2012
+Annulation
+
+Wed Jun 20 00:11:21 2012
+Retablissement
+
