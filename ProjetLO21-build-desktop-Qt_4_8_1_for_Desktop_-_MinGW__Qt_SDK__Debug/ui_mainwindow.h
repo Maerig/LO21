@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sat 16. Jun 11:11:58 2012
+** Created: Tue 19. Jun 23:45:36 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -38,6 +38,7 @@ class Ui_MainWindow
 public:
     QAction *actionAnnuler;
     QAction *actionRetablir;
+    QAction *actionEffacer;
     QWidget *centralWidget;
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_6;
@@ -115,6 +116,8 @@ public:
         actionAnnuler->setObjectName(QString::fromUtf8("actionAnnuler"));
         actionRetablir = new QAction(MainWindow);
         actionRetablir->setObjectName(QString::fromUtf8("actionRetablir"));
+        actionEffacer = new QAction(MainWindow);
+        actionEffacer->setObjectName(QString::fromUtf8("actionEffacer"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         layoutWidget = new QWidget(centralWidget);
@@ -621,7 +624,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 734, 21));
+        menuBar->setGeometry(QRect(0, 0, 734, 25));
         menuEdition = new QMenu(menuBar);
         menuEdition->setObjectName(QString::fromUtf8("menuEdition"));
         MainWindow->setMenuBar(menuBar);
@@ -632,8 +635,10 @@ public:
         menuBar->addAction(menuEdition->menuAction());
         menuEdition->addAction(actionAnnuler);
         menuEdition->addAction(actionRetablir);
+        menuEdition->addAction(actionEffacer);
 
         retranslateUi(MainWindow);
+        QObject::connect(actionEffacer, SIGNAL(triggered()), lineEdit, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -645,6 +650,8 @@ public:
         actionAnnuler->setShortcut(QApplication::translate("MainWindow", "Ctrl+Z", 0, QApplication::UnicodeUTF8));
         actionRetablir->setText(QApplication::translate("MainWindow", "R\303\251tablir", 0, QApplication::UnicodeUTF8));
         actionRetablir->setShortcut(QApplication::translate("MainWindow", "Ctrl+Y", 0, QApplication::UnicodeUTF8));
+        actionEffacer->setText(QApplication::translate("MainWindow", "Effacer ", 0, QApplication::UnicodeUTF8));
+        actionEffacer->setShortcut(QApplication::translate("MainWindow", "Backspace", 0, QApplication::UnicodeUTF8));
         numPUSH->setText(QApplication::translate("MainWindow", "PUSH", 0, QApplication::UnicodeUTF8));
         numPUSH->setShortcut(QApplication::translate("MainWindow", "Return", 0, QApplication::UnicodeUTF8));
         numTYPE->clear();
@@ -712,6 +719,7 @@ public:
         numPOINT->setShortcut(QApplication::translate("MainWindow", ".", 0, QApplication::UnicodeUTF8));
         numSIGN->setText(QApplication::translate("MainWindow", "SIGN", 0, QApplication::UnicodeUTF8));
         pileDROP->setText(QApplication::translate("MainWindow", "DROP", 0, QApplication::UnicodeUTF8));
+        pileDROP->setShortcut(QApplication::translate("MainWindow", "Del", 0, QApplication::UnicodeUTF8));
         pileDUP->setText(QApplication::translate("MainWindow", "DUP", 0, QApplication::UnicodeUTF8));
         pileMEAN->setText(QApplication::translate("MainWindow", "MEAN", 0, QApplication::UnicodeUTF8));
         pileSUM->setText(QApplication::translate("MainWindow", "SUM", 0, QApplication::UnicodeUTF8));

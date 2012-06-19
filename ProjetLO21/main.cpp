@@ -9,6 +9,8 @@
 #include <math.h>
 #include "sauvegarde.h"
 
+#include <ctime>
+
 int main(int argc, char *argv[])
 {
 

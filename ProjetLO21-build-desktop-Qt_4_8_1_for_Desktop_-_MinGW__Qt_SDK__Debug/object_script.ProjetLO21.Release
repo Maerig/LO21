@@ -14,5 +14,6 @@ INPUT(
 ./release\expression.o
 ./release\memento.o
 ./release\sauvegarde.o
+./release\log.o
 ./release\moc_mainwindow.o
 );
