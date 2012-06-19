@@ -25,7 +25,7 @@ class Operateur : public Donnee {
 
 
 public :
-    /*
+    /**
     * \brief Fonction Calculer virtuelle pure dans operateur. Fonction principale de la classe et de toute les classes filles.
     *
     * Tout operateur peut faire appel a la fonction calculer, mais celle-ci differe de facon importante d'un operateur a un autre, et surtout d'un operateur binaire a un operateur unaire.
@@ -37,7 +37,7 @@ public :
 };
 
 
-/*
+/**
 * \brief Fonction permettant de reconnaitre si un string entree sur la calculatrice correspond a un operateur.
 *
 * Plus precisement, cette fonction verifie si le string ne correspond pas un nombre, dans lequel des cas le string devrait alors etre un operateur. Si le string n'est pas un nombre, la fonction renvoie 1 soit un oui.
