@@ -1,8 +1,15 @@
-#include "operateurunaire.h"
+/**
+ * \file operateurunaire.cpp
+ * \brief fonctions calculer des operateurs unaires.
+ *
+ * Les operateurs + - * / surcharges avec les classes Entier, Reel, Rationnel et complexe sont utilises pour le calcul des operations unaires.
+ * La bibliotheque math.h est egalement largement utilise.
+ */
 
+#include "operateurunaire.h"
 #include <math.h>
 
-/* Fonction factoriel recursive, utilisée dans le calcul du factoriel d'une donnee.*/
+/* Fonction factoriel recursive, utilisee dans le calcul du factoriel d'une donnee.*/
 /*!
  * \brief calcul recursif du factoriel d'un nombre double
  *
@@ -11,14 +18,14 @@ double factoriel (double d);
 
 
 /*!
- * \brief Operations + - * / Modulo et Puissance
+ * \brief Operation unaire Sinus. Fonction virtuelle herite d'operateur.
  *
- * La fonction calculer est la meme pour tout les operateurs binaires, mettant ainsi en commun le processus d'identification des données.
- * Au sein de la fonction Calculer, un switch sur typeOperateur permet d'adapter le calcul au cas désiré.
- * La donnée resultat est ensuite re-empilée.
- * Si les données dépilées sont d'un type non acceptable pour l'operation, les données sont re-empilées dans le bon ordre, et une exception est envoyée.
- * La donnée résultat est sinon empilée.
- * Dans le cas d'une donnée dépilée étant du type expressions, l'autre donnée et l'operateur sont enfiler au début ou à la fin de l'expression, selon les cas.
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour les operateurs de calcul trigonometrique, comme ici, le resultat est de type reel, donc on ramene toute les donnees au type reel. Les complexes ne sont pas acceptes.
  */
 void Sinus::Calculer(Pile *stack){
 
@@ -26,7 +33,7 @@ void Sinus::Calculer(Pile *stack){
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -54,20 +61,29 @@ void Sinus::Calculer(Pile *stack){
                       }
         else throw CalculException("Probleme imprevu, erreur reconnaissance donne.\n SINUS - Operateurunaire.cpp");
         Reel* C = new Reel;
-        if (typeangles==degre) *C=Reel(sin(A.getVal()/180*M_PI));           // problème affichage
+        if (typeangles==degre) *C=Reel(sin(A.getVal()/180*M_PI));
         else *C=Reel(sin(A.getVal()));
 
         stack->empiler(C);
     }
 }
 
-
+/*!
+ * \brief Operation unaire Cosinus. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour les operateurs de calcul trigonometrique, comme ici, le resultat est de type reel, donc on ramene toute les donnees au type reel. Les complexes ne sont pas acceptes.
+ */
 void Cosinus::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -96,7 +112,7 @@ void Cosinus::Calculer(Pile *stack){
     else throw CalculException("Probleme imprevu, erreur reconnaissance donne.\n COSINUS - Operateurunaire.cpp");
 
     Reel* C = new Reel;
-    if (typeangles==degre) {    if (!(A.getVal()==90 || A.getVal()==-90))           // Condition pour permettre l'affichage de zero si les valeurs remarquables 90 et -90 sont entrées.
+    if (typeangles==degre) {    if (!(A.getVal()==90 || A.getVal()==-90))           // Condition pour permettre l'affichage de zero si les valeurs remarquables 90 et -90 sont entrees.
                                *C=Reel(cos(A.getVal()/180*M_PI));
                            }
     else *C=Reel(cos(A.getVal()));
@@ -105,13 +121,22 @@ void Cosinus::Calculer(Pile *stack){
     }
 }
 
-
+/*!
+ * \brief Operation unaire Tang. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour les operateurs de calcul trigonometrique, comme ici, le resultat est de type reel, donc on ramene toute les donnees au type reel. Les complexes ne sont pas acceptes.
+ */
 void Tang::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -144,13 +169,22 @@ void Tang::Calculer(Pile *stack){
     }
 }
 
-
+/*!
+ * \brief Operation unaire SinusH. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour les operateurs de calcul trigonometrique, comme ici, le resultat est de type reel, donc on ramene toute les donnees au type reel. Les complexes ne sont pas acceptes.
+ */
 void Sinush::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -183,13 +217,22 @@ void Sinush::Calculer(Pile *stack){
     }
 }
 
-
+/*!
+ * \brief Operations unaire CosinusH. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour les operateurs de calcul trigonometrique, comme ici, le resultat est de type reel, donc on ramene toute les donnees au type reel. Les complexes ne sont pas acceptes.
+ */
 void Cosinush::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -222,13 +265,22 @@ void Cosinush::Calculer(Pile *stack){
     }
 }
 
-
+/*!
+ * \brief Operations unaire TangH. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour les operateurs de calcul trigonometrique, comme ici, le resultat est de type reel, donc on ramene toute les donnees au type reel. Les complexes ne sont pas acceptes.
+ */
 void Tangh::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -261,13 +313,23 @@ void Tangh::Calculer(Pile *stack){
    }
 }
 
-
+/*!
+ * \brief Operations unaire Sqrt racine carre. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour l'operation SQRT, le resultat est de type reel, puisque dans la majorite des cas la racine carre n'est pas un entier, donc on ramene toute les donnees au type reel.
+ * Les complexes ne sont pas acceptes.
+ */
 void Sqrt::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -282,7 +344,7 @@ void Sqrt::Calculer(Pile *stack){
                 throw CalculException("Fonction Sqrt non disponible pour complexe.");
                }
     Reel A;
-    // Pour l'operateur racine carre, on ramene toute les donnees au type reel.(Puisque dans la majorité des cas la racine carre n'est pas un entier)
+    // Pour l'operateur racine carre, on ramene toute les donnees au type reel.
     if (test1){
                 A=Reel(dA);
               }
@@ -301,13 +363,22 @@ void Sqrt::Calculer(Pile *stack){
     }
 }
 
-
+/*!
+ * \brief Operations unaire Sqr (ou carre d'un nombre). Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour l'operation SQRT, tous les types de donneee sont acceptees.
+ */
 void Sqr::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -343,13 +414,22 @@ void Sqr::Calculer(Pile *stack){
     }
 }
 
-
+/*!
+ * \brief Operations unaire Ln. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour l'operation Ln, on a fait le choix de maintenir le resultat dans le type de la donnee calcule, au prix d'un risque de perte des informations. Les complexes ne sont pas acceptes.
+ */
 void Ln::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -385,13 +465,23 @@ void Ln::Calculer(Pile *stack){
     }
 }
 
+/*!
+ * \brief Operations unaire Log. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour l'operation Log, on a fait le choix de maintenir le resultat dans le type de la donnee calcule, au prix d'une perte des informations. Les complexes ne sont pas acceptes.
+ */
 void Log::Calculer(Pile *stack){
 
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -428,13 +518,21 @@ void Log::Calculer(Pile *stack){
     }
 }
 
-
+/*!
+ * \brief Operations unaire Cube. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour l'operation Cube, tous les types de donneee sont acceptees. */
 void Cube::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -469,13 +567,22 @@ void Cube::Calculer(Pile *stack){
     }
 }
 
-
+/*!
+ * \brief Operations unaire Factoriel. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour l'operation Factoriel, uniquement le type donnee est accepte.
+ */
 void Fact::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -503,13 +610,22 @@ void Fact::Calculer(Pile *stack){
     }
 }
 
-
+/*!
+ * \brief Operation unaire inversement du signe ou oppose. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour l'operation SIGN, tous les types sont acceptes. La methode setSign() est utilise ici pour inverser le signe des donnees.
+ */
 void Sign::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -544,13 +660,22 @@ void Sign::Calculer(Pile *stack){
     }
 }
 
-
+/*!
+ * \brief Operation unaire INV ou l'inverse. Fonction virtuelle herite d'operateur.
+ *
+ * La fonction calculer est structurellement identique pour toute les operations unaires.
+ * D'abord, la premiere donnee de la pile est depile.
+ * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
+ * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
+ * La donnee resultat est sinon empilee.
+ * Pour l'operation INV, tous les types à l'exception de complexe sont acceptes. Les entiers deviennent des rationnels.
+ */
 void Inv::Calculer(Pile *stack){
     Donnee* dA= stack->depiler();
     Expression* testEx =dynamic_cast<Expression*>(dA);
 
     if (testEx) {
-        testEx->enfiler_fin(this);                           // Si la donnée est une expression, il faut enfiler l'operateur à la fin de l'expression.
+        testEx->enfiler_fin(this);                           // Si la donnee est une expression, il faut enfiler l'operateur a la fin de l'expression.
         stack->empiler(testEx);
     }
 
@@ -562,7 +687,7 @@ void Inv::Calculer(Pile *stack){
 
     if (test4) {
                 stack->empiler(dA);
-                throw CalculException("Fonction Log non disponible pour complexe.");
+                throw CalculException("Fonction INV non disponible pour complexe.");
                }
 
     if (test1){

@@ -14,10 +14,8 @@ public :
     Complexe(Donnee* Re, Donnee* Im);
     Complexe();
 
-    Complexe(Donnee* d);                                // Methode 1
+    Complexe(Donnee* d);
 
-    //Nombre* getCa(){return a;}
-    //Nombre* getCb(){return b;}
 
     void setSign(){a->setSign();b->setSign();}
 

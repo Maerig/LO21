@@ -2,7 +2,7 @@
 #define OPERATEURUNAIRE_H
 
 /**
- * \file operateurbinaire.h
+ * \file operateurunaire.h
  * \brief Definition Class OperateurBinaire (herite d'Operateur) et de ses classes filles (sinus, cosinus, SQR ...)
  *
  * OperateurUnaire gère le fonctionnement des Données étant des opérateurs, plus spécifiquement étant des operateurs unaires.
