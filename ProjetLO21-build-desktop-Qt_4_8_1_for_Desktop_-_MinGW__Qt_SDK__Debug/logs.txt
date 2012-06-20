@@ -100,3 +100,24 @@ Evaluation de l'expression '1.24 SQRT'
 Wed Jun 20 01:01:25 2012
 Drop de la pile
 
+Wed Jun 20 01:56:56 2012
+Donnee empilee
+
+Wed Jun 20 01:56:58 2012
+Donnee empilee
+
+Wed Jun 20 01:57:01 2012
+Donnee empilee
+
+Wed Jun 20 01:57:09 2012
+Drop de la pile
+
+Wed Jun 20 01:57:18 2012
+Donnee empilee
+
+Wed Jun 20 01:57:20 2012
+Donnee empilee
+
+Wed Jun 20 01:57:21 2012
+Drop de la pile
+

@@ -39,15 +39,15 @@ public :
     Complexe& operator/(const Complexe& n);
     Complexe& operator*(const Complexe& n);
 
-    /// \brief Affiche le complexe.
+    /// \brief Affiche le Complexe.
     /// Fonction polymorphique de la classe Donnee.
-    /// \param f : Flux ou l'on affiche le complexe.
+    /// \param f : Flux ou l'on affiche le Complexe.
     void afficher(std::ostream& f=std::cout) const;
-    /// \brief Fournit un affichage du complexe utilisable par la sauvegarde de contexte.
+    /// \brief Fournit un affichage du Complexe utilisable par la sauvegarde de contexte.
     /// Fonction polymorphique de la classe Donnee.
-    /// \param f : Flux ou l'on affiche le complexe.
+    /// \param f : Flux ou l'on affiche le Complexe.
     void afficher_contexte(std::ostream& f) const;
-    /// \brief Renvoie une copie du complexe.
+    /// \brief Renvoie une copie du Complexe.
     /// Fonction polymorphique de la classe Donnee.
     Donnee* clone() const;
 };
