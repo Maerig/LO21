@@ -1,3 +1,9 @@
+/**
+ * \file entier.cpp
+ * \brief Developpement methodes class Entier et surcharge operateurs sur Entiers
+ *
+ */
+
 #include "entier.h"
 
 Donnee* Entier::clone() const
@@ -46,12 +52,4 @@ Entier operator%( Entier& a,  Entier& b){
     return res;
 }
 
-Entier operator^( Entier& a,  Entier& b){               // POW a^b
-
-    double val=a.getVal();
-    for (int i=1;i<b.getVal();i++)
-        val*=a.getVal();
-    Entier res(val);
-    return res;
-}
 

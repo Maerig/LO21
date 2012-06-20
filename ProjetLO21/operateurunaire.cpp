@@ -14,7 +14,7 @@
  * \brief calcul recursif du factoriel d'un nombre double
  *
  */
-double factoriel (double d);
+double factoriel (unsigned long int d);
 
 
 /*!
@@ -422,6 +422,7 @@ void Sqr::Calculer(Pile *stack){
  * Verification si ce n'est pas une expression, auquel cas on enfilerai l'operateur a la fin de l'expression et on empilerai l'expression a nouveau dans la pile.
  * Si la donnees depilee est d'un type non acceptable pour l'operation, la donnee est re-empilee, et une exception est envoyee.
  * La donnee resultat est sinon empilee.
+ * Attention au cas ou le nombre donne est egal ou inferieur a zero.
  * Pour l'operation Ln, on a fait le choix de maintenir le resultat dans le type de la donnee calcule, au prix d'un risque de perte des informations. Les complexes ne sont pas acceptes.
  */
 void Ln::Calculer(Pile *stack){
@@ -447,23 +448,39 @@ void Ln::Calculer(Pile *stack){
         // Le resultat est maintenu dans le type de la donnee calcule, au prix d'une perte des informations.
         else if (test1){
                     Reel A=Reel(dA);
-                    Reel* C = new Reel(log(A.getVal()));
-                    stack->empiler(C);
+                    if (A.getVal()>0){  Reel* C = new Reel(log(A.getVal())); stack->empiler(C); }
+                    else {
+                        stack->empiler(dA);
+                        throw CalculException("On ne peut calculer le LN d'un nombre negatif.");
+                    }
                   }
         else if(test2){
                         Rationnel A=Rationnel(dA);
-                        Rationnel* C = new Rationnel(log(A.getNumerateur()/A.getDenumerateur()));
-                        stack->empiler(C);
+                        if (A.getNumerateur().getVal()>0) {
+                            Rationnel* C = new Rationnel(log(A.getNumerateur()/A.getDenumerateur()));
+                            stack->empiler(C);
+                        }
+                        else {
+                            stack->empiler(dA);
+                            throw CalculException("On ne peut calculer le LN d'un nombre negatif.");
+                        }
                       }
         else if(test3){
                         Entier A=Entier(*test3);
-                        Entier* C = new Entier((unsigned long int)log(A.getVal()));
-                        stack->empiler(C);
+                        if (A.getVal()==0){
+                            Entier* C = new Entier((unsigned long int)log(A.getVal()));
+                            stack->empiler(C);
+                        }
+                        else {
+                            stack->empiler(dA);
+                            throw CalculException("On ne peut calculer le LN d'un nombre negatif.");
+                        }
                       }
 
         else throw CalculException("Probleme imprevu, erreur reconnaissance donne.\n LN - Operateurunaire.cpp");
     }
 }
+
 
 /*!
  * \brief Operations unaire Log. Fonction virtuelle herite d'operateur.
@@ -499,24 +516,42 @@ void Log::Calculer(Pile *stack){
         // Le resultat est maintenu dans le type de la donnee calcule, au prix d'une perte des informations.
         else if (test1){
                     Reel A=Reel(dA);
-                    Reel* C = new Reel;
-                    *C=Reel(log10(A.getVal()));
-                    stack->empiler(C);
+                    if (A.getVal()){
+                            Reel* C = new Reel(log10(A.getVal()));
+                            stack->empiler(C);
+                    }
+                    else {
+                        stack->empiler(dA);
+                        throw CalculException("On ne peut calculer le LOG d'un nombre negatif.");
+                    }
                   }
         else if(test2){
                         Rationnel A=Rationnel(dA);
-                        Rationnel* C = new Rationnel(log10(A.getNumerateur()/A.getDenumerateur()));
-                        stack->empiler(C);
-                      }
+                        if (A.getNumerateur().getVal()==0){
+                                Rationnel* C = new Rationnel(log10(A.getNumerateur()/A.getDenumerateur()));
+                                stack->empiler(C);
+                              }
+                        else {
+                            stack->empiler(dA);
+                            throw CalculException("On ne peut calculer le LOG d'un nombre negatif.");
+                        }
+                  }
         else if(test3){
                         Entier A=Entier(*test3);
-                        Entier* C = new Entier(log10(A.getVal()));
-                        stack->empiler(C);
+                        if (A.getVal()==0){
+                                Entier* C = new Entier(log10(A.getVal()));
+                                stack->empiler(C);
+                        }
+                        else {
+                            stack->empiler(dA);
+                            throw CalculException("On ne peut calculer le LOG d'un nombre negatif.");
+                        }
                       }
 
         else throw CalculException("Probleme imprevu, erreur reconnaissance donne.\n Log - Operateurunaire.cpp");
     }
 }
+
 
 /*!
  * \brief Operations unaire Cube. Fonction virtuelle herite d'operateur.
@@ -692,18 +727,36 @@ void Inv::Calculer(Pile *stack){
 
     if (test1){
                 Reel A=Reel(dA);
-                Reel* C = new Reel(1/A.getVal());
-                stack->empiler(C);
+                if (A.getVal()==0) {
+                            Reel* C = new Reel(1/A.getVal());
+                            stack->empiler(C);
+                }
+                else {
+                    stack->empiler(dA);
+                    throw CalculException("Inverse de zero impossible.");
+                }
               }
     else if(test2){
                     Rationnel A=Rationnel(dA);
-                    Rationnel* C = new Rationnel(A.getDenumerateur(),A.getNumerateur());
-                    stack->empiler(C);
+                    if (A.getNumerateur().getVal()){
+                            Rationnel* C = new Rationnel(A.getDenumerateur(),A.getNumerateur());
+                            stack->empiler(C);
+                    }
+                    else {
+                        stack->empiler(dA);
+                        throw CalculException("Inverse de zero impossible.");
+                    }
                   }
     else if(test3){                                                     // Les nombres du type entier deviennent des rationnels. (Absurde sinon)
                     Entier A=Entier(*test3);
-                    Rationnel* C = new Rationnel(1,A.getVal());
-                    stack->empiler(C);
+                    if (A.getVal()){
+                            Rationnel* C = new Rationnel(1,A.getVal());
+                            stack->empiler(C);
+                    }
+                    else {
+                        stack->empiler(dA);
+                        throw CalculException("Inverse de zero impossible.");
+                    }
                   }
     else throw CalculException("Probleme imprevu, erreur reconnaissance donne.\nINV - Operateurunaire.cpp");
     }
@@ -713,7 +766,7 @@ void Inv::Calculer(Pile *stack){
 
 
 
-double factoriel (double d){
-    if (d==1) return 1;
+double factoriel (unsigned long int d){
+    if (d==0) return 1;
     return d*factoriel(d-1);
 }

@@ -47,11 +47,31 @@ Complexe::Complexe(Donnee *d)
 }
 
 
-
 Complexe::Complexe(){
     a= new Reel;
     b= new Reel;
 }
+
+bool Complexe::CNull(){
+
+    Reel* A1 = dynamic_cast< Reel*>(this->a);
+    Rationnel* A2 = dynamic_cast< Rationnel*>(this->a);
+    Entier* A3 = dynamic_cast< Entier*>(this->a);
+
+    if (A1){
+        if (A1->getVal()==0) return TRUE;
+    }
+    else if (A2){
+        if (A2->getNumerateur().getVal()==0) return TRUE;
+    }
+    else if (A3){
+        if (A3->getVal()==0) return TRUE;
+    }
+    else throw CalculException("Erreur imprevu dans la reconnaissance du type du nombre a du complexe.\nCf complexe.cpp.");
+
+    return FALSE;
+}
+
 
 void Complexe::afficher(std::ostream& f) const
 {
@@ -274,6 +294,8 @@ Complexe& Complexe::operator/(const Complexe& B){
         Reel A_b=Reel(this->b);
         Reel B_a=Reel(B.a);
         Reel B_b=Reel(B.b);
+
+        if (B_a==0 && B_b==0) throw CalculException("Division d'un complexe par zero impossible.");
 
         Reel* p_r= new Reel( ((A_a*B_a) + (A_b*B_b)) / ((B_a*B_a) + (B_b*B_b)) );
         Reel* p_im= new Reel( ((A_b*B_a) - (A_a*B_b)) / ((B_a*B_a) + (B_b*B_b)) );

@@ -16,6 +16,8 @@ public :
 
     Complexe(Donnee* d);
 
+    bool CNull();
+
 
     void setSign(){a->setSign();b->setSign();}
 
