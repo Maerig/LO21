@@ -1,9 +1,15 @@
+/**
+ * \file reel.cpp
+ * \brief Developpement methodes class Reel et surcharge operateurs sur Reel
+ *
+ */
+
 #include "reel.h"
 
 
 Reel::Reel(Entier e){
 
-    val=(float)e.getVal();
+    val=e.getVal();
 }
 
 Reel::Reel(Rationnel r){
@@ -74,13 +80,7 @@ Reel operator/( Reel& a,  Reel& b){
     return res;
 }
 
-Reel operator^( Reel& a,  Entier& b){              // POW a^b
 
-    float val=a.getVal();
-    for (int i=1;i<b.getVal();i++) val *= a.getVal();
-    Entier res(val);
-    return res;
-}
 
 
 

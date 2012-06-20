@@ -1,15 +1,11 @@
 #include "rationnel.h"
 #include "reel.h"
 
-Rationnel::Rationnel(Reel r){
 
-    num=r.getVal();
-    denum=1;
-
-    simplifier();
-}
-
-
+/**
+ * \brief Donne le pgcd de 2 nombres entiers naturels
+ * Utilise dans la methode simplifier de rationnel
+ */
 double pgcd(unsigned long int a,unsigned long int b)
 {
     int r =a%b;
@@ -22,19 +18,6 @@ double pgcd(unsigned long int a,unsigned long int b)
     return b;
 }
 
-double ppcm(double a, double b)
-{
-    double x=a, y=b;
-    while(x!=y)
-    {
-        if(x<y)
-            x+=a;
-        else
-            y+=b;
-    }
-    return x;
-}
-
 void Rationnel::simplifier(){
 
         if(num.getVal() != 0)
@@ -42,11 +25,17 @@ void Rationnel::simplifier(){
                 double p = pgcd(num.getVal(),denum.getVal());                 // Attention concordance type double et unsigned long int
                 num.setVal(num.getVal()/p);
                 denum.setVal(denum.getVal()/p);
+                if (denum.getVal()<0 && num.getVal()<0 )                // si les 2 membres sont negatifs, la fraction devient positifs.
+                {
+                    num.setVal(-1*num.getVal());
+                    denum.setVal(-1*denum.getVal());
+                }
                 if (denum.getVal() < 0)
                 {
                     num.setVal(-1*num.getVal());
                     denum.setVal(-1*denum.getVal());
                 }
+
             }
             else
                  denum.setVal(1);
@@ -126,18 +115,7 @@ Rationnel operator/( Rationnel& a,  Rationnel& b){
     return res;
 }
 
-Rationnel operator^( Rationnel& a,  Entier& b){                     // POW a^b
 
-    Entier num(a.getNumerateur().getVal());
-    Entier denum(a.getDenumerateur().getVal());
-
-    for (int i=1;i<b.getVal();i++)
-        num.setVal( num.getVal()*a.getNumerateur().getVal() );
-        denum.setVal( denum.getVal()*a.getDenumerateur().getVal() );
-
-    Rationnel res(num,denum);
-    return res;
-}
 
 
 

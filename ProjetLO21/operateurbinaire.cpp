@@ -15,19 +15,7 @@
 #include <iostream>
 #include <math.h>
 
-/*! \fn OperateurBinaire::Calculer
- * \brief Fonction virtuelle herite d'operateur. Operations + - * / Modulo et Puissance
- *
- * La fonction calculer est la meme pour tout les operateurs binaires, mettant ainsi en commun le processus de dépilement et d'identification des données.
- * Au sein de la fonction Calculer, un switch sur typeOperateur permet d'adapter le calcul au cas désiré.
- *
- * Les operateurs + - * / surcharges avec les classes Entier, Reel, Rationnel et complexe sont utilises pour le calcul des operations unaires.
- * La bibliotheque math.h est egalement largement utilise.
- *
- * Si les données dépilées sont d'un type non acceptable pour l'operation, les données sont re-empilées dans le bon ordre, et une exception est envoyée.
- * La donnée résultat est sinon empilée.
- * Dans le cas d'une donnée dépilée étant du type expressions, l'autre donnée et l'operateur sont enfiler au début ou à la fin de l'expression, selon les cas.
- */
+
 void OperateurBinaire::Calculer(Pile* stack){
 
     Donnee* dB= stack->depiler();                           // On commence par depiler les 2 dernieres donnees entrees. B est la derniere donne empile, donc le second membre de l'operation. La seconde donne empile est le premier membre, A.
@@ -84,8 +72,17 @@ void OperateurBinaire::Calculer(Pile* stack){
 
                 case(DIV):
                 {
-                    Complexe *X= new Complexe(A/B);
-                    stack->empiler(X);
+                if (B.CNull()){                                         // Cas ou une division par zero est tentée.
+                                     stack->empiler(dA);
+                                     stack->empiler(dB);
+                                     throw CalculException("Division par zero impossible.");
+                               }
+
+                else {
+
+                        Complexe *X= new Complexe(A/B);
+                        stack->empiler(X);
+                     }
                 }
                     break;
 
