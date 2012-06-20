@@ -1,3 +1,9 @@
+/**
+ * \file complexe.cpp
+ * \brief Developpement methodes class Complexe et surcharge operateurs sur complexe
+ *
+ */
+
 #include "complexe.h"
 #include "calculexception.h"
 

@@ -53,6 +53,10 @@ public :
      */
     operator float() const {return float(val);}
 
+    /**
+     * \brief surcharge operateur egal
+     * Permettre l'affectation Entier-Entier
+     */
     Entier& operator=(const Entier& n);
 };
 

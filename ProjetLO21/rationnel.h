@@ -90,6 +90,11 @@ public :
      * Utilise pour le passage rationnel a reel.
      */
     operator float() const {return float(num)/float(denum);}
+
+    /**
+     * \brief surcharge operateur egal
+     * Permettre l'affectation Rationnel-Rationnel
+     */
     Rationnel& operator=(const Rationnel& n);
 };
 

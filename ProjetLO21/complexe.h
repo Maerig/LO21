@@ -1,11 +1,23 @@
 #ifndef COMPLEXE_H
 #define COMPLEXE_H
 
+/**
+ * \file complexe.h
+ * \brief Definition Class complexe et surcharge operateurs pour complexe
+ *
+ */
+
 #include "donnee.h"
 #include "reel.h"
 
-/// \brief Donnee de type complexe.
-/// Elle est constituee de deux pointeurs vers des donnee de type Nombre.
+
+/*! \class Complexe complexe.h
+ * \brief Un des 3 principaux type de nombre. Corresponds a l'ensemble des entier.
+ *
+ * Definition de la class complexe.
+ * Herite de la classe nombre.
+ * Elle est constituee de deux pointeurs vers des donnee de type Nombre.
+ */
 class Complexe : public Numerique {
 private :
     /// \brief Partie reelle du complexe.
@@ -30,14 +42,47 @@ public :
     /// \param d : Pointeur vers une Donnee.
     Complexe(Donnee* d);
 
+    /**
+     * \brief determine si le complexe est nul (vaut zero) ou pas
+     * \return TRUE si le complexe est nul.
+     */
     bool CNull();
+
+
     void setSign(){a->setSign();b->setSign();}
 
+    /**
+     * \brief surcharge operateur egal
+     * Permettre l'affectation Complexe-Complexe
+     */
     Complexe& operator=(const Complexe& n);
 
+    /**
+     * \brief operateur + surcharge pour gerer automatiquement l'addition de 2 Complexe.
+     * Necessite de reconnaitre d'abord le type sous-classe de Nombre des attributs des 2 complexes en questions. Pour ensuite les convertir et les unifier
+     *
+     */
     Complexe& operator+(const Complexe& n);
+
+    /**
+     * \brief operateur - surcharge pour gerer automatiquement la soustraction de 2 Complexe.
+     * Necessite de reconnaitre d'abord le type sous-classe de Nombre des attributs des 2 complexes en questions. Pour ensuite les convertir et les unifier
+     *
+     */
     Complexe& operator-(const Complexe& n);
+
+    /**
+     * \brief operateur / surcharge pour gerer automatiquement la division de 2 Complexe.
+     * Necessite de reconnaitre d'abord le type sous-classe de Nombre des attributs des 2 complexes en questions. Pour ensuite les convertir et les unifier
+     *
+     */
     Complexe& operator/(const Complexe& n);
+
+    /**
+     * \brief operateur * surcharge pour gerer automatiquement la multiplication de 2 Complexe.
+     * Necessite de reconnaitre d'abord le type sous-classe de Nombre des attributs des 2 complexes en questions. Pour ensuite les convertir et les unifier
+     *
+     */
     Complexe& operator*(const Complexe& n);
 
     /// \brief Affiche le Complexe.

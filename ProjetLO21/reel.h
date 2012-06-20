@@ -66,6 +66,10 @@ public :
      */
     operator float() const {return val;}
 
+    /**
+     * \brief surcharge operateur egal
+     * Permettre l'affectation Reel-Reel
+     */
     Reel& operator=(const Reel& n);
 };
 
