@@ -343,23 +343,26 @@ void Sqrt::Calculer(Pile *stack){
                 stack->empiler(dA);
                 throw CalculException("Fonction Sqrt non disponible pour complexe.");
                }
-    Reel A;
+
     // Pour l'operateur racine carre, on ramene toute les donnees au type reel.
     if (test1){
-                A=Reel(dA);
+                Reel A=Reel(dA);
+                Reel* C = new Reel(sqrt(A.getVal()));
+                stack->empiler(C);
               }
     else if(test2){
-                    A=Rationnel(dA);
+                    Rationnel A=Rationnel(dA);
+                    Rationnel* C = new Rationnel(sqrt(A.getNumerateur().getVal()), sqrt(A.getDenumerateur().getVal()));
+                    stack->empiler(C);
                   }
     else if(test3){
-                    A=Entier(*test3);
+                    Entier A= *test3;
+                    Entier* C = new Entier(sqrt(A.getVal()));
+                    stack->empiler(C);
                   }
 
     else throw CalculException("Probleme imprevu, erreur reconnaissance donne.\n SQRT - Operateurunaire.cpp");
 
-    Reel* C = new Reel;
-    *C=Reel(sqrt(A.getVal()));
-    stack->empiler(C);
     }
 }
 
@@ -467,7 +470,7 @@ void Ln::Calculer(Pile *stack){
                       }
         else if(test3){
                         Entier A=Entier(*test3);
-                        if (A.getVal()==0){
+                        if (A.getVal()>0){
                             Entier* C = new Entier((unsigned long int)log(A.getVal()));
                             stack->empiler(C);
                         }
@@ -516,7 +519,7 @@ void Log::Calculer(Pile *stack){
         // Le resultat est maintenu dans le type de la donnee calcule, au prix d'une perte des informations.
         else if (test1){
                     Reel A=Reel(dA);
-                    if (A.getVal()){
+                    if (A.getVal()>0){
                             Reel* C = new Reel(log10(A.getVal()));
                             stack->empiler(C);
                     }
@@ -527,7 +530,7 @@ void Log::Calculer(Pile *stack){
                   }
         else if(test2){
                         Rationnel A=Rationnel(dA);
-                        if (A.getNumerateur().getVal()==0){
+                        if (A.getNumerateur().getVal()>0){
                                 Rationnel* C = new Rationnel(log10(A.getNumerateur()/A.getDenumerateur()));
                                 stack->empiler(C);
                               }
@@ -538,7 +541,7 @@ void Log::Calculer(Pile *stack){
                   }
         else if(test3){
                         Entier A=Entier(*test3);
-                        if (A.getVal()==0){
+                        if (A.getVal()>0){
                                 Entier* C = new Entier(log10(A.getVal()));
                                 stack->empiler(C);
                         }
@@ -727,7 +730,7 @@ void Inv::Calculer(Pile *stack){
 
     if (test1){
                 Reel A=Reel(dA);
-                if (A.getVal()==0) {
+                if (A.getVal()!=0) {
                             Reel* C = new Reel(1/A.getVal());
                             stack->empiler(C);
                 }
@@ -738,7 +741,7 @@ void Inv::Calculer(Pile *stack){
               }
     else if(test2){
                     Rationnel A=Rationnel(dA);
-                    if (A.getNumerateur().getVal()){
+                    if (A.getNumerateur().getVal()!=0){
                             Rationnel* C = new Rationnel(A.getDenumerateur(),A.getNumerateur());
                             stack->empiler(C);
                     }
@@ -749,7 +752,7 @@ void Inv::Calculer(Pile *stack){
                   }
     else if(test3){                                                     // Les nombres du type entier deviennent des rationnels. (Absurde sinon)
                     Entier A=Entier(*test3);
-                    if (A.getVal()){
+                    if (A.getVal()!=0){
                             Rationnel* C = new Rationnel(1,A.getVal());
                             stack->empiler(C);
                     }
