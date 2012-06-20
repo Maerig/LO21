@@ -8,7 +8,7 @@
 class Cellule;
 
 /// \brief Type de Donnee ayant une structure de liste chainee, et contenant d'autres donnees.
-/// Elle ne peut etre evaluee que par l'operation EVAL.
+/*! Elle ne peut etre evaluee que par l'operation EVAL. */
 class Expression : public Donnee
 {
 private :

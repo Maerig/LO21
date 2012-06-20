@@ -5,7 +5,7 @@
 #include "reel.h"
 
 /// \brief Donnee de type complexe.
-/// Elle est constituee de deux pointeurs vers des donnee de type Nombre.
+/*! Elle est constituee de deux pointeurs vers des donnee de type Nombre. */
 class Complexe : public Numerique {
 private :
     /// \brief Partie reelle du complexe.
@@ -26,7 +26,7 @@ public :
     Complexe();
 
     /// \brief Constructeur a partir d'une seule Donnee.
-    /// On considere qu'on cree un complexe a partir d'un nombre reel. La partie imaginaire est donc initialisee a zero.
+    /*! On considere qu'on cree un complexe a partir d'un nombre reel. La partie imaginaire est donc initialisee a zero. */
     /// \param d : Pointeur vers une Donnee.
     Complexe(Donnee* d);
 
