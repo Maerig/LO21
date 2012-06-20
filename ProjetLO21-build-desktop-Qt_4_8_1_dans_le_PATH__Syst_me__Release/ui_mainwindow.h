@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue Jun 19 22:36:11 2012
+** Created: Wed Jun 20 04:50:14 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -111,7 +111,10 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(734, 351);
+        MainWindow->setEnabled(true);
+        MainWindow->resize(741, 340);
+        MainWindow->setMinimumSize(QSize(741, 340));
+        MainWindow->setMaximumSize(QSize(741, 340));
         actionAnnuler = new QAction(MainWindow);
         actionAnnuler->setObjectName(QString::fromUtf8("actionAnnuler"));
         actionRetablir = new QAction(MainWindow);
@@ -624,7 +627,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 734, 25));
+        menuBar->setGeometry(QRect(0, 0, 741, 25));
         menuEdition = new QMenu(menuBar);
         menuEdition->setObjectName(QString::fromUtf8("menuEdition"));
         MainWindow->setMenuBar(menuBar);
